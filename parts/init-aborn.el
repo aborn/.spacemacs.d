@@ -1,12 +1,16 @@
+;; -----------------------------------------------------------------------------
+;; spacemacs 的个人配置及键绑定
+;; by Aborn Jiang (aborn.jiang AT foxmail.com)
+;; -----------------------------------------------------------------------------
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
 (when (string= system-type "darwin")       ;; mac系统用command代替alter作为键
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta))
 
-;; --------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 ;; 最基本的全局快捷键
 ;; 和全局require
-;; --------------------------------------------------------------------
+;; -----------------------------------------------------------------------------
 (global-set-key "\C-o" 'other-window)
 (global-set-key (kbd "C-j") 'helm-buffers-list)
 (global-set-key (kbd "M-j") 'helm-find-files)
@@ -22,9 +26,11 @@
 (require 'init-helm-aborn)
 (require 'insert-string)               ;; 插入基本字符串
 (require 'multi-term-config)
-(require 'global-key-binding)            ; global key binding
+(require 'global-key-binding)          ;; 全局的快捷键绑定
 
+;; -----------------------------------------------------------------------------
 ;; 基本设置
+;; -----------------------------------------------------------------------------
 (require 'hl-line)                  ; highlight current line
 (global-hl-line-mode t)             ; setting as global hl
 (setq x-select-enable-clipboard t)  ; copy and paste with other program
@@ -32,7 +38,9 @@
 (column-number-mode t)              ; show column number
 (global-linum-mode t)               ; show line number
 
+;; -----------------------------------------------------------------------------
 ;; 开启 ace-jump-mode
+;; -----------------------------------------------------------------------------
 (require 'ace-jump-mode)
 (global-set-key (kbd "M-n") 'ace-jump-mode)
 (define-key global-map (kbd "C-x n") 'ace-jump-char-mode)
@@ -77,7 +85,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-03
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-05
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-aborn)
