@@ -110,16 +110,15 @@
 ;; major mode key binding
 (require 'major-mode-binding)            ; local major mode key binding
 ;; (require 'elixir-part)
-;;(require 'package-part)
 ;;(require 'init-pkg-aborn)
 ;;(require 'c-lang-part)
 ;;(require 'pkg-server)
 (require 'web-part)
 (require 'ace-jump-helm-line)
-;; (require 'ivy-parts) ;; TODO some bug
 (require 'web-utils)
 (require 'search-buffers)
 (require 'org-mode-part)
+(require 'ivy-parts) ;; TODO some bug
 ;; (require 'org-page-part)
 
 ;; (ab/list-packages)             ;; 异步打开下软件源
