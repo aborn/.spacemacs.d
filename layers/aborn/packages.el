@@ -19,6 +19,8 @@
         expand-region
         elixir-mode
         alchemist
+        smartparens
+        ace-pinyin
         ;; package names go here
         ))
 
@@ -44,6 +46,12 @@
 
 (defun aborn/init-alchemist ()
   (use-package alchemist))
+
+(defun aborn/init-smartparens ()
+  (use-package smartparens))
+
+(defun aborn/init-ace-pinyin ()
+  (use-package ace-pinyin))
 ;; For each package, define a function aborn/init-<package-name>
 ;;
 ;; (defun aborn/init-my-package ()

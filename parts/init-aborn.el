@@ -51,7 +51,7 @@
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
 (setq ace-jump-helm-line-use-avy-style nil)
 (setq ace-pinyin-use-avy nil)
-;; (ace-pinyin-global-mode)   ;; 开启ace-pinyin mode (TODO some bug!!)
+(ace-pinyin-global-mode)           ; 开启ace-pinyin mode (TODO some bug!!)
 
 ;; -----------------------------------------------------------------------------
 ;; By an unknown contributor, move-cursor to matched bracket
@@ -109,7 +109,7 @@
 ;; -----------------------------------------------------------------------------
 ;; major mode key binding
 (require 'major-mode-binding)            ; local major mode key binding
-;; (require 'elixir-part)
+(require 'elixir-part)
 ;;(require 'init-pkg-aborn)
 ;;(require 'c-lang-part)
 ;;(require 'pkg-server)
