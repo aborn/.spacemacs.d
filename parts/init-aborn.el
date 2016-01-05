@@ -15,7 +15,14 @@
 (require 'basic-key-binding)           ;; 基本的快捷键设置
 (require 'major-mode-binding)          ;; local major mode key binding
 (require 'package-part)
+(require 'emacs-nifty-tricks)
+(require 'copy-line)
+(require 'buffer-dealing)
+(require 'window-dealing)
 (require 'init-helm-aborn)
+(require 'insert-string)               ;; 插入基本字符串
+(require 'multi-term-config)
+(require 'global-key-binding)            ; global key binding
 
 ;; 基本设置
 (require 'hl-line)                  ; highlight current line
@@ -36,6 +43,41 @@
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
 (setq ace-jump-helm-line-use-avy-style nil)
  (setq ace-pinyin-use-avy nil)
-(ace-pinyin-global-mode)   ;; 开启ace-pinyin mode
+;; (ace-pinyin-global-mode)   ;; 开启ace-pinyin mode (TODO some bug!!)
+
+;; major mode key binding
+(require 'major-mode-binding)            ; local major mode key binding
+
+;; -----------------------------------------------------------------------------
+;; some config-part
+;; 注意： elixir语言mode
+;;       需要通过elpa安装alchemist和alchemist
+;; -----------------------------------------------------------------------------
+;; (require 'elixir-part)
+;;(require 'package-part)
+;;(require 'init-pkg-aborn)
+;;(require 'c-lang-part)
+;;(require 'pkg-server)
+(require 'web-part)
+(require 'ace-jump-helm-line)
+;; (require 'ivy-parts) ;; TODO some bug
+(require 'web-utils)
+(require 'search-buffers)
+(require 'org-mode-part)
+;; (require 'org-page-part)
+
+;; (ab/list-packages)             ;; 异步打开下软件源
+(add-hook 'after-init-hook
+      (lambda ()
+      (load-file helm-adaptive-history-file)))
+
+(setq debug-function-file "~/.emacs.d/debug-function.el")
+(when (file-readable-p debug-function-file)
+  (load-file debug-function-file))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-03
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-aborn)

@@ -5,10 +5,11 @@
 ;;   M-.  函数定义处
 ;;   M-,  back
 ;; -----------------------------------------------------------------------------
-(unless (package-installed-p 'elixir-mode)
-  (package-install 'elixir-mode))
-(unless (package-installed-p 'alchemist)
-  (package-install 'alchemist))
+
+;; (unless (package-installed-p 'elixir-mode)
+;;  (package-install 'elixir-mode))
+;;(unless (package-installed-p 'alchemist)
+;;  (package-install 'alchemist))
 
 (require 'smartparens)
 (require 'alchemist)
