@@ -9,8 +9,6 @@
 (add-to-list 'package-archives
              '("popkit" . "http://elpa.popkit.org/packages/") t)
 (package-initialize)
-(require 'init-helm-aborn)
-
 
 ;; --------------------------------------------------------------------
 ;; exec-path-from-shell
