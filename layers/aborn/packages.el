@@ -15,16 +15,27 @@
 (setq aborn-packages
       '(
         swiper
-      ;; package names go here
-      ))
+        org-page
+        expand-region
+        ;; package names go here
+        ))
 
 ;; List of packages to exclude.
 (setq aborn-excluded-packages '())
 
 (defun aborn/init-swiper ()
   "init swiper"
-  (use-package swiper)
-  (message "installed swiper"))
+  (use-package swiper))
+
+(defun aborn/init-org-page ()
+  "install org-page"
+  (use-package org-page)
+  (message "init org-page"))
+
+(defun aborn/init-expand-region ()
+  (use-package expand-region)
+  (require 'expand-region)   ;; 跟 extend-selection 类似
+  (global-set-key (kbd "C-l") 'er/expand-region))
 
 ;; For each package, define a function aborn/init-<package-name>
 ;;

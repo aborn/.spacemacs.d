@@ -118,8 +118,8 @@
 (require 'web-utils)
 (require 'search-buffers)
 (require 'org-mode-part)
-(require 'ivy-parts) ;; TODO some bug
-;; (require 'org-page-part)
+(require 'ivy-parts)
+(require 'org-page-part)
 
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
