@@ -50,7 +50,7 @@
 (eval-after-load "helm"
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))
 (setq ace-jump-helm-line-use-avy-style nil)
- (setq ace-pinyin-use-avy nil)
+(setq ace-pinyin-use-avy nil)
 ;; (ace-pinyin-global-mode)   ;; 开启ace-pinyin mode (TODO some bug!!)
 
 ;; -----------------------------------------------------------------------------
@@ -80,16 +80,27 @@
 ;; hot key: C-x m      unset C-u C-x m
 ;; 列标记模式
 ;; -----------------------------------------------------------------------------
-(require 'column-marker)
-(add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
-(global-set-key [?\C-x ?m] 'column-marker-3)
-(require 'fill-column-indicator)
-(setq fci-rule-width 2)
-(setq fci-rule-color "yellow")
-(setq fci-rule-column 80)
-(define-globalized-minor-mode
-  global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+;; (require 'column-marker)
+;; (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
+;; (global-set-key [?\C-x ?m] 'column-marker-3)
+;; (require 'fill-column-indicator)
+;; (setq fci-rule-width 2)
+;; (setq fci-rule-color "yellow")
+;; (setq fci-rule-column 80)
+;; (define-globalized-minor-mode
+;;   global-fci-mode fci-mode (lambda () (fci-mode 1)))
+;; (global-fci-mode 1)
+
+;; -----------------------------------------------------------------------------
+;; set markdown-mode download from
+;;                    http://jblevins.org/projects/markdown-mode/
+;; -----------------------------------------------------------------------------
+;; (load-file "~/.spacemacs.d/modules/markdown-mode.el")
+;; (autoload 'markdown-mode "markdown-mode"
+;;   "Major mode for editing Markdown files" t)
+;; (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; -----------------------------------------------------------------------------
 ;; some config-part
@@ -113,13 +124,12 @@
 
 ;; (ab/list-packages)             ;; 异步打开下软件源
 (add-hook 'after-init-hook
-      (lambda ()
-      (load-file helm-adaptive-history-file)))
+          (lambda ()
+            (load-file helm-adaptive-history-file)))
 
 (setq debug-function-file "~/.emacs.d/debug-function.el")
 (when (file-readable-p debug-function-file)
   (load-file debug-function-file))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-05
