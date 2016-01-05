@@ -53,14 +53,51 @@
  (setq ace-pinyin-use-avy nil)
 ;; (ace-pinyin-global-mode)   ;; 开启ace-pinyin mode (TODO some bug!!)
 
-;; major mode key binding
-(require 'major-mode-binding)            ; local major mode key binding
+;; -----------------------------------------------------------------------------
+;; By an unknown contributor, move-cursor to matched bracket
+;; The hot-key binding to % 快速移动到匹配到的括号
+;; (%%%)
+;; -----------------------------------------------------------------------------
+(defun match-paren (arg)
+  "Go to the matching paren if on a paren; otherwise insert %.
+  If position just right in middle of (), only insert %."
+  (interactive "P")
+  (when (equal current-prefix-arg '(4))
+    (message "insert %% only"))
+  (cond
+   ((equal current-prefix-arg '(4)) (self-insert-command 1))
+   ((and (char-equal (char-after) ?])
+    (char-equal (char-before) ?[)) (self-insert-command (or arg 1)))
+   ((and (char-equal (char-after) ?\))
+         (char-equal (char-before) ?\()) (self-insert-command (or arg 1)))
+   ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+   ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+   (t (self-insert-command (or arg 1)))))
+(global-set-key "%" 'match-paren)
+
+;; -----------------------------------------------------------------------------
+;; column-marker.el and fill-column-indicator.el setting
+;; hot key: C-x m      unset C-u C-x m
+;; 列标记模式
+;; -----------------------------------------------------------------------------
+(require 'column-marker)
+(add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
+(global-set-key [?\C-x ?m] 'column-marker-3)
+(require 'fill-column-indicator)
+(setq fci-rule-width 2)
+(setq fci-rule-color "yellow")
+(setq fci-rule-column 80)
+(define-globalized-minor-mode
+  global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
 
 ;; -----------------------------------------------------------------------------
 ;; some config-part
 ;; 注意： elixir语言mode
 ;;       需要通过elpa安装alchemist和alchemist
 ;; -----------------------------------------------------------------------------
+;; major mode key binding
+(require 'major-mode-binding)            ; local major mode key binding
 ;; (require 'elixir-part)
 ;;(require 'package-part)
 ;;(require 'init-pkg-aborn)
