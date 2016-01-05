@@ -17,6 +17,8 @@
         swiper
         org-page
         expand-region
+        elixir-mode
+        alchemist
         ;; package names go here
         ))
 
@@ -37,6 +39,11 @@
   (require 'expand-region)   ;; 跟 extend-selection 类似
   (global-set-key (kbd "C-l") 'er/expand-region))
 
+(defun aborn/init-elixir-mode ()
+  (use-package elixir-mode))
+
+(defun aborn/init-alchemist ()
+  (use-package alchemist))
 ;; For each package, define a function aborn/init-<package-name>
 ;;
 ;; (defun aborn/init-my-package ()
