@@ -26,7 +26,13 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flyspell-mode-off)
-            (message "turn off flyspell mode")))
+            (message "turn off flyspell mode in elisp!")))
+
+;; TODO org-mode 这里有问题
+(add-hook 'org-mode-hook
+          (lambda ()
+            (flyspell-mode-off)
+            (message "turn off flyspell mode in org-mode!")))
 
 ;; ielm hook key-bindings.
 (add-hook 'inferior-emacs-lisp-mode-hook
