@@ -14,6 +14,7 @@
   (local-set-key (kbd "C-x j") 'ab/run-current-file)
   (local-set-key (kbd "C-;") 'move-forward-by-five)
   (local-set-key (kbd "C-:") 'move-backward-by-five)
+  (flyspell-mode-off)      ;; 跟快捷键 C-; 有冲突，暂时关闭
   (message "ab/major-mode-key-binding done!"))
 
 ;; define lisp-interaction-mode-map
@@ -22,8 +23,10 @@
 
 ;; define emacs-lisp-mode-map
 (define-key emacs-lisp-mode-map (kbd "C-x j") 'eval-region)
-(define-key emacs-lisp-mode-map (kbd "C-x SPC")  'ace-jump-mode)
-;;(add-hook emacs-lisp-mode-hook 'yas-minor-mode)
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (flyspell-mode-off)
+            (message "turn off flyspell mode")))
 
 ;; ielm hook key-bindings.
 (add-hook 'inferior-emacs-lisp-mode-hook
