@@ -1,6 +1,7 @@
 (provide 'basic-key-binding)
 ;; --------------------------------------------------------------------
 ;; provide basic key bindings
+;; 最基本的按键绑定
 ;; common key
 ;; "\C-" "\M-" TAB, RET, ESC, DEL "\t" "\r" "\e"
 ;; --------------------------------------------------------------------
@@ -15,6 +16,7 @@
 ;; (global-set-key "\C-xk" 'kill-buffer)            ; emacs built-in key
 (global-set-key "\C-x\C-r" 'revert-buffer)
 ;; (global-set-key "\C-x\C-m" 'indent-region)
+
 ;; 格式化当前buffer所有内容
 (defun ab/indent-regin ()
   (interactive)
@@ -33,8 +35,7 @@
 (global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
 
 ;;(global-set-key (kbd "M-m") 'ab/switch-to-shell-buffer)  ; function in switch-swift
-(global-set-key (kbd "M-m") 'get-term)
-
+(global-set-key "\M-m\M-m" 'get-term)
 (global-set-key (kbd "M-c") 'call-last-kbd-macro)
 
 ;; (global-set-key (kbd "C-j") 'switch-to-buffer)
