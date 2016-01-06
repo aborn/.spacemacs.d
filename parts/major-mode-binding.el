@@ -21,18 +21,14 @@
 (define-key lisp-interaction-mode-map (kbd "C-j") 'helm-buffers-list)
 (define-key lisp-interaction-mode-map (kbd "C-x j") 'eval-print-last-sexp)
 
+(define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
+
 ;; define emacs-lisp-mode-map
 (define-key emacs-lisp-mode-map (kbd "C-x j") 'eval-region)
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flyspell-mode-off)
             (message "turn off flyspell mode in elisp!")))
-
-;; TODO org-mode 这里有问题
-(add-hook 'org-mode-hook
-          (lambda ()
-            (flyspell-mode-off)
-            (message "turn off flyspell mode in org-mode!")))
 
 ;; ielm hook key-bindings.
 (add-hook 'inferior-emacs-lisp-mode-hook
