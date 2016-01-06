@@ -35,7 +35,7 @@ values."
       spell-checking
       syntax-checking
       version-control
-      aborn
+      aborn           ;; 自己安装包的layer
       )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -243,7 +243,7 @@ This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (add-to-list 'load-path "~/.spacemacs.d/parts")
   (add-to-list 'load-path "~/.spacemacs.d/modules")
-  (require 'init-aborn)
+  (load-file "~/.spacemacs.d/init-aborn.el")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -1,6 +1,7 @@
 ;; -----------------------------------------------------------------------------
 ;; spacemacs 的个人配置及键绑定
 ;; by Aborn Jiang (aborn.jiang AT foxmail.com)
+;; project: https://github.com/aborn/.spacemacs.d
 ;; -----------------------------------------------------------------------------
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
 (when (string= system-type "darwin")       ;; mac系统用command代替alter作为键
@@ -131,7 +132,5 @@
   (load-file debug-function-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-05
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-01-06
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(provide 'init-aborn)
