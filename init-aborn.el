@@ -16,31 +16,31 @@
 (global-set-key (kbd "C-j") 'helm-buffers-list)
 (global-set-key (kbd "M-j") 'helm-find-files)
 
-(require 'move-swift)
-(require 'basic-key-binding)           ;; 基本的快捷键设置
-(require 'major-mode-binding)          ;; local major mode key binding
+(require 'move-swift)                      ;; 快速移动
+(require 'basic-key-binding)               ;; 基本的快捷键设置
+(require 'major-mode-binding)              ;; local major mode key binding
 (require 'package-part)
 (require 'emacs-nifty-tricks)
 (require 'copy-line)
 (require 'buffer-dealing)
 (require 'window-dealing)
 (require 'init-helm-aborn)
-(require 'insert-string)               ;; 插入基本字符串
+(require 'insert-string)                   ;; 插入基本字符串
 (require 'multi-term-config)
-(require 'global-key-binding)          ;; 全局的快捷键绑定
+(require 'global-key-binding)              ;; 全局的快捷键绑定
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
 ;; -----------------------------------------------------------------------------
-(require 'hl-line)                  ; highlight current line
-(global-hl-line-mode t)             ; setting as global hl
-(setq x-select-enable-clipboard t)  ; copy and paste with other program
-(show-paren-mode t)                 ; paren match show
-(column-number-mode t)              ; show column number
-(global-linum-mode t)               ; show line number
-(electric-pair-mode 1)              ; 自动插入右括号{}()[]等
-(delete-selection-mode 1)           ; yank into selected 
-(tool-bar-mode -1)                  ; 关闭toobar
+(require 'hl-line)                         ;; 高亮当前行
+(global-hl-line-mode t)                    ;; setting as global hl
+(setq x-select-enable-clipboard t)         ;; copy and paste with other program
+(show-paren-mode t)                        ;; paren match show
+(column-number-mode t)                     ;; show column number
+(global-linum-mode t)                      ;; show line number
+(electric-pair-mode 1)                     ;; 自动插入右括号{}()[]等
+(delete-selection-mode 1)                  ;; yank into selected
+(tool-bar-mode -1)                         ;; 关闭toobar
 
 ;; -----------------------------------------------------------------------------
 ;; 开启 ace-jump-mode
@@ -111,8 +111,7 @@
 ;; 注意： elixir语言mode
 ;;       需要通过elpa安装alchemist和alchemist
 ;; -----------------------------------------------------------------------------
-;; major mode key binding
-(require 'major-mode-binding)            ; local major mode key binding
+(require 'major-mode-binding)              ;; local major mode key binding
 (require 'elixir-part)
 ;;(require 'init-pkg-aborn)
 ;;(require 'c-lang-part)
@@ -125,7 +124,7 @@
 (require 'ivy-parts)
 (require 'org-page-part)
 
-;; (ab/list-packages)             ;; 异步打开下软件源
+;; (ab/list-packages)                      ;; 异步打开下软件源
 (add-hook 'after-init-hook
           (lambda ()
             (load-file helm-adaptive-history-file)))
