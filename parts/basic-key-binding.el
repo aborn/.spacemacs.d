@@ -41,8 +41,8 @@
 ;; (global-set-key (kbd "C-j") 'switch-to-buffer)
 (global-set-key (kbd "C-j") 'helm-buffers-list)
 
-;; (global-set-key (kbd "M-j") 'find-file)
-(global-set-key (kbd "M-j") 'helm-find-files)
+(global-set-key (kbd "M-j") 'find-file)
+;; (global-set-key (kbd "M-j") 'helm-find-files)
 
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
 (global-set-key "\C-c\C-l" 'end-kbd-macro)

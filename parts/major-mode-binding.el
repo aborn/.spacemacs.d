@@ -10,7 +10,7 @@
   (local-set-key (kbd "M-n") 'ace-jump-mode)
   (local-set-key (kbd "C-j") 'helm-buffers-list)
   (local-set-key (kbd "C-o") 'other-window)
-  (local-set-key (kbd "M-j") 'helm-find-files)
+  ;;(local-set-key (kbd "M-j") 'helm-find-files)
   (local-set-key (kbd "C-x j") 'ab/run-current-file)
   (local-set-key (kbd "C-;") 'move-forward-by-five)
   (local-set-key (kbd "C-:") 'move-backward-by-five)

@@ -21,6 +21,7 @@
         alchemist
         smartparens
         ace-pinyin
+        find-file-in-project
         ;; package names go here
         ))
 
@@ -52,6 +53,9 @@
 
 (defun aborn/init-ace-pinyin ()
   (use-package ace-pinyin))
+
+(defun aborn/init-find-file-in-project ()
+  (use-package find-file-in-project))
 ;; For each package, define a function aborn/init-<package-name>
 ;;
 ;; (defun aborn/init-my-package ()
