@@ -148,6 +148,7 @@
 (require 'ivy-parts)
 (require 'org-page-part)
 (require 'counsel)
+(require 'os-utils)
 
 ;; (ab/list-packages)                      ;; 异步打开下软件源
 (add-hook 'after-init-hook
