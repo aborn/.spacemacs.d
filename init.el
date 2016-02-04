@@ -35,6 +35,7 @@ values."
       spell-checking
       syntax-checking
       version-control
+      elixir          ;; elixir语言
       aborn           ;; 自己安装包的layer
       )
    ;; List of additional packages that will be installed without being
@@ -106,7 +107,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)

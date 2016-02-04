@@ -42,6 +42,12 @@
 (delete-selection-mode 1)                  ;; yank into selected
 (tool-bar-mode -1)                         ;; 关闭toobar
 
+;;
+;; 字体大小
+;;
+;; (set-face-attribute
+;; 'default nil :font "Monaco 15")
+
 ;; -----------------------------------------------------------------------------
 ;; 开启 ace-jump-mode
 ;; -----------------------------------------------------------------------------
