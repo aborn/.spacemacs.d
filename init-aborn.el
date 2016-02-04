@@ -61,7 +61,7 @@
 ;; mac osx用户将.otf文件拷贝到 ~/Library/Fonts/ 即可
 ;; -----------------------------------------------------------------------------
 (setq-default dotspacemacs-default-font '("Source Code Pro"
-                                          :size 20
+                                          :size 15
                                           :weight normal
                                           :width normal
                                           :powerline-scale 1.1))
