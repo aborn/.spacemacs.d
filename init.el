@@ -36,6 +36,8 @@ values."
       syntax-checking
       version-control
       elixir          ;; elixir语言
+      html
+      javascript
       aborn           ;; 自己安装包的layer
       )
    ;; List of additional packages that will be installed without being

@@ -42,11 +42,17 @@
 (delete-selection-mode 1)                  ;; yank into selected
 (tool-bar-mode -1)                         ;; 关闭toobar
 
-;;
-;; 字体大小
-;;
-;; (set-face-attribute
-;; 'default nil :font "Monaco 15")
+;; -----------------------------------------------------------------------------
+;; 字体大小设置：
+;; 前提条件：Source Code Pro 这种字体在你电脑里已经安装了！
+;; https://github.com/adobe-fonts/source-code-pro
+;; mac osx用户将.otf文件拷贝到 ~/Library/Fonts/ 即可
+;; -----------------------------------------------------------------------------
+(setq-default dotspacemacs-default-font '("Source Code Pro"
+                                          :size 20
+                                          :weight normal
+                                          :width normal
+                                          :powerline-scale 1.1))
 
 ;; -----------------------------------------------------------------------------
 ;; 开启 ace-jump-mode
