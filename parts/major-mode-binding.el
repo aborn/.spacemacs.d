@@ -8,8 +8,10 @@
 (defun ab/major-mode-key-binding ()
   (interactive)
   (local-set-key (kbd "M-n") 'ace-jump-mode)
-  (local-set-key (kbd "C-j") 'helm-buffers-list)
+  ;;(local-set-key (kbd "C-j") 'helm-buffers-list)
+  (local-set-key (kbd "C-j") 'ido-switch-buffer)
   (local-set-key (kbd "C-o") 'other-window)
+  (local-set-key (kbd "M-j") 'ido-find-file)
   ;;(local-set-key (kbd "M-j") 'helm-find-files)
   (local-set-key (kbd "C-x j") 'ab/run-current-file)
   (local-set-key (kbd "C-;") 'move-forward-by-five)
@@ -22,6 +24,7 @@
 (define-key lisp-interaction-mode-map (kbd "C-x j") 'eval-print-last-sexp)
 
 (define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
+;; (define-key js2-mode-map (kbd "M-j") 'ido-find-file)
 
 ;; define emacs-lisp-mode-map
 (define-key emacs-lisp-mode-map (kbd "C-x j") 'eval-region)
