@@ -35,9 +35,14 @@ values."
       spell-checking
       syntax-checking
       version-control
-      elixir          ;; elixir语言
+      elixir
+      erlang
       html
       javascript
+      python
+      ruby
+      sql
+      colors
       aborn           ;; 自己安装包的layer
       )
    ;; List of additional packages that will be installed without being

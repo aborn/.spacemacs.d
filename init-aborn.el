@@ -41,6 +41,18 @@
 (electric-pair-mode 1)                     ;; 自动插入右括号{}()[]等
 (delete-selection-mode 1)                  ;; yank into selected
 (tool-bar-mode -1)                         ;; 关闭toobar
+(setq
+ dotspacemacs-auto-save-file-location
+ 'original)                                ;; 自动保存到原文件auto-save
+(setq-default dotspacemacs-smartparens-strict-mode t)
+
+;; -----------------------------------------------------------------------------
+;; color-layer setting
+;; -----------------------------------------------------------------------------
+(setq-default dotspacemacs-configuration-layers
+              '((colors :variables colors-enable-rainbow-identifiers t)))
+(setq-default dotspacemacs-configuration-layers
+              '((colors :variables colors-enable-nyan-cat-progress-bar t)))
 
 ;; -----------------------------------------------------------------------------
 ;; 字体大小设置：
