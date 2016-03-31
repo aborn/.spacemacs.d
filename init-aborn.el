@@ -160,6 +160,10 @@
 (when (file-readable-p debug-function-file)
   (load-file debug-function-file))
 
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (setq ws-butler-mode nil)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-02-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
