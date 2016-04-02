@@ -160,10 +160,10 @@
 (when (file-readable-p debug-function-file)
   (load-file debug-function-file))
 
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (setq ws-butler-mode nil)))
+;; turn off ws-butler-mode                 ;; 关闭强制删除行末空格功能
+(ws-butler-global-mode -1)
+(message "open emacs finished!")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-02-04
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-04-02
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
