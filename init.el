@@ -243,6 +243,10 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost any
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
+  (setq configuration-layer--elpa-archives
+        '(("popkit" . "elpa.popkit.org/packages/")
+          ("org"   . "orgmode.org/elpa/")
+          ("gnu"   . "elpa.gnu.org/packages/")))
   )
 
 (defun dotspacemacs/user-config ()
