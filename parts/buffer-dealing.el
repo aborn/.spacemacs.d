@@ -48,7 +48,12 @@
     (if (not filename)
         (message "Buffer '%s' is not visiting a file!" name)
       (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
+          (progn
+            (message "A buffer named '%s' already exists! Use another name!" new-name)
+            (rename-file name new-name 1)
+            (rename-buffer (concat new-name "#" name))
+            (set-visited-file-name new-name)
+            (set-buffer-modified-p nil))
         (progn
           (rename-file name new-name 1)
           (rename-buffer new-name)
