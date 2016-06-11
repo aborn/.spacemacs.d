@@ -46,6 +46,7 @@
  'original)                                ;; 自动保存到原文件auto-save
 (setq-default dotspacemacs-smartparens-strict-mode t)
 (setq ws-butler-mode nil)                  ;; 保存的时候，不要删除最后的空格
+(prefer-coding-system 'utf-8)
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting
@@ -165,5 +166,5 @@
 (message "open emacs finished!")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-04-02
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-11
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
