@@ -43,6 +43,7 @@
             (local-set-key (kbd "M-n") 'ace-jump-mode)))
 
 (add-hook 'js2-mode-hook 'ab/major-mode-key-binding)
+(add-hook 'web-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'markdown-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'compilation-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'text-mode-hook 'ab/major-mode-key-binding) ;; add auctex mode
