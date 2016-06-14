@@ -37,6 +37,14 @@
 (defun buffer-exists (bufname)   
   (not (eq nil (get-buffer bufname))))
 
+(defun ab/sav-compile-log-by-date (arg)
+  "save each package install *Compile-Log* buffer content"
+  (interactive "P")
+  (if (not (buffer-exists "*Compile-Log*"))
+      (message "not buffer name *Compile-Log* exists")
+    (progn
+      )))
+
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; -----------------------------------------------------------------
