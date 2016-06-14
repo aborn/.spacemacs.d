@@ -49,11 +49,11 @@
               (format-time-string "%Y-%m-%d-%H" (current-time)))
              (compile-log-file-name
               (format "~/.spacemacs.d/local/compile-log-%s.txt" current-time-stamp-local)))
-        (message "*Compile-Log* save to '%s'" compile-log-file-name)
-        (set-buffer ab/compile-log-buffer-name)
-        (write-file compile-log-file-name)
-        (save-buffer)
-        (set-buffer current-buffer-save)))))
+        (save-current-buffer
+          (message "*Compile-Log* save to '%s'" compile-log-file-name)
+          (set-buffer ab/compile-log-buffer-name)
+          (write-file compile-log-file-name)
+          (save-buffer))))))
 
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
