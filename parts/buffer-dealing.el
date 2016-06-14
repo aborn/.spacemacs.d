@@ -37,13 +37,23 @@
 (defun buffer-exists (bufname)   
   (not (eq nil (get-buffer bufname))))
 
-(defun ab/sav-compile-log-by-date (arg)
+(defvar ab/compile-log-buffer-name "*Compile-Log*")
+(defun ab/save-compile-log-by-date (arg)
   "save each package install *Compile-Log* buffer content"
   (interactive "P")
-  (if (not (buffer-exists "*Compile-Log*"))
-      (message "not buffer name *Compile-Log* exists")
+  (if (not (buffer-exists ab/compile-log-buffer-name))
+      (message "not buffer name *Compile-Log* exists!")
     (progn
-      )))
+      (let* ((current-buffer-save (current-buffer))
+             (current-time-stamp-local
+              (format-time-string "%Y-%m-%d-%H" (current-time)))
+             (compile-log-file-name
+              (format "~/.spacemacs.d/local/compile-log-%s.txt" current-time-stamp-local)))
+        (message "*Compile-Log* save to '%s'" compile-log-file-name)
+        (set-buffer ab/compile-log-buffer-name)
+        (write-file compile-log-file-name)
+        (save-buffer)
+        (set-buffer current-buffer-save)))))
 
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
