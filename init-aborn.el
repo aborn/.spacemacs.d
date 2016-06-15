@@ -165,6 +165,10 @@
 (ws-butler-global-mode -1)
 (message "open emacs finished!")
 
+;; pelpa-mode load
+(load-file "~/github/pelpa-mode/pelpa-mode.el")
+(require 'pelpa-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-11
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-15
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
