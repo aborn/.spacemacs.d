@@ -3,6 +3,11 @@
 (require 'lisp-mnt)
 (require 'json)
 
+(defun ab/decode-region (arg)
+  "decode current buffer"
+  (interactive "P")
+  (decode-coding-region (point-min) (point-max) 'utf-8))
+
 (defun ab/ajax-build-status (arg)
   "ajax pelpa building status"
   (interactive "P")
