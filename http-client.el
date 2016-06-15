@@ -18,11 +18,12 @@
       (unless (= 200 url-http-response-status)
         (error "Http error %s fetching %s" url-http-response-status pelpa-build-status-url))
       (message "buffer name%s" (buffer-name))
-      (setq headers (buffer-string))
+      (setq handle (mm-dissect-buffer t))
+      (setq headers (decode-coding-string (buffer-string) 'utf-8))
       
       (with-current-buffer pelpa-buffer
         (setq-default major-mode 'text-mode)  ;; 设置local mojor-mode为'text-mode
         (set-buffer-major-mode pelpa-buffer)
         (erase-buffer)     ;; 先清空原有的内容
-        (insert (decode-coding-string headers 'utf-8)))
+        (insert headers))
       )))
