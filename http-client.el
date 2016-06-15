@@ -21,8 +21,8 @@
       (setq headers (buffer-string))
       
       (with-current-buffer pelpa-buffer
-        (setq-default major-mode 'text-mode)
+        (setq-default major-mode 'text-mode)  ;; 设置local mojor-mode为'text-mode
         (set-buffer-major-mode pelpa-buffer)
         (erase-buffer)     ;; 先清空原有的内容
-        (insert headers))
+        (insert (decode-coding-string headers 'utf-8)))
       )))
