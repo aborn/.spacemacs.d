@@ -19,6 +19,10 @@
         (error "Http error %s fetching %s" url-http-response-status pelpa-build-status-url))
       (message "buffer name%s" (buffer-name))
       (setq headers (buffer-string))
+      
       (with-current-buffer pelpa-buffer
-        (insert headers (buffer-name)))
+        (setq-default major-mode 'text-mode)
+        (set-buffer-major-mode pelpa-buffer)
+        (erase-buffer)     ;; 先清空原有的内容
+        (insert headers))
       )))
