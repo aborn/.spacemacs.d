@@ -46,11 +46,6 @@
   "Format of date to insert with `insert-current-date-time' func
 See help of `format-time-string' for possible replacements")
 
-;; package time format
-(defvar current-date-time-format-pkg "%Y-%m-%d.%H.%M"
-  "Format of date to insert with `insert-current-date-time' func
-See help of `format-time-string' for possible replacements")
-
 (defvar current-time-format "%a %H:%M:%S"
   "Format of date to insert with `insert-current-time' func.
 Note the weekly scope of the command's precision.")
@@ -59,9 +54,12 @@ Note the weekly scope of the command's precision.")
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
   (interactive)
-  (insert (format-time-string current-date-time-format-pkg (current-time)))
-  (insert "guobao\n")
-  )
+  (let* ((pkg-string-content
+          (format "%sguobao" (format-time-string "%Y-%m-%d.%H.%M" (current-time)))))
+    (kill-new pkg-string-content)
+    (insert pkg-string-content)
+    (insert "\n")
+    ))
 
 (defun insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."

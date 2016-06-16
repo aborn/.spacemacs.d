@@ -12,3 +12,10 @@
               single
               ((:url . "https://github.com/mrkkrp/zzz-to-char") (:keywords "convenience"))
               ])
+
+
+(defun ab/copy-to-clipboard (arg)
+  "copy string content to clipboard"
+  (interactive "P")
+  (let* ((pkg-string-content (format-time-string "%Y-%m-%d.%H.%M" (current-time))))
+    (kill-new pkg-string-content)))
