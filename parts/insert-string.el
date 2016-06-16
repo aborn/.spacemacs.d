@@ -57,9 +57,10 @@ Uses `current-date-time-format' for the formatting the date/time."
   (let* ((pkg-string-content
           (format "%sguobao" (format-time-string "%Y-%m-%d.%H.%M" (current-time)))))
     (kill-new pkg-string-content)
-    (insert pkg-string-content)
-    (insert "\n")
-    ))
+    (when (string= "emacs.txt" (buffer-name))
+      (insert pkg-string-content)
+      (insert "\n"))
+    (message (concat "current:" pkg-string-content))))
 
 (defun insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
