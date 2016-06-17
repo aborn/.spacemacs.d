@@ -12,7 +12,7 @@
   (forward-line 5))
 
 (defun move-backward-by-five (arg)
-"Move point backward by five lines"
+  "Move point backward by five lines"
   (interactive "p")
   (forward-line -5))
 
@@ -43,4 +43,11 @@ point reaches the beginning or end of the buffer, stop there."
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'my/smarter-move-beginning-of-line)
+
+(global-set-key (kbd "C-s-<left>")
+                (lambda (&optional arg)
+                  "Keyboard macro."
+                  (interactive "p")
+                  (kmacro-exec-ring-item
+                   (quote ([21 134217848 115 101 116 45 109 97 114 107 45 99 111 109 109 97 110 100 return] 0 "%d")) arg)))
 
