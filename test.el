@@ -19,3 +19,11 @@
   (interactive "P")
   (let* ((pkg-string-content (format-time-string "%Y-%m-%d.%H.%M" (current-time))))
     (kill-new pkg-string-content)))
+
+
+(fset 'return-a-marked-pos
+      (lambda (&optional arg)
+        "Keyboard macro."
+        (interactive "p")
+        (kmacro-exec-ring-item
+         (quote ([21 134217848 115 101 116 45 109 97 114 107 45 99 111 109 109 97 110 100 return] 0 "%d")) arg)))

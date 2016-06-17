@@ -168,6 +168,8 @@
 ;; pelpa-mode load
 (load-file "~/github/pelpa-mode/pelpa-mode.el")
 (require 'pelpa-mode)
+(load-file "~/.spacemacs.d/modules/reddit.el")
+(require 'reddit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-15
