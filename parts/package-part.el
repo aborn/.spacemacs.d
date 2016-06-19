@@ -5,10 +5,10 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
-(require 'package)
-(add-to-list 'package-archives
-             '("popkit" . "http://elpa.popkit.org/packages/") t)
-(package-initialize)
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("popkit" . "http://elpa.popkit.org/packages/") t)
+;; (package-initialize)
 
 ;; --------------------------------------------------------------------
 ;; exec-path-from-shell
@@ -169,7 +169,7 @@ Return a list of installed packages or nil for every skipped package."
 
 (ensure-package-installed 'find-file-in-project 'swiper);
 (global-set-key (kbd "C-x f") 'find-file-in-project)
-
+;; (ab/install-missed-package)
 ;; activate installed packages
 (package-initialize)
 

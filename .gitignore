@@ -1,6 +1,5 @@
 emacs.txt
 local/
 ab-installed-packages
-.*
 temp.el
 temp.txt
