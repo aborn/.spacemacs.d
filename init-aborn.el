@@ -171,9 +171,13 @@
 (ensure-package-installed 'tree-mode)
 (load-file "~/.spacemacs.d/modules/reddit.el")
 (require 'reddit)
-(load-file "~/dpcode/cip-mode/cip-mode.el")
-(require 'cip-mode)
+
+;; locad cip mode if exists.
+(let ((cip-mode-code-file "~/dpcode/cip-mode/cip-mode.el"))
+  (when (file-exists-p cip-mode-code-file)
+    (load-file cip-mode-code-file)
+    (require 'cip-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-19
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
