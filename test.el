@@ -29,3 +29,4 @@
          (quote ([21 134217848 115 101 116 45 109 97 114 107 45 99 111 109 109 97 110 100 return] 0 "%d")) arg)))
 
 (require 'widget-demo)
+(require 'cip-mode)

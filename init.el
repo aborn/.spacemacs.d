@@ -45,11 +45,17 @@ values."
       colors
       aborn           ;; 自己安装包的layer
       )
+   ;;
+   ;; 通过package-install安装的包放在dotspacemacs-additional-packages
+   ;; 这个变量里，否则spacemacs初始化的时候会删除它
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      tree-mode
+                                      wgrep
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -244,7 +250,9 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost 
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
   (setq configuration-layer--elpa-archives
-        '(("popkit" . "elpa.popkit.org/packages/")
+        '(
+          ("popkit" . "elpa.popkit.org/packages/")
+          ;;("melpa" . "melpa.org/packages/")
           ("org"   . "orgmode.org/elpa/")
           ("gnu"   . "elpa.gnu.org/packages/")))
   )
