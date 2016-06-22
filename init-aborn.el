@@ -174,7 +174,7 @@
 
 (global-disable-mouse-mode)
 ;; locad cip mode if exists.
-(let ((cip-mode-code-file "~/dpcode/cip-mode/cip-mode.el"))
+(let ((cip-mode-code-file "~/github/cip-mode/cip-mode.el"))
   (when (file-exists-p cip-mode-code-file)
     (load-file cip-mode-code-file)
     (require 'cip-mode)))
