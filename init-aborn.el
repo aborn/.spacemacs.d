@@ -173,10 +173,16 @@
 (require 'reddit)
 
 ;; locad cip mode if exists.
-(let ((cip-mode-code-file "~/dpcode/cip-mode/cip-mode.el"))
+(let ((cip-mode-code-file "~/github/cip-mode/cip-mode.el"))
   (when (file-exists-p cip-mode-code-file)
     (load-file cip-mode-code-file)
     (require 'cip-mode)))
+
+(let ((v2ex-mode-code-file "~/github/v2ex-mode/v2ex-mode.el"))
+  (when (file-exists-p v2ex-mode-code-file)
+    (message "ok: file %s exists!" v2ex-mode-code-file)
+    (load-file v2ex-mode-code-file)
+    (require 'v2ex-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-20
