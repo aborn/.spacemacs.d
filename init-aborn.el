@@ -182,7 +182,6 @@
 ;;(add-to-list 'load-path "~/github/v2ex-mode/")
 ;;(load "v2ex-mode")
 ;;(require 'v2ex-mode)
->>>>>>> 507c1d9efb43ce92ccf93398d86b2f13d5db650a
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-24
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
