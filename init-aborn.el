@@ -172,18 +172,17 @@
 (load-file "~/.spacemacs.d/modules/reddit.el")
 (require 'reddit)
 
+(global-disable-mouse-mode)
 ;; locad cip mode if exists.
 (let ((cip-mode-code-file "~/github/cip-mode/cip-mode.el"))
   (when (file-exists-p cip-mode-code-file)
     (load-file cip-mode-code-file)
     (require 'cip-mode)))
 
-(let ((v2ex-mode-code-file "~/github/v2ex-mode/v2ex-mode.el"))
-  (when (file-exists-p v2ex-mode-code-file)
-    (message "ok: file %s exists!" v2ex-mode-code-file)
-    (load-file v2ex-mode-code-file)
-    (require 'v2ex-mode)))
-
+;;(add-to-list 'load-path "~/github/v2ex-mode/")
+;;(load "v2ex-mode")
+;;(require 'v2ex-mode)
+>>>>>>> 507c1d9efb43ce92ccf93398d86b2f13d5db650a
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-20
+;; last update by Aborn Jiang (aborn.jiang@foxmail.com) at 2016-06-24
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

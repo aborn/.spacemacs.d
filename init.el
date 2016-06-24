@@ -56,6 +56,8 @@ values."
                                       tree-mode
                                       wgrep
                                       json-mode
+                                      disable-mouse
+                                      v2ex-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
