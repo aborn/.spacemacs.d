@@ -57,6 +57,7 @@ values."
                                       wgrep
                                       json-mode
                                       disable-mouse
+                                      hackernews
                                       v2ex-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.

@@ -179,9 +179,9 @@
     (load-file cip-mode-code-file)
     (require 'cip-mode)))
 
-;; develop && test v2ex-moe
-;; (add-to-list 'load-path "~/github/v2ex-mode/")
-;; (load "v2ex-mode")
+;; develop && test v2ex-mode
+;;(add-to-list 'load-path "~/github/v2ex-mode/")
+;;(load "v2ex-mode")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-06-25
