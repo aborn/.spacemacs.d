@@ -179,6 +179,7 @@
     (load-file cip-mode-code-file)
     (require 'cip-mode)))
 
+(setq wttrin-default-cities '("Shanghai"))
 ;; develop && test v2ex-mode
 ;; (add-to-list 'load-path "~/github/v2ex-mode/")
 ;;(load "v2ex-mode")
