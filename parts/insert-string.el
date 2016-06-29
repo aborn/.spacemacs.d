@@ -27,12 +27,12 @@
   (interactive "p")
   (insert-string (buffer-name)))
 
-(defun insert-current-time (arg)
+(defun ab/insert-current-time (arg)
   "Insert time to current point"
   (interactive "P")
   (insert-string (current-time-string)))
 
-(defun insert-current-buffer-file-name (arg)
+(defun ab/insert-current-buffer-file-name (arg)
   "Insert current buffer file name (full path)"
   (interactive "P")
   (insert-string (buffer-file-name (current-buffer))))
@@ -50,7 +50,7 @@ See help of `format-time-string' for possible replacements")
   "Format of date to insert with `insert-current-time' func.
 Note the weekly scope of the command's precision.")
 
-(defun insert-current-date-time ()
+(defun ab/insert-current-date-time ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
   (interactive)
@@ -62,7 +62,7 @@ Uses `current-date-time-format' for the formatting the date/time."
       (insert "\n"))
     (message (concat "current:" pkg-string-content))))
 
-(defun insert-current-time ()
+(defun ab/insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
   (interactive)
   (insert (format-time-string current-time-format (current-time)))
