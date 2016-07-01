@@ -1,7 +1,15 @@
+#!/usr/bin/env bash
+##########################################################################
+# install emacs 25 automatically.
+# by Aborn Jiang (aborn.jiang@gmail.com)
+##########################################################################
+
 wget ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.95.tar.xz
+
 # unzip
 xz -d emacs-25.0.95.tar.xz
 tar -xvf emacs-25.0.95.tar
+
 cd emacs-25.0.95/
 # install depends
 sudo apt-get install libgtk-3-dev #first
