@@ -192,12 +192,19 @@
 (defvar ab--git-project-list
   '("~/.emacs.d/" "popkit"))
 
+;; 当emacs退出时，执行这个函数
 (defun ab/exec-when-emacs-kill ()
   (message "before exec kill emacs")
   (cl-loop for elt in ab--git-project-list
            collect
-           (let ((default-directory elt))
+           (let* ((working-directory
+                   (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
+                       elt
+                     (concat "~/github/" elt "/")))
+                  (default-directory working-directory))
              (message "%s" (ab/shell-command-to-string "echo $PWD"))
+             ;; 执行操作是异步的!
+             ;;(message "%s" (ab/shell-command-to-string "git pull"))
              ))
   (message "now exec kill emacs")
   (ab/save-message-content))
@@ -205,5 +212,5 @@
 (add-hook 'kill-emacs-hook ab/exec-when-emacs-kill)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-06-25
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-05
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
