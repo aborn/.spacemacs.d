@@ -192,6 +192,11 @@
 (defvar ab--git-project-list
   '("~/.emacs.d/" "popkit"))
 
+;; 当emacs启动时，执行这个函数
+(defun ab/exec-when-emacs-boot ()
+  "exec when emacs boot up"
+  (message "!!emacs started!! time:%s" (format-time-string "%Y-%m-%d.%H.%M" (current-time))))
+
 ;; 当emacs退出时，执行这个函数
 (defun ab/exec-when-emacs-kill ()
   (message "before exec kill emacs")
@@ -209,7 +214,12 @@
   (message "now exec kill emacs")
   (ab/save-message-content))
 
-(add-hook 'kill-emacs-hook ab/exec-when-emacs-kill)
+(add-hook 'after-init-hook
+          (lambda ()
+            (create-file-buffer "~/.spacemacs.d/local/log.txt"
+              (insert "ooooo")
+              (save-buffer))))
+(add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-05

@@ -71,7 +71,7 @@
               (format "~/.spacemacs.d/local/%s-%s.txt" (ab/wrap-temp-buffer-name buf-name) current-time-stamp-local)))
         (save-current-buffer
           (message "save buffer %s content to %s" buf-name local-save-file-name)
-          (set-buffer "")
+          (set-buffer buf-name)
           (write-file local-save-file-name)
           (save-buffer))))))
 
