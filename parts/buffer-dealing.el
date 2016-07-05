@@ -55,6 +55,36 @@
           (write-file compile-log-file-name)
           (save-buffer))))))
 
+(defun ab/wrap-temp-buffer-name (buf-name)
+  (downcase (if (and (string-suffix-p "*" buf-name)
+                     (string-prefix-p "*" buf-name))
+                (substring buf-name 1 (- (string-width buf-name) 1))
+              buf-name)))
+
+(defun ab/save-buffer-content-by-date (buf-name)
+  (if (not (buffer-exists buf-name))
+      (message "warning: not find buffer with name %s" buf-name)
+    (progn
+      (let* ((current-time-stamp-local
+              (format-time-string "%Y-%m-%d-%H" (current-time)))
+             (local-save-file-name
+              (format "~/.spacemacs.d/local/%s-%s.txt" (ab/wrap-temp-buffer-name buf-name) current-time-stamp-local)))
+        (save-current-buffer
+          (message "save buffer %s content to %s" buf-name local-save-file-name)
+          (set-buffer "")
+          (write-file local-save-file-name)
+          (save-buffer))))))
+
+(defun ab/save-message-content ()
+  (if (not (buffer-exists "*Messages*"))
+      (message "warning: not find buffer with name *Messages*")
+    (progn
+      (let* ((local-save-file-name "~/.spacemacs.d/local/Messages.txt"))
+        (save-current-buffer
+          (message "append buffer *Messages* content to %s" local-save-file-name)
+          (set-buffer "*Messages*")
+          (append-to-file (point-min) (point-max) local-save-file-name))))))
+
 ;; -----------------------------------------------------------------
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; -----------------------------------------------------------------

@@ -3,6 +3,7 @@
 ;; by Aborn Jiang (aborn.jiang AT foxmail.com)
 ;; project: https://github.com/aborn/.spacemacs.d
 ;; -----------------------------------------------------------------------------
+(require 'cl-lib)
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
 (when (string= system-type "darwin")       ;; mac系统用command代替alter作为键
   (setq mac-option-modifier 'super)
@@ -183,6 +184,25 @@
 ;; develop && test v2ex-mode
 ;; (add-to-list 'load-path "~/github/v2ex-mode/")
 ;; (load "v2ex-mode")
+
+(defun ab/shell-command-to-string (command)
+  (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
+                            (shell-command-to-string command)))
+
+(defvar ab--git-project-list
+  '("~/.emacs.d/" "popkit"))
+
+(defun ab/exec-when-emacs-kill ()
+  (message "before exec kill emacs")
+  (cl-loop for elt in ab--git-project-list
+           collect
+           (let ((default-directory elt))
+             (message "%s" (ab/shell-command-to-string "echo $PWD"))
+             ))
+  (message "now exec kill emacs")
+  (ab/save-message-content))
+
+(add-hook 'kill-emacs-hook ab/exec-when-emacs-kill)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-06-25
