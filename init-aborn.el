@@ -216,10 +216,9 @@
 
 (add-hook 'after-init-hook
           (lambda ()
-            (create-file-buffer "~/.spacemacs.d/local/log.txt"
-              (insert "ooooo")
-              (save-buffer))))
+            (message "after-init-hook")))
 (add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
+(ab/exec-when-emacs-boot)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-05
