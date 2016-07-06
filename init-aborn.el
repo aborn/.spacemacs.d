@@ -200,7 +200,7 @@
      (require 'aborn-log)
      (ab/log "exec-when-emacs-boot....")
      (let ((ab--git-project-list
-            '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal")))
+            '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal" "pelpa" "eden")))
        (dolist (elt ab--git-project-list)
          (let* ((working-directory
                  (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
