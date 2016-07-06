@@ -30,4 +30,16 @@
 
 (require 'widget-demo)
 (require 'cip-mode)
-(processp object)
+
+(defun ab/test-async ()
+  (interactive)
+  (async-start
+   ;; What to do in the child process
+   (lambda ()
+     (message "This is a test")
+     (sleep-for 3)
+     222)
+
+   ;; What to do when it finishes
+   (lambda (result)
+     (message "Async process done, result should be 222: %s" result))))
