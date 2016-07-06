@@ -36,6 +36,8 @@
   (async-start
    ;; What to do in the child process
    (lambda ()
+     (add-to-list 'load-path "~/.spacemacs.d/parts")
+     (require 'aborn-log)
      (ab/log "This is a test")
      (sleep-for 3)
      222)

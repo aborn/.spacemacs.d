@@ -193,24 +193,30 @@
 ;; 当emacs启动时，执行这个函数
 (defun ab/exec-when-emacs-boot ()
   "exec when emacs boot up"
-  (message "!!emacs started!! time:%s" (format-time-string "%Y-%m-%d.%H.%M" (current-time)))
   (async-start
    ;; 异步执行更新code操作
    (lambda ()
+     (add-to-list 'load-path "~/.spacemacs.d/parts")
+     (require 'aborn-log)
+     (require 'cl-lib)
+     (ab/log "开始异步执行....")
      (let ((ab--git-project-list
             '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal"))
            (async-result nil))
-       (cl-loop for elt in ab--git-project-list
+       (cl-loop for elt in (append ab--git-project-list nil)
                 collect
-                (let* ((working-directory
-                        (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
-                            elt
-                          (concat "~/github/" elt "/")))
-                       (default-directory working-directory))
-                  (setq async-result (format "%s" (shell-command-to-string "echo $PWD")))
-                  ;; 执行操作是异步的!
-                  (message "%s" (shell-command-to-string "git pull"))
-                  ))
+                ;;(let* ((working-directory
+                ;;        (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
+                ;;            elt
+                ;;          (concat "~/github/" elt "/")))
+                ;;      (default-directory working-directory))
+                (ab/log (concat "cl-loop:" elt))
+                ;;(setq async-result (format "%s" (shell-command-to-string "echo $PWD")))
+                ;;(ab/log async-result)
+                ;; 执行操作是异步的!
+                ;;(ab/log (format "%s" (shell-command-to-string "git pull")))
+                ;;)
+                )
        async-result))
    (lambda (result)
      (message "异步执行完成,%s" result))))
