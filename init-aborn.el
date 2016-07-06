@@ -195,11 +195,7 @@
 ;; 当emacs启动时，执行这个函数
 (defun ab/exec-when-emacs-boot ()
   "exec when emacs boot up"
-  (message "!!emacs started!! time:%s" (format-time-string "%Y-%m-%d.%H.%M" (current-time))))
-
-;; 当emacs退出时，执行这个函数
-(defun ab/exec-when-emacs-kill ()
-  (message "before exec kill emacs")
+  (message "!!emacs started!! time:%s" (format-time-string "%Y-%m-%d.%H.%M" (current-time)))
   (cl-loop for elt in ab--git-project-list
            collect
            (let* ((working-directory
@@ -209,17 +205,22 @@
                   (default-directory working-directory))
              (message "%s" (ab/shell-command-to-string "echo $PWD"))
              ;; 执行操作是异步的!
-             ;;(message "%s" (ab/shell-command-to-string "git pull"))
-             ))
-  (message "now exec kill emacs")
-  (ab/save-message-content))
+             (message "%s" (ab/shell-command-to-string "git pull"))
+             )))
+(ab/exec-when-emacs-boot)
+
+;; 当emacs退出时，执行这个函数
+(defun ab/exec-when-emacs-kill ()
+  (message "exec some operationi when kill emacs")
+  (ab/save-message-content)
+  (message "now emacs exit!"))
 
 (add-hook 'after-init-hook
           (lambda ()
             (message "after-init-hook")))
 (add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
-(ab/exec-when-emacs-boot)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-05
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-06
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
