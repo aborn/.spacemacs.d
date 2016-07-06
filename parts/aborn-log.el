@@ -2,7 +2,7 @@
 
 (defvar ab--log-file-name "~/.spacemacs.d/local/log.txt")
 (defun ab/log (log)
-  (let* ((local-current-time (format-time-string "[%Y-%m-%d %H:%M] " (current-time))))
+  (let* ((local-current-time (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time))))
     (with-temp-buffer
       (insert (concat local-current-time log))
       (insert "\n")
