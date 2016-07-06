@@ -190,7 +190,7 @@
                             (shell-command-to-string command)))
 
 (defvar ab--git-project-list
-  '("~/.emacs.d/" "popkit"))
+  '("~/.emacs.d/" "popkit" "~/.spacemacs.d/"))
 
 ;; 当emacs启动时，执行这个函数
 (defun ab/exec-when-emacs-boot ()
