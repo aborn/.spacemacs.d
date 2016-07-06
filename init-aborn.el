@@ -189,24 +189,31 @@
   (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
                             (shell-command-to-string command)))
 
-(defvar ab--git-project-list
-  '("~/.emacs.d/" "popkit" "~/.spacemacs.d/"))
-
 ;; 当emacs启动时，执行这个函数
 (defun ab/exec-when-emacs-boot ()
   "exec when emacs boot up"
   (message "!!emacs started!! time:%s" (format-time-string "%Y-%m-%d.%H.%M" (current-time)))
-  (cl-loop for elt in ab--git-project-list
-           collect
-           (let* ((working-directory
-                   (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
-                       elt
-                     (concat "~/github/" elt "/")))
-                  (default-directory working-directory))
-             (message "%s" (ab/shell-command-to-string "echo $PWD"))
-             ;; 执行操作是异步的!
-             (message "%s" (ab/shell-command-to-string "git pull"))
-             )))
+  (async-start
+   ;; 异步执行更新code操作
+   (lambda ()
+     (let ((ab--git-project-list
+            '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal"))
+           (async-result nil))
+       (cl-loop for elt in ab--git-project-list
+                collect
+                (let* ((working-directory
+                        (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
+                            elt
+                          (concat "~/github/" elt "/")))
+                       (default-directory working-directory))
+                  (setq async-result (format "%s" (shell-command-to-string "echo $PWD")))
+                  ;; 执行操作是异步的!
+                  (message "%s" (shell-command-to-string "git pull"))
+                  ))
+       async-result))
+   (lambda (result)
+     (message "异步执行完成,%s" result))))
+
 (ab/exec-when-emacs-boot)
 
 ;; 当emacs退出时，执行这个函数
@@ -219,7 +226,6 @@
           (lambda ()
             (message "after-init-hook")))
 (add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-06

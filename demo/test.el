@@ -30,3 +30,4 @@
 
 (require 'widget-demo)
 (require 'cip-mode)
+(processp object)
