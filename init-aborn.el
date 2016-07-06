@@ -29,6 +29,7 @@
 (require 'insert-string)                   ;; 插入基本字符串
 (require 'multi-term-config)
 (require 'global-key-binding)              ;; 全局的快捷键绑定
+(require 'aborn-log)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
