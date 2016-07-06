@@ -41,6 +41,7 @@ values."
       javascript
       python
       ruby
+      go
       sql
       colors
       aborn           ;; 自己安装包的layer
