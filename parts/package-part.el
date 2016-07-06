@@ -3,6 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'use-package)
+(require 'aborn-log)
 (setq use-package-verbose t)
 
 ;; (require 'package)
@@ -50,10 +51,6 @@
     (dolist (pkg ab-installed-packages)
       (insert "\n")
       (princ pkg (current-buffer)))))
-
-(defun ab/log (msg)
-  (with-current-buffer (get-buffer-create ab-message-buffer-name)
-    (princ msg (current-buffer))))
 
 (defun ab/install-missed-package (&optional arg)
   "install missed package"
