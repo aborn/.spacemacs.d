@@ -193,6 +193,7 @@
 ;; 当emacs启动时，执行这个函数
 (defun ab/exec-when-emacs-boot ()
   "exec when emacs boot up"
+  (interactive)
   (async-start
    ;; 异步执行更新code操作
    (lambda ()
