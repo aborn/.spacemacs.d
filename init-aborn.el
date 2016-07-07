@@ -190,9 +190,8 @@
   (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
                             (shell-command-to-string command)))
 
-;; 当emacs启动时，执行这个函数
-(defun ab/exec-when-emacs-boot ()
-  "exec when emacs boot up"
+(defun ab/git-code-update ()
+  "update code async."
   (interactive)
   (async-start
    ;; 异步执行更新code操作
@@ -214,6 +213,10 @@
    (lambda (result)
      (message "finished ab/exec-when-emacs-boot,%s" result))))
 
+;; 当emacs启动时，执行这个函数
+(defun ab/exec-when-emacs-boot ()
+  "exec when emacs boot up"
+  (ab/git-code-update))
 (ab/exec-when-emacs-boot)
 
 ;; 当emacs退出时，执行这个函数
