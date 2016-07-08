@@ -63,6 +63,7 @@ values."
                                       format-sql
                                       web-mode
                                       v2ex-mode
+                                      f3
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
