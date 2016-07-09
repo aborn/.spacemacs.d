@@ -20,6 +20,22 @@
   (let* ((pkg-string-content (format-time-string "%Y-%m-%d.%H.%M" (current-time))))
     (kill-new pkg-string-content)))
 
+(defun ab/test-start-process ()
+  "test aysnc proecess"
+  (interactive)
+  (start-process "test-start-process" "*tsp*" "ls"
+                 "-l" (file-truename "~/.spacemacs.d")))
+
+(async-start
+ ;; What to do in the child process
+ (lambda ()
+   (message "This is a test")
+   (sleep-for 3)
+   222)
+
+ ;; What to do when it finishes
+ (lambda (result)
+   (message "Async process done, result should be 222: %s" result)))
 
 (fset 'return-a-marked-pos
       (lambda (&optional arg)

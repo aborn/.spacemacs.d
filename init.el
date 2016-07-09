@@ -62,8 +62,9 @@ values."
                                       wttrin
                                       format-sql
                                       web-mode
-                                      v2ex-mode
                                       f3
+                                      timp
+                                      v2ex-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
