@@ -1,4 +1,3 @@
-(provide 'global-key-binding)
 ;; --------------------------------------------------------------------
 ;; provide all global key bindings 
 ;; global hot key (key binding) setting all together 
@@ -45,3 +44,5 @@
                   (select-window (next-window))
                   (bury-buffer)
                   (select-window cw)))
+
+(provide 'aborn-global-key-binding)

@@ -1,4 +1,5 @@
-(provide 'major-mode-binding)
+(require 'run-scripts)
+
 ;; --------------------------------------------------------------------
 ;; provide local each major mode key binding
 ;; each local major-mode key binding 主mode下的键绑定
@@ -13,7 +14,7 @@
   (local-set-key (kbd "C-o") 'other-window)
   (local-set-key (kbd "M-j") 'ido-find-file)
   ;;(local-set-key (kbd "M-j") 'helm-find-files)
-  (local-set-key (kbd "C-x j") 'ab/run-current-file)
+  (local-set-key (kbd "C-x j") 'aborn/run-current-file)
   (local-set-key (kbd "C-;") 'move-forward-by-five)
   (local-set-key (kbd "C-:") 'move-backward-by-five)
   (flyspell-mode-off)      ;; 跟快捷键 C-; 有冲突，暂时关闭
@@ -31,6 +32,8 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flyspell-mode-off)
+            (local-set-key (kbd "C-j") 'helm-buffers-list)
+            ;;(local-set-key (kbd "C-j") 'ido-switch-buffer)
             (message "turn off flyspell mode in elisp!")))
 
 ;; ielm hook key-bindings.
@@ -49,5 +52,6 @@
 (add-hook 'text-mode-hook 'ab/major-mode-key-binding) ;; add auctex mode
 (add-hook 'sh-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'messages-buffer-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'emacs-lisp-mode-hook 'ab/major-mode-key-binding) ;; 对elisp文件
 (add-hook 'term-mode-hook 'ab/major-mode-key-binding)
+
+(provide 'aborn-major-mode-binding)

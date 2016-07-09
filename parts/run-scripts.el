@@ -1,9 +1,8 @@
-(provide 'run-scripts)
 ;; --------------------------------------------------------------------
 ;; ab/run-current-file modified from original from 
 ;; http://ergoemacs.org/emacs/elisp_run_current_file.html
 ;; --------------------------------------------------------------------
-(defun ab/run-current-file ()
+(defun aborn/run-current-file ()
   "Execute the current file.
 For example, if the current buffer is the file xx.py,
 then it'll call “python xx.py” in a shell.
@@ -47,3 +46,5 @@ If the file is emacs lisp, run the byte compiled version if exist."
         (message "No recognized program file suffix for this file.")
         ) ) )
   (message "finished!"))
+
+(provide 'run-scripts)

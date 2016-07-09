@@ -275,6 +275,7 @@ This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (add-to-list 'load-path "~/.spacemacs.d/parts")
   (add-to-list 'load-path "~/.spacemacs.d/modules")
+  (require 'aborn-log)
   (load-file "~/.spacemacs.d/init-aborn.el")
   )
 

@@ -3,6 +3,7 @@
 ;; by Aborn Jiang (aborn.jiang AT foxmail.com)
 ;; project: https://github.com/aborn/.spacemacs.d
 ;; -----------------------------------------------------------------------------
+(aborn/log "aborn's emacs start to init...")
 (require 'cl-lib)
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
 (when (string= system-type "darwin")       ;; mac系统用command代替alter作为键
@@ -18,8 +19,9 @@
 (global-set-key (kbd "M-j") 'helm-find-files)
 
 (require 'move-swift)                      ;; 快速移动
-(require 'basic-key-binding)               ;; 基本的快捷键设置
-(require 'major-mode-binding)              ;; local major mode key binding
+(require 'aborn-basic-key-binding)         ;; 基本的快捷键设置
+(require 'aborn-global-key-binding)        ;; 全局的快捷键绑定
+(require 'aborn-major-mode-binding)              ;; local major mode key binding
 (require 'package-part)
 (require 'emacs-nifty-tricks)
 (require 'copy-line)
@@ -28,8 +30,7 @@
 (require 'init-helm-aborn)
 (require 'insert-string)                   ;; 插入基本字符串
 (require 'multi-term-config)
-(require 'global-key-binding)              ;; 全局的快捷键绑定
-(require 'aborn-log)
+(require 'aborn-async-action)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
@@ -139,7 +140,6 @@
 ;; 注意： elixir语言mode
 ;;       需要通过elpa安装alchemist和alchemist
 ;; -----------------------------------------------------------------------------
-(require 'major-mode-binding)              ;; local major mode key binding
 (require 'elixir-part)
 ;;(require 'init-pkg-aborn)
 ;;(require 'c-lang-part)
@@ -190,35 +190,8 @@
   (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
                             (shell-command-to-string command)))
 
-(defun ab/git-code-update ()
-  "update code async."
-  (interactive)
-  (async-start
-   ;; 异步执行更新code操作
-   (lambda ()
-     (add-to-list 'load-path "~/.spacemacs.d/parts")
-     (require 'aborn-log)
-     (require 'subr-x)
-     (ab/log "exec-when-emacs-boot....")
-     (let ((ab--git-project-list
-            '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal" "pelpa" "eden")))
-       (dolist (elt ab--git-project-list)
-         (let* ((working-directory
-                 (if (or (string-prefix-p "/" elt) (string-prefix-p "~" elt))
-                     elt
-                   (concat "~/github/" elt "/")))
-                (default-directory working-directory))
-           (ab/log (shell-command-to-string "echo $PWD"))
-           ;; 执行操作是异步的!
-           (ab/log (shell-command-to-string "git pull"))))))
-   (lambda (result)
-     (message "finished ab/exec-when-emacs-boot,%s" result))))
-
 ;; 当emacs启动时，执行这个函数
-(defun ab/exec-when-emacs-boot ()
-  "exec when emacs boot up"
-  (ab/git-code-update))
-(ab/exec-when-emacs-boot)
+(aborn/git-code-update)
 
 ;; 当emacs退出时，执行这个函数
 (defun ab/exec-when-emacs-kill ()
@@ -230,6 +203,7 @@
           (lambda ()
             (message "after-init-hook")))
 (add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
+(aborn/log "aborn's emacs have successful finished initialization!")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-09

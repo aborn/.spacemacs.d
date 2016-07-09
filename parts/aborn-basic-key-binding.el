@@ -1,4 +1,3 @@
-(provide 'basic-key-binding)
 ;; --------------------------------------------------------------------
 ;; provide basic key bindings
 ;; 最基本的按键绑定
@@ -61,3 +60,4 @@
 ;; 设置find-file-in-project
 ;; https://github.com/technomancy/find-file-in-project
 
+(provide 'aborn-basic-key-binding)

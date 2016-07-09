@@ -54,7 +54,7 @@
    (lambda ()
      (add-to-list 'load-path "~/.spacemacs.d/parts")
      (require 'aborn-log)
-     (ab/log "This is a test")
+     (aborn/log "This is a test")
      (sleep-for 3)
      222)
    ;; What to do when it finishes
