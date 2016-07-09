@@ -64,6 +64,7 @@ values."
                                       web-mode
                                       f3
                                       timp
+                                      ace-jump-helm-line
                                       v2ex-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.

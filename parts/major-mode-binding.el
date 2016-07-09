@@ -8,8 +8,8 @@
 (defun ab/major-mode-key-binding ()
   (interactive)
   (local-set-key (kbd "M-n") 'ace-jump-mode)
-  ;;(local-set-key (kbd "C-j") 'helm-buffers-list)
-  (local-set-key (kbd "C-j") 'ido-switch-buffer)
+  (local-set-key (kbd "C-j") 'helm-buffers-list)
+  ;;(local-set-key (kbd "C-j") 'ido-switch-buffer)
   (local-set-key (kbd "C-o") 'other-window)
   (local-set-key (kbd "M-j") 'ido-find-file)
   ;;(local-set-key (kbd "M-j") 'helm-find-files)
@@ -49,3 +49,5 @@
 (add-hook 'text-mode-hook 'ab/major-mode-key-binding) ;; add auctex mode
 (add-hook 'sh-mode-hook 'ab/major-mode-key-binding)
 (add-hook 'messages-buffer-mode-hook 'ab/major-mode-key-binding)
+(add-hook 'emacs-lisp-mode-hook 'ab/major-mode-key-binding) ;; 对elisp文件
+(add-hook 'term-mode-hook 'ab/major-mode-key-binding)
