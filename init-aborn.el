@@ -198,6 +198,7 @@
    (lambda ()
      (add-to-list 'load-path "~/.spacemacs.d/parts")
      (require 'aborn-log)
+     (require 'subr-x)
      (ab/log "exec-when-emacs-boot....")
      (let ((ab--git-project-list
             '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal" "pelpa" "eden")))
@@ -231,5 +232,5 @@
 (add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-08
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-09
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
