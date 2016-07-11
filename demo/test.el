@@ -85,3 +85,6 @@
                                     (message "finished thread1 job. now callback!")
                                     (message (car (last result)))))
       (timp-quit thread1))))
+
+(add-to-list 'load-path "~/github/leanote-mode/")
+(load "leanote")
