@@ -182,10 +182,6 @@
     (require 'cip-mode)))
 
 (setq wttrin-default-cities '("Shanghai"))
-;; develop && test v2ex-mode
-;; (add-to-list 'load-path "~/github/v2ex-mode/")
-;; (load "v2ex-mode")
-
 (defun ab/shell-command-to-string (command)
   (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
                             (shell-command-to-string command)))
@@ -203,8 +199,14 @@
           (lambda ()
             (message "after-init-hook")))
 (add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
-(aborn/log "aborn's emacs have successful finished initialization!")
 
+;; develop && test v2ex-mode
+;; (add-to-list 'load-path "~/github/v2ex-mode/")
+;; (load "v2ex-mode")
+(add-to-list 'load-path "~/github/leanote-mode/")
+(require 'leanote)
+
+(aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-09
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
