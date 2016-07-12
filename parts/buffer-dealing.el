@@ -27,13 +27,6 @@
    ((windmove-find-other-window 'down) (buf-move-down)))
   (message "switch buffer done"))
 
-(defun ab-kill-buff (arg)
-  "my defined kill-buff related with ecb"
-  (interactive "P")
-  (ab/ecb-deactivate)
-  (kill-buffer)
-  (ab/ecb-activate))
-
 (defun buffer-exists (bufname)   
   (not (eq nil (get-buffer bufname))))
 
@@ -129,9 +122,17 @@
         (keyboard-quit))
     (message "yon don't select any content.")))
 
+(defun aborn/delete-buffer ()
+  "remove current buffer from recentf-list and kill it"
+  (interactive)
+  (let ((name (buffer-file-name)))
+    (delete name recentf-list)
+    (kill-buffer)
+    (message "name:%s" name)
+    ))
+
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)
 (defalias 'ab/rename 'rename-file-and-buffer)
-(defalias 'ab/kill-buff 'ab-kill-buff)
 (defalias 'ab/delete-file 'delete-file-and-buffer)
 (defalias 'swap-buffer 'switch-buffer-each-other)
