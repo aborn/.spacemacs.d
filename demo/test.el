@@ -88,3 +88,4 @@
 
 (add-to-list 'load-path "~/github/leanote-mode/")
 (load "leanote")
+

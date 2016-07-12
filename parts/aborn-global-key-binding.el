@@ -45,4 +45,7 @@
                   (bury-buffer)
                   (select-window cw)))
 
+(global-set-key (kbd "C-c w")
+                'aborn/copy-selected-content)
+
 (provide 'aborn-global-key-binding)

@@ -120,6 +120,14 @@
           (message "Deleted file %s" filename)
           (kill-buffer))))))
 
+(defun aborn/copy-selected-content ()
+  "copy current selected content"
+  (interactive)
+  (if mark-active
+      (progn
+        (kill-new (buffer-substring (mark) (point)))
+        (keyboard-quit))
+    (message "yon don't select any content.")))
 
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)

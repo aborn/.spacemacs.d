@@ -208,5 +208,5 @@
 
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-09
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-12
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
