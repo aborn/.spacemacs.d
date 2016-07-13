@@ -20,8 +20,9 @@
                 (default-directory working-directory))
            (aborn/log (shell-command-to-string "echo $PWD"))
            ;; 执行操作是异步的!
-           (aborn/log (shell-command-to-string "git pull"))))))
+           (aborn/log (shell-command-to-string "git pull")))))
+     (aborn/log "finished aborn/git-code-update."))
    (lambda (result)
-     (message "finished ab/exec-when-emacs-boot,%s" result))))
+     (message "finished aborn/git-code-update. %s" result))))
 
 (provide 'aborn-async-action)
