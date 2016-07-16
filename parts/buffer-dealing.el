@@ -122,7 +122,7 @@
         (keyboard-quit))
     (progn
       (kill-new (buffer-string))
-      (message "yon don't select any content."))))
+      (message "yon don't select any content. copy default current buffer content default."))))
 
 (defun aborn/delete-buffer ()
   "remove current buffer from recentf-list and kill it"
