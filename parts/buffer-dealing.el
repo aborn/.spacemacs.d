@@ -120,7 +120,9 @@
       (progn
         (kill-new (buffer-substring (mark) (point)))
         (keyboard-quit))
-    (message "yon don't select any content.")))
+    (progn
+      (kill-new (buffer-string))
+      (message "yon don't select any content."))))
 
 (defun aborn/delete-buffer ()
   "remove current buffer from recentf-list and kill it"

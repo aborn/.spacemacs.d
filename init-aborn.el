@@ -205,8 +205,9 @@
 ;; (load "v2ex-mode")
 (add-to-list 'load-path "~/github/leanote-mode/")
 (require 'leanote)
+(add-hook 'markdown-mode-hook 'leanote)
 
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-12
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-16
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
