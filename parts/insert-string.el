@@ -27,7 +27,7 @@
   (interactive "p")
   (insert-string (buffer-name)))
 
-(defun ab/insert-current-time (arg)
+(defun aborn/insert-current-time (arg)
   "Insert time to current point"
   (interactive "P")
   (insert-string (current-time-string)))

@@ -1,6 +1,6 @@
 (provide 'emacs-nifty-tricks)
 
-(defun insert-date (prefix)
+(defun aborn/insert-date (prefix)
   "Insert the current date. With prefix-argument, use ISO format. With
    two prefix arguments, write out the day and month name."
   (interactive "P")

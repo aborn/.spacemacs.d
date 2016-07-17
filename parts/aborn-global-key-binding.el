@@ -11,8 +11,7 @@
 (global-set-key (kbd "C-)") 'uncomment-region)
 
 ;; insert-string related
-(global-set-key "\C-cd" 'insert-date)
-(global-set-key "\C-cD" 'ab/insert-current-time)
+(global-set-key (kbd "C-c d") 'aborn/insert-date)
 (global-set-key "\C-xt" 'ab/insert-current-date-time)
 (global-set-key "\C-cm" 'ab/insert-email-address)
 (global-set-key "\C-cn" 'ab/insert-name-english)
