@@ -89,3 +89,9 @@
 (add-to-list 'load-path "~/github/leanote-mode/")
 (load "leanote")
 
+
+(defun piece-meal/fun-option-parameter (a &optional b)
+  (when (null b)
+    (message "paramete b is not provided")
+    (setq b "ddd"))    ;; set to default value
+  (message "a=%s, b=%s" a b))
