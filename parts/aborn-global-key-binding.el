@@ -25,6 +25,10 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
+;; highlight-symbol
+(global-set-key (kbd "<C-return>") 'highlight-symbol-at-point)
+(global-set-key (kbd "C-x C-SPC") 'highlight-symbol-mode)
+
 ;; split window的时候，打开新的buffer
 (global-set-key (kbd "C-x 3")
                 (lambda ()
