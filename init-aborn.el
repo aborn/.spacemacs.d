@@ -31,6 +31,7 @@
 (require 'insert-string)                   ;; 插入基本字符串
 (require 'multi-term-config)
 (require 'aborn-async-action)
+(require 'aborn-persistent)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
