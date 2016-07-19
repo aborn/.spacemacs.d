@@ -208,7 +208,10 @@
 (require 'leanote)
 (add-hook 'markdown-mode-hook 'leanote)
 
+;; 下面是一些定时任务
+(require 'aborn-timer-task)
+(aborn/timer-task-each-8hour 'aborn/git-code-update)
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-16
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-19
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

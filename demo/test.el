@@ -95,3 +95,7 @@
     (message "paramete b is not provided")
     (setq b "ddd"))    ;; set to default value
   (message "a=%s, b=%s" a b))
+
+(defun aborn/timer-test ()
+  "test"
+  (message (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time))))
