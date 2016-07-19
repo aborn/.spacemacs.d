@@ -187,9 +187,6 @@
   (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
                             (shell-command-to-string command)))
 
-;; 当emacs启动时，执行这个函数
-(aborn/git-code-update)
-
 ;; 当emacs退出时，执行这个函数
 (defun ab/exec-when-emacs-kill ()
   (message "exec some operationi when kill emacs")
@@ -213,5 +210,5 @@
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-19
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
