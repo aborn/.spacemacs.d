@@ -67,6 +67,7 @@ values."
                                       ace-jump-helm-line
                                       pcache
                                       highlight-symbol
+                                      beacon
                                       v2ex-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.

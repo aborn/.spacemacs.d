@@ -51,9 +51,11 @@
 (setq-default dotspacemacs-smartparens-strict-mode t)
 (setq ws-butler-mode nil)                  ;; 保存的时候，不要删除最后的空格
 (prefer-coding-system 'utf-8)
+(beacon-mode 1)                            ;; 再也不用担心鼠标在哪了
+(setq beacon-blink-when-focused t)
 
 ;; -----------------------------------------------------------------------------
-;; color-layer setting
+;; color-layer setting 
 ;; -----------------------------------------------------------------------------
 (setq-default dotspacemacs-configuration-layers
               '((colors :variables colors-enable-rainbow-identifiers t)))
@@ -210,5 +212,5 @@
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-20
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-21
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
