@@ -33,14 +33,15 @@
   (interactive)
   (when mark-active
     (eval-region (region-beginning) (region-end))
-    (keyboard-quit)))
+    (keyboard-quit)
+    (message "finish eval-region.")))
 
-(define-key emacs-lisp-mode-map (kbd "C-x j") 'aborn/major-mode-binding-elisp-run)
+;; (define-key emacs-lisp-mode-map (kbd "C-x j") 'aborn/major-mode-binding-elisp-run)
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flyspell-mode-off)
             (local-set-key (kbd "C-j") 'helm-buffers-list)
-            ;;(local-set-key (kbd "C-x j") 'aborn/major-mode-binding-elisp-run)
+            (local-set-key (kbd "C-x j") 'aborn/major-mode-binding-elisp-run)
             ;;(local-set-key (kbd "C-j") 'ido-switch-buffer)
             (message "turn off flyspell mode in elisp!")))
 

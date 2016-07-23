@@ -1,26 +1,4 @@
-(defun test-butle (arg)
-  "only used for ws-butler-global-mode test"
-  (interactive "p")
-  (message "turn off ws-butler-global-mode")
-  (ws-butler-global-mode -1))
-
-
-(zzz-to-char .
-             [(20160122 440)
-              ((emacs (24 4)) (cl-lib (0 5)) (avy (0 3 0)))
-              "Fancy version of `zap-to-char' command"
-              single
-              ((:url . "https://github.com/mrkkrp/zzz-to-char") (:keywords "convenience"))
-              ])
-
-
-(defun ab/copy-to-clipboard (arg)
-  "copy string content to clipboard"
-  (interactive "P")
-  (let* ((pkg-string-content (format-time-string "%Y-%m-%d.%H.%M" (current-time))))
-    (kill-new pkg-string-content)))
-
-(defun ab/test-start-process ()
+(defun aborn/test-start-process ()
   "test aysnc proecess"
   (interactive)
   (start-process "test-start-process" "*tsp*" "ls"
@@ -32,7 +10,6 @@
    (message "This is a test")
    (sleep-for 3)
    222)
-
  ;; What to do when it finishes
  (lambda (result)
    (message "Async process done, result should be 222: %s" result)))
@@ -47,7 +24,7 @@
 (require 'widget-demo)
 (require 'cip-mode)
 
-(defun ab/test-async ()
+(defun aborn/test-async ()
   (interactive)
   (async-start
    ;; What to do in the child process
@@ -62,7 +39,7 @@
      (message "Async process done, result should be 222: %s" result))))
 
 (require 'timp)
-(defun ab/test-timp ()
+(defun aborn/test-timp ()
   "test timp multi-thread, actual its multi-process"
   (interactive)
   (let ((thread1 (timp-get :name "thread1" :persist t)))
@@ -90,15 +67,15 @@
 (load "leanote")
 
 
-(defun piece-meal/fun-option-parameter (a &optional b)
+(defun aborn/test-fun-parameter (a &optional b &rest args)
   (interactive)
   (when (null b)
-    (message "paramete b is not provided")
+    (message "paramete b is not provided, use default.")
     (setq b "ddd"))    ;; set to default value
-  (message "a=%s, b=%s" a b))
+  (message "a=%s, b=%s, rest-args-length:%d" a b (length args)))
 
-(setq ab/debug '("a" "b" "d" "m"))
+(setq ab/debug '("a" "b" "d" "m" "eee"))
 
-(defun aborn/timer-test ()
+(defun aborn/test-timer-test ()
   "test"
   (message (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time))))
