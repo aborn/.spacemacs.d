@@ -6,7 +6,7 @@
 ;; 绑定在所有模式都统一的一些全局快捷键
 ;; --------------------------------------------------------------------
 
-(defun ab/major-mode-key-binding ()
+(defun aborn/major-mode-key-binding ()
   (interactive)
   (local-set-key (kbd "M-n") 'ace-jump-mode)
   (local-set-key (kbd "C-j") 'helm-buffers-list)
@@ -18,7 +18,7 @@
   (local-set-key (kbd "C-;") 'move-forward-by-five)
   (local-set-key (kbd "C-:") 'move-backward-by-five)
   (flyspell-mode-off)      ;; 跟快捷键 C-; 有冲突，暂时关闭
-  (message "ab/major-mode-key-binding done!"))
+  (message "aborn/major-mode-key-binding done!"))
 
 ;; define lisp-interaction-mode-map
 (define-key lisp-interaction-mode-map (kbd "C-j") 'helm-buffers-list)
@@ -28,11 +28,19 @@
 ;; (define-key js2-mode-map (kbd "M-j") 'ido-find-file)
 
 ;; define emacs-lisp-mode-map
-(define-key emacs-lisp-mode-map (kbd "C-x j") 'eval-region)
+(defun aborn/major-mode-binding-elisp-run ()
+  "eval-region & keyboard-quit"
+  (interactive)
+  (when mark-active
+    (eval-region (region-beginning) (region-end))
+    (keyboard-quit)))
+
+(define-key emacs-lisp-mode-map (kbd "C-x j") 'aborn/major-mode-binding-elisp-run)
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flyspell-mode-off)
             (local-set-key (kbd "C-j") 'helm-buffers-list)
+            ;;(local-set-key (kbd "C-x j") 'aborn/major-mode-binding-elisp-run)
             ;;(local-set-key (kbd "C-j") 'ido-switch-buffer)
             (message "turn off flyspell mode in elisp!")))
 
@@ -45,13 +53,13 @@
             (local-set-key (kbd "C-j") 'helm-buffers-list)
             (local-set-key (kbd "M-n") 'ace-jump-mode)))
 
-(add-hook 'js2-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'web-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'markdown-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'compilation-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'text-mode-hook 'ab/major-mode-key-binding) ;; add auctex mode
-(add-hook 'sh-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'messages-buffer-mode-hook 'ab/major-mode-key-binding)
-(add-hook 'term-mode-hook 'ab/major-mode-key-binding)
+(add-hook 'js2-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'web-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'markdown-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'compilation-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'text-mode-hook 'aborn/major-mode-key-binding) ;; add auctex mode
+(add-hook 'sh-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'messages-buffer-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'term-mode-hook 'aborn/major-mode-key-binding)
 
 (provide 'aborn-major-mode-binding)

@@ -91,10 +91,13 @@
 
 
 (defun piece-meal/fun-option-parameter (a &optional b)
+  (interactive)
   (when (null b)
     (message "paramete b is not provided")
     (setq b "ddd"))    ;; set to default value
   (message "a=%s, b=%s" a b))
+
+(setq ab/debug '("a" "b" "d" "m"))
 
 (defun aborn/timer-test ()
   "test"
