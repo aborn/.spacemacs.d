@@ -1,5 +1,4 @@
 ;; some swift action
-
 (defun aborn/swift-git-commit-push (message)
   "message and push"
   (interactive "sCommit Message: ")
@@ -10,7 +9,7 @@
   (magit-stage-modified)
   (magit-commit (list "-m" message))
   (aborn/timer-task-delay-excute-once
-   10
+   10       ;; 延时10s执行 git push操作
    (lambda ()
      (call-interactively #'magit-push-current-to-upstream))))
 
