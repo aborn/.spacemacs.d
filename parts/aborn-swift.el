@@ -1,6 +1,6 @@
 ;; some swift action
 (defun aborn/swift-git-commit-push (message)
-  "message and push"
+  "commit modified and push to upstream"
   (interactive "sCommit Message: ")
   (when (null message)
     (setq message (read-string "your message: " nil nil "update")))
