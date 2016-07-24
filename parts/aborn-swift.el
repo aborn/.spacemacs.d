@@ -9,6 +9,9 @@
   (save-buffer)
   (magit-stage-modified)
   (magit-commit (list "-m" message))
-  (aborn/timer-task-delay-excute-once 10 'magit-push-current-to-upstream)) 
+  (aborn/timer-task-delay-excute-once
+   10
+   (lambda ()
+     (call-interactively #'magit-push-current-to-upstream))))
 
 (provide 'aborn-swift)
