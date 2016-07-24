@@ -9,7 +9,7 @@
   (magit-stage-modified)
   (magit-commit (list "-m" message))
   (aborn/timer-task-delay-excute-once
-   10       ;; 延时10s执行 git push操作
+   3       ;; 延时3s执行 git push操作
    (lambda ()
      (call-interactively #'magit-push-current-to-upstream))))
 
