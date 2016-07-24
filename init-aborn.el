@@ -32,6 +32,7 @@
 (require 'multi-term-config)
 (require 'aborn-async-action)
 (require 'aborn-persistent)
+(require 'aborn-swift)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
