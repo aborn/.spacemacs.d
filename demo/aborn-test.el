@@ -79,3 +79,12 @@
 (defun aborn/test-timer-test ()
   "test"
   (message (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time))))
+
+(defun aborn/test-cl-loop (arr)
+  ""
+  (cl-loop for elt in (append arr nil)
+           collect
+           (let ((a ""))
+             (message "%s" elt)
+             ))
+  )

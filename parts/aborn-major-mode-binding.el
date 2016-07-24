@@ -62,5 +62,9 @@
 (add-hook 'sh-mode-hook 'aborn/major-mode-key-binding)
 (add-hook 'messages-buffer-mode-hook 'aborn/major-mode-key-binding)
 (add-hook 'term-mode-hook 'aborn/major-mode-key-binding)
+(add-hook 'makefile-bsdmake-mode-hook (lambda ()
+                                        (local-set-key (kbd "M-n" 'ace-jump-mode))))
+(add-hook 'makefile-mode-hook (lambda ()
+                                (local-set-key (kbd "M-n" 'ace-jump-mode))))
 
 (provide 'aborn-major-mode-binding)
