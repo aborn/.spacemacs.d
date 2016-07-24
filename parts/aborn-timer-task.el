@@ -10,4 +10,8 @@
   "run `task' each 1 hour"
   (run-with-timer 3 (* 1 60) task))
 
+(defun aborn/timer-task-delay-excute-once (sec task)
+  "delay second exectue."
+  (run-with-timer sec nil task))
+
 (provide 'aborn-timer-task)
