@@ -88,3 +88,8 @@
              (message "%s" elt)
              ))
   )
+
+(defun aborn/test-interactive (msg)
+  "test interactive msg"
+  (interactive "sCommit Message: ")
+  (message "#you input %s ## lenght=%d" msg (length msg)))
