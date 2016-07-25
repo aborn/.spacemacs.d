@@ -13,4 +13,5 @@
   (setq org-directory "/Users/aborn/github/iGTD/mobile")
   (setq org-mobile-directory "/Users/aborn/github/iGTD/mobile")
   (setq org-mobile-inbox-for-pull "/Users/aborn/github/iGTD/from-mobile.org"))
-(provide 'org-mode-part)
+
+(provide 'aborn-org)

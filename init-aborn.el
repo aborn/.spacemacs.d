@@ -155,7 +155,7 @@
 (require 'search-buffers)
 (require 'org-mode-part)
 (require 'ivy-parts)
-(require 'org-page-part)
+(require 'aborn-org)
 (require 'counsel)
 (require 'os-utils)
 
