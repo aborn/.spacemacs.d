@@ -33,6 +33,7 @@
 (require 'aborn-async-action)
 (require 'aborn-persistent)
 (require 'aborn-swift)
+(require 'aborn-gtd)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
