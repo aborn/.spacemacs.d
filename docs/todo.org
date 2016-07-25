@@ -1,0 +1,11 @@
+#+TITLE:     Shark Push开发第一期
+#+AUTHOR:    Aborn Jiang
+#+EMAIL:     (concat "aborn.jiang" at-sign "gmail.com")
+#+DATE:      2016-07-25
+
+#+SETUPFILE: ~/github/org-html-themes/setup/theme-readtheorg.setup
+
+-----
+* TODO ab/rename的改进
+** TODO 如果没有后缀，默认保持老后缀
+** TODO 把老的名字从recentf-list列表中删除
