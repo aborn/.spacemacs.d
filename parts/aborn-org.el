@@ -4,9 +4,10 @@
 ;; (setq org-todo-keywords
 ;; '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 (setq org-todo-keywords
-	  '((sequence "TODO" "ONGOING" "DONE" "|" "CLOSED")))
+      '((sequence "TODO(t)" "ONGOING(o)" "|" "DONE(d)")))
+
 (setq org-log-done 'time)   ;;  setting close time
-(setq org-log-done 'note)   ;;  setting a log note
+;; (setq org-log-done 'note)   ;;  setting a log note
 ;; (set org-modules 'habits)
 (setq org-startup-folded nil)  ;; 打开org文件默认不展开所有
 (when (string= system-type "darwin")
