@@ -104,9 +104,7 @@
 (defun aborn/delete-file ()
   "Kill the current buffer and deletes the file it is visiting."
   (interactive)
-  
   (let ((filename (buffer-file-name)))
-    (when (yes-or-no-p (format "Do you really delete file %s" filename))
       (when filename
         (if (vc-backend filename)
             (vc-delete-file filename)
@@ -115,7 +113,7 @@
             (message "file %s was deleted" filename)
             (when (listp recentf-list)
               (delete filename recentf-list))
-            ))))))
+            )))))
 
 (defun aborn/copy-selected-content ()
   "copy current selected content"
