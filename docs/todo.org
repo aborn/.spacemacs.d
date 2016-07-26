@@ -8,7 +8,7 @@
 
 -----
 * to-do-list
-** TODO 对ab/rename优化
+** TODO 对ab/rename优化<2016-07-26 Tue>--<2016-07-31 Sun>
 *** TODO 如果没有后缀，默认保持老后缀
 *** TODO 把老的名字从recentf-list列表中删除
 ** TODO 对于.gitignore的添加popup选项功能
