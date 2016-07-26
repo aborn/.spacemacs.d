@@ -153,9 +153,8 @@
 (require 'ace-jump-helm-line)
 (require 'web-utils)
 (require 'search-buffers)
-(require 'org-mode-part)
-(require 'ivy-parts)
 (require 'aborn-org)
+(require 'ivy-parts)
 (require 'counsel)
 (require 'os-utils)
 
