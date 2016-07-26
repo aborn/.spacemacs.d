@@ -7,11 +7,10 @@
 #+SETUPFILE: ~/github/org-html-themes/setup/theme-readtheorg.setup
 
 -----
-* TODO ab/rename的改进
-** TODO 如果没有后缀，默认保持老后缀
-** TODO 把老的名字从recentf-list列表中删除
 * to-do-list
-** TODO 对ab/rename优化，对于老名字从recentf-list中删除,没加后缀时保持老的
+** TODO 对ab/rename优化
+*** TODO 如果没有后缀，默认保持老后缀
+*** TODO 把老的名字从recentf-list列表中删除
 ** TODO 对于.gitignore的添加popup选项功能
 ** TODO 添加recent-visit-directories功能，并且可搜索切换
 ** TODO multi-term的优化
