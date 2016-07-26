@@ -153,9 +153,8 @@
 (require 'ace-jump-helm-line)
 (require 'web-utils)
 (require 'search-buffers)
-(require 'org-mode-part)
-(require 'ivy-parts)
 (require 'aborn-org)
+(require 'ivy-parts)
 (require 'counsel)
 (require 'os-utils)
 
@@ -214,5 +213,5 @@
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-23
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

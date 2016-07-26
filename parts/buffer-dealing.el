@@ -106,12 +106,21 @@
   (interactive)
   (let ((filename (buffer-file-name)))
     (when filename
-      (if (vc-backend filename)
-          (vc-delete-file filename)
-        (progn
-          (delete-file filename)
-          (message "Deleted file %s" filename)
-          (kill-buffer))))))
+      (delete-file filename)
+      (kill-buffer))))
+
+(defun aborn/delete-file ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (when (yes-or-no-p
+             (format "Do you really want to delete %s?" filename))
+        (delete-file-and-buffer)
+        (message "file %s was deleted" filename)
+        (when (listp recentf-list)
+          (delete filename recentf-list))
+        ))))
 
 (defun aborn/copy-selected-content ()
   "copy current selected content"
@@ -136,5 +145,4 @@
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)
 (defalias 'ab/rename 'rename-file-and-buffer)
-(defalias 'ab/delete-file 'delete-file-and-buffer)
 (defalias 'swap-buffer 'switch-buffer-each-other)

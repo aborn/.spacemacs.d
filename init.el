@@ -281,6 +281,7 @@ layers configuration. You are free to put any user code."
   (add-to-list 'load-path "~/.spacemacs.d/modules")
   (require 'aborn-log)
   (load-file "~/.spacemacs.d/init-aborn.el")
+  (load-file "~/.spacemacs.d/hotkey.el")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
