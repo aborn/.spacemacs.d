@@ -1,0 +1,10 @@
+#+TITLE:     emacs package
+#+AUTHOR:    Aborn Jiang
+#+EMAIL:     (concat "aborn.jiang" at-sign "gmail.com")
+#+DATE:      2016-07-26
+#+SETUPFILE: ~/github/org-html-themes/setup/theme-readtheorg.setup
+
+-----
+* emacs下一些包介绍
+** [[https://github.com/expez/company-quickhelp][company-quickhelp]] docs popup for company文档提示功能
+** [[https://github.com/Fuco1/clippy.el][clippy.el]] 以tooltip的方式显示当前函数的文档
