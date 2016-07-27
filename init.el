@@ -293,7 +293,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/github/eden/dianping/SharkPush.org" "~/github/eden/career/appkit-buglist.org" "~/github/eden/dianping/agenda.org"))))
+    ("~/github/eden/dianping/SharkPush.org" "~/github/eden/career/appkit-buglist.org" "~/github/eden/dianping/agenda.org" "~/github/leanote-mode/docs/leanote-dev-plan.org" "~/.spacemacs.d/docs/aborn-emacs-todo.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

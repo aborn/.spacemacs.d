@@ -78,28 +78,34 @@
           (set-buffer "*Messages*")
           (append-to-file (point-min) (point-max) local-save-file-name))))))
 
-;; -----------------------------------------------------------------
-;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
-;; -----------------------------------------------------------------
-(defun rename-file-and-buffer (new-name)
+(defun aborn/rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (progn
-            (message "A buffer named '%s' already exists! Use another name!" new-name)
-            (rename-file name new-name 1)
-            (rename-buffer (concat new-name "#" name))
-            (set-visited-file-name new-name)
-            (set-buffer-modified-p nil))
+  (let* ((name (buffer-name))
+         (filename (buffer-file-name))
+         (ext (file-name-extension filename)))
+    (unless filename
+      (error "Buffer '%s' is not visiting a file! Rename failed." name))
+    (unless (string-suffix-p ext new-name)
+      (setq new-name (concat new-name "." ext)))
+    (when (equal current-prefix-arg '(4))
+      (message "insert %% only"))
+    (if (get-buffer new-name)
         (progn
+          (message "A buffer named '%s' already exists! Use another name!" new-name)
           (rename-file name new-name 1)
-          (rename-buffer new-name)
+          (rename-buffer (concat new-name "#" name))
           (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
+          (set-buffer-modified-p nil)
+          (when (listp recentf-list)
+            (delete filename recentf-list)))
+      (progn
+        (rename-file name new-name 1)
+        (rename-buffer new-name)
+        (set-visited-file-name new-name)
+        (set-buffer-modified-p nil)
+        (when (listp recentf-list)
+          (delete filename recentf-list))))))
 
 (defun delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting."
@@ -137,12 +143,12 @@
   "remove current buffer from recentf-list and kill it"
   (interactive)
   (let ((name (buffer-file-name)))
-    (delete name recentf-list)
+    (when (listp recentf-list)
+      (delete name recentf-list))
     (kill-buffer)
-    (message "name:%s" name)
+    (message "buffer:%s was deleted!" name)
     ))
 
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)
-(defalias 'ab/rename 'rename-file-and-buffer)
 (defalias 'swap-buffer 'switch-buffer-each-other)

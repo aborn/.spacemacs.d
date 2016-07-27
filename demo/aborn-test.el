@@ -93,3 +93,13 @@
   "test interactive msg"
   (interactive "sCommit Message: ")
   (message "#you input %s ## lenght=%d" msg (length msg)))
+
+(defun aborn/test-prefix (new-name)
+  "test prefix"
+  (interactive "sNew name: ")
+  (let* ((filename (buffer-file-name))
+         (ext (file-name-extension filename)))
+    (message "filename:%s, ext:%s" filename ext)
+    (when (equal current-prefix-arg '(4))
+      (message "insert new name %s only" new-name)))
+  )
