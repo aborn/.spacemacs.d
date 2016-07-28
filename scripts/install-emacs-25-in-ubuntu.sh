@@ -4,7 +4,8 @@
 # by Aborn Jiang (aborn.jiang@gmail.com)
 ##########################################################################
 
-wget ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.95.tar.xz
+# ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.95.tar.xz
+wget ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc1.tar.xz
 
 # unzip
 xz -d emacs-25.0.95.tar.xz
