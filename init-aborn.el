@@ -213,5 +213,5 @@
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
 (aborn/log "aborn's emacs have successful finished initialization!")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-26
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-29
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
