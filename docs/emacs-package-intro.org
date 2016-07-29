@@ -8,3 +8,4 @@
 * emacs下一些包介绍
 ** [[https://github.com/expez/company-quickhelp][company-quickhelp]] docs popup for company文档提示功能
 ** [[https://github.com/Fuco1/clippy.el][clippy.el]] 以tooltip的方式显示当前函数的文档
+** [[https://github.com/alphapapa/helm-org-rifle][helm-org-rifle]] 这个包可以用来搜索当前打开的org文件,非常有用
