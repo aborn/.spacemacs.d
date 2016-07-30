@@ -72,6 +72,7 @@ values."
                                       hyperbole
                                       helm-org-rifle
                                       kanban
+                                      multiple-cursors
                                       v2ex-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -296,7 +297,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/github/eden/dianping/SharkPush.org" "~/github/eden/career/appkit-buglist.org" "~/github/leanote-mode/docs/leanote-dev-plan.org" "~/github/eden/dianping/agenda.org" "~/.spacemacs.d/docs/aborn-emacs-todo.org"))))
+    ("~/github/eden/dianping/SharkPush.org" "~/github/eden/career/appkit-buglist.org" "~/github/leanote-mode/docs/leanote-dev-plan.org" "~/github/eden/dianping/agenda.org" "~/.spacemacs.d/docs/aborn-emacs-todo.org" "~/github/eden/plan/reading2016/reading-plan.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
