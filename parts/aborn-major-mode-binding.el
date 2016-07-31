@@ -64,7 +64,15 @@
 (add-hook 'term-mode-hook 'aborn/major-mode-key-binding)
 (add-hook 'makefile-bsdmake-mode-hook (lambda ()
                                         (local-set-key (kbd "M-n" 'ace-jump-mode))))
-(add-hook 'makefile-mode-hook (lambda ()
-                                (local-set-key (kbd "M-n" 'ace-jump-mode))))
+(add-hook 'makefile-mode-hook
+          (lambda ()
+            (define-key makefile-browser-map (kbd "C-j") 'helm-buffers-list)
+            (local-set-key (kbd "M-n" 'ace-jump-mode))))
+
+;; 对某个minor-mode 的keymap进行改键
+(add-hook 'web-mode-hook
+          (lambda ()
+            (define-key emmet-mode-keymap (kbd "C-j") 'helm-buffer-list)
+            (define-key web-mode-map (kbd "C-j") 'helm-buffer-list)))
 
 (provide 'aborn-major-mode-binding)
