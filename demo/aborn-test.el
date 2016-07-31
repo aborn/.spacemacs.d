@@ -63,10 +63,7 @@
                                     (message (car (last result)))))
       (timp-quit thread1))))
 
-(add-to-list 'load-path "~/github/leanote-mode/")
-(load "leanote")
-
-
+;; 函数可选参数
 (defun aborn/test-fun-parameter (a &optional b &rest args)
   (interactive)
   (when (null b)
@@ -103,3 +100,25 @@
     (when (equal current-prefix-arg '(4))
       (message "insert new name %s only" new-name)))
   )
+
+(defun my-git-timemachine-show-selected-revision ()
+  "Show last (current) revision of file."
+  (interactive)
+  (let (collection)
+    (setq collection
+          (mapcar (lambda (rev)
+                    ;; re-shape list for the ivy-read
+                    (cons (concat (substring (nth 0 rev) 0 7) "|" (nth 5 rev) "|" (nth 6 rev)) rev))
+                  (git-timemachine--revisions)))
+    (setq ab/debug collection)
+    (ivy-read "commits:"
+              collection
+              :action (lambda (rev)
+                        (git-timemachine-show-revision rev)))))
+
+(defun my-git-timemachine ()
+  "Open git snapshot with the selected version.  Based on ivy-mode."
+  (interactive)
+  (unless (featurep 'git-timemachine)
+    (require 'git-timemachine))
+  (git-timemachine--start #'my-git-timemachine-show-selected-revision))

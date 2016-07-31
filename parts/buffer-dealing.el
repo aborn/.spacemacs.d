@@ -107,14 +107,6 @@
         (when (listp recentf-list)
           (delete filename recentf-list))))))
 
-(defun delete-file-and-buffer ()
-  "Kill the current buffer and deletes the file it is visiting."
-  (interactive)
-  (let ((filename (buffer-file-name)))
-    (when filename
-      (delete-file filename)
-      (kill-buffer))))
-
 (defun aborn/delete-file ()
   "Kill the current buffer and deletes the file it is visiting."
   (interactive)
