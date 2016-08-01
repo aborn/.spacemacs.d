@@ -272,9 +272,10 @@ user code here.  The exception is org related code, which should be placed in
   (setq configuration-layer--elpa-archives
         '(
           ("popkit" . "elpa.popkit.org/packages/")
-          ;;("melpa" . "melpa.org/packages/")
+          ("melpa" . "melpa.org/packages/")
           ("org"   . "orgmode.org/elpa/")
-          ("gnu"   . "elpa.gnu.org/packages/")))
+          ("gnu"   . "elpa.gnu.org/packages/")
+          ))
   )
 
 (defun dotspacemacs/user-config ()
