@@ -212,6 +212,13 @@
 (require 'aborn-timer-task)
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
 (aborn/log "aborn's emacs have successful finished initialization!")
+
+;; 下面是deft的配置
+(setq deft-extensions '("txt" "text" "md" "markdown" "org"))
+(setq deft-directory "~/github/eden")
+(setq deft-recursive t)
+(global-set-key [f8] 'deft)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-29
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
