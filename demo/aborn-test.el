@@ -137,3 +137,17 @@
                 elt)
               ))
           spaceline--mode-lines))
+
+(defun aborn/test-helm ()
+  "test helm"
+  (interactive)
+  (let (collection)
+    (setq collection '(("a key" "good") ("second" "secoe val") ("c" "ddd")))
+    (helm :sources (helm-build-sync-source "test"
+                     :candidates collection
+                     :fuzzy-match t
+                     :action (lambda (x)
+                               (setq ab/debug x)
+                               (message "sssddd %s" x)))
+          :buffer "*helm test*"
+          )))
