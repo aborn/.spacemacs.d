@@ -122,3 +122,18 @@
   (unless (featurep 'git-timemachine)
     (require 'git-timemachine))
   (git-timemachine--start #'my-git-timemachine-show-selected-revision))
+
+(defun aborn/test-ml ()
+  ""
+  (mapcar (lambda (elt)
+            (let ((type (car elt))
+                  (main-val nil))
+              (if (eq type 'main)
+                  (progn
+                    (setq main-val (cdr elt))
+                    (add-to-list 'main-val '(leanote-status :when active) t)
+                    (cons 'main main-val)
+                    )
+                elt)
+              ))
+          spaceline--mode-lines))
