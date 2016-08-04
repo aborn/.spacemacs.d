@@ -7,7 +7,7 @@
   (run-with-timer 3 (* 1 60 60) task))
 
 (defun aborn/timer-task-each-minute (task)
-  "run `task' each 1 hour"
+  "run `task' each 1 minute"
   (run-with-timer 3 (* 1 60) task))
 
 (defun aborn/timer-task-delay-excute-once (sec task)
