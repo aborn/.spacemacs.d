@@ -73,9 +73,24 @@
 
 (setq ab/debug '("a" "b" "d" "m" "eee"))
 
-(defun aborn/test-timer-test ()
-  "test"
-  (message (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time))))
+(defun aborn/test-timer-task-async ()
+  (async-start
+   (lambda ()
+     (sleep-for 10)
+     (setq ab/debug '("a" "bbb"))
+     (message "async")))
+  )
+
+(defun aborn/test-timer-task ()
+  "runing func"
+  (message (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time)))
+  (sleep-for 5)
+  (setq ab/debug '("a" "b")))
+
+(defun aborn/test-timer ()
+  "test timer task"
+  (interactive)
+  (setq ab/debug2 (run-with-timer 5 nil 'aborn/test-timer-task-async)))
 
 (defun aborn/test-cl-loop (arr)
   ""
