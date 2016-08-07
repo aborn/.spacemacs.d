@@ -24,24 +24,29 @@
 (require 'widget-demo)
 (require 'cip-mode)
 
-(defun aborn/test-async-leanote (note-id)
+(defun aborn/test-async-fc (result)
+  "finished call"
+  (message aborn/test-async-fc)
+  (setq ab/debug result))
+
+(defun aborn-async-current-note-status (note-id)
   "578e2182ab644133ed01800b"
   (interactive)
   (let* ((token leanote-token))
     (async-start
      `(lambda ()
         ,(async-inject-variables "\\`note-id\\'")
-        ,(async-inject-variables "\\`leanote-token\\'") 
+        ,(async-inject-variables "\\`leanote-token\\'")
         ;;(require 'package)
         (package-initialize)
-        (require 'request)
         (add-to-list 'load-path "~/github/leanote-mode")
         (require 'leanote)
         (let* (result)
           (setq result (leanote-get-note-and-content note-id))
           result))
      (lambda (result)
-       (setq ab/debug result)))))
+       (setq ab/debug result)
+       (message "finished.")))))
 
 (defun aborn/test-async ()
   (interactive)
@@ -56,10 +61,6 @@
   ;; What to do when it finishes
   (lambda (result)
     (message "Async process done, result should be 222: %s" result)))
-
-(defun aborn/test-async-fc (result)
-  "finished call"
-  (message "result=%s" result))
 
 ;; 在子进程中插入参数
 (defun aborn/test-async-param ()
