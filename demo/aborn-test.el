@@ -24,6 +24,24 @@
 (require 'widget-demo)
 (require 'cip-mode)
 
+(defun aborn/test-async-leanote ()
+  "578e2182ab644133ed01800b"
+  (interactive)
+  (let* ((key "noteId"))
+    (async-start
+     (lambda ()
+       (require 'package)
+       (package-initialize)
+       (add-to-list 'load-path "~/github/leanote-mode")
+       (require 'leanote)
+       (let* ((result nil)
+              (id "578e2182ab644133ed01800b"))
+         (setq result (leanote-get-note-and-content id))
+         result))
+     (lambda (result)
+       (setq ab/debug result))))
+  )
+
 (defun aborn/test-async ()
   (interactive)
   (async-start
@@ -31,12 +49,67 @@
    (lambda ()
      (add-to-list 'load-path "~/.spacemacs.d/parts")
      (require 'aborn-log)
-     (aborn/log "This is a test")
+     (aborn/log "This is a test %s" aa)
      (sleep-for 3)
-     222)
-   ;; What to do when it finishes
-   (lambda (result)
-     (message "Async process done, result should be 222: %s" result))))
+     222))
+  ;; What to do when it finishes
+  (lambda (result)
+    (message "Async process done, result should be 222: %s" result)))
+
+(defun aborn/test-async-fc (result)
+  "finished call"
+  (message "result=%s" result))
+
+(defun async-start-process (name program finish-func &rest program-args)
+  "Start the executable PROGRAM asynchronously.  See `async-start'.
+PROGRAM is passed PROGRAM-ARGS, calling FINISH-FUNC with the
+process object when done.  If FINISH-FUNC is nil, the future
+object will return the process object when the program is
+finished.  Set DEFAULT-DIRECTORY to change PROGRAM's current
+working directory."
+  (let* ((buf (generate-new-buffer (concat "*" name "*")))
+         (proc (let ((process-connection-type nil))
+                 (apply #'start-process name buf program program-args))))
+    (with-current-buffer buf
+      (set (make-local-variable 'async-callback) finish-func)
+      (set-process-sentinel proc #'async-when-done)
+      (unless (string= name "emacs")
+        (set (make-local-variable 'async-callback-for-process) t))
+      proc)))
+
+(defun aborn/async-start (start-func &optional finish-func &rest start-func-args)
+  ""
+  (let ((sexp start-func)
+        ;; Subordinate Emacs will send text encoded in UTF-8.
+        (coding-system-for-read 'utf-8-unix))
+    (setq async--procvar
+          (async-start-process
+           "emacs" (file-truename
+                    (expand-file-name invocation-name
+                                      invocation-directory))
+           finish-func
+           "-Q" "-l"
+           ;; Using `locate-library' ensure we use the right file
+           ;; when the .elc have been deleted.
+           (locate-library "async")
+           "-batch" "-f" "async-batch-invoke"
+           (if async-send-over-pipe
+               "<none>"
+             (with-temp-buffer
+               (async--insert-sexp (list 'quote sexp start-func-args))
+               (buffer-string)))))
+    (if async-send-over-pipe
+        (async--transmit-sexp async--procvar (list 'quote sexp start-func-args)))
+    async--procvar))
+
+(defun aborn/test-async-param ()
+  (interactive)
+  (let* ((param "param-a"))
+    (aborn/async-start (lambda (x)
+                         x)
+                       (lambda (result)
+                         (message result))
+                       param)))
 
 (require 'timp)
 (defun aborn/test-timp ()
