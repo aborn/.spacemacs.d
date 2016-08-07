@@ -77,39 +77,15 @@ working directory."
         (set (make-local-variable 'async-callback-for-process) t))
       proc)))
 
-(defun aborn/async-start (start-func &optional finish-func &rest start-func-args)
-  ""
-  (let ((sexp start-func)
-        ;; Subordinate Emacs will send text encoded in UTF-8.
-        (coding-system-for-read 'utf-8-unix))
-    (setq async--procvar
-          (async-start-process
-           "emacs" (file-truename
-                    (expand-file-name invocation-name
-                                      invocation-directory))
-           finish-func
-           "-Q" "-l"
-           ;; Using `locate-library' ensure we use the right file
-           ;; when the .elc have been deleted.
-           (locate-library "async")
-           "-batch" "-f" "async-batch-invoke"
-           (if async-send-over-pipe
-               "<none>"
-             (with-temp-buffer
-               (async--insert-sexp (list 'quote sexp start-func-args))
-               (buffer-string)))))
-    (if async-send-over-pipe
-        (async--transmit-sexp async--procvar (list 'quote sexp start-func-args)))
-    async--procvar))
-
+;; 在子进程中插入参数
 (defun aborn/test-async-param ()
   (interactive)
   (let* ((param "param-a"))
-    (aborn/async-start (lambda (x)
-                         x)
-                       (lambda (result)
-                         (message result))
-                       param)))
+    (async-start
+     `(lambda ()
+        ,(async-inject-variables "\\`param\\'")
+        (format "param = %s" param))
+     'aborn/test-async-fc)))
 
 (require 'timp)
 (defun aborn/test-timp ()
