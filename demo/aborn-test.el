@@ -60,23 +60,6 @@
   "finished call"
   (message "result=%s" result))
 
-(defun async-start-process (name program finish-func &rest program-args)
-  "Start the executable PROGRAM asynchronously.  See `async-start'.
-PROGRAM is passed PROGRAM-ARGS, calling FINISH-FUNC with the
-process object when done.  If FINISH-FUNC is nil, the future
-object will return the process object when the program is
-finished.  Set DEFAULT-DIRECTORY to change PROGRAM's current
-working directory."
-  (let* ((buf (generate-new-buffer (concat "*" name "*")))
-         (proc (let ((process-connection-type nil))
-                 (apply #'start-process name buf program program-args))))
-    (with-current-buffer buf
-      (set (make-local-variable 'async-callback) finish-func)
-      (set-process-sentinel proc #'async-when-done)
-      (unless (string= name "emacs")
-        (set (make-local-variable 'async-callback-for-process) t))
-      proc)))
-
 ;; 在子进程中插入参数
 (defun aborn/test-async-param ()
   (interactive)
