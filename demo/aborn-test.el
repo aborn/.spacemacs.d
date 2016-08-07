@@ -26,7 +26,7 @@
 
 (defun aborn/test-async-fc (result)
   "finished call"
-  (message aborn/test-async-fc)
+  (message "aborn/test-async-fc")
   (setq ab/debug result))
 
 (defun aborn-async-current-note-status (note-id)
