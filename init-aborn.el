@@ -172,8 +172,11 @@
 (message "open emacs finished!")
 
 ;; pelpa-mode load
-(load-file "~/github/pelpa-mode/pelpa-mode.el")
-(require 'pelpa-mode)
+(let ((pelpa-mode-file "~/github/pelpa-mode/pelpa-mode.el"))
+  (when (file-exists-p pelpa-mode-file)
+    (load-file pelpa-mode-file)
+    (require 'pelpa-mode)))
+
 (ensure-package-installed 'tree-mode)
 (load-file "~/.spacemacs.d/modules/reddit.el")
 (require 'reddit)
