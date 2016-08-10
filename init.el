@@ -75,6 +75,7 @@ values."
                                       multiple-cursors
                                       deft
                                       v2ex-mode
+                                      leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -82,7 +83,7 @@ values."
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
    ;; 非nil时，spacemacs会在启动的时候删除orphan packages
-   dotspacemacs-delete-orphan-packages nil))
+   dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
   "Initialization function.

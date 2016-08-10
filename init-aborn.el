@@ -204,8 +204,8 @@
 ;; develop && test v2ex-mode
 ;; (add-to-list 'load-path "~/github/v2ex-mode/")
 ;; (load "v2ex-mode")
-(add-to-list 'load-path "~/github/leanote-mode/")
-(require 'leanote)
+;; (add-to-list 'load-path "~/github/leanote-mode/")
+;; (require 'leanote)
 (add-hook 'markdown-mode-hook 'leanote)
 
 ;; 下面是一些定时任务
