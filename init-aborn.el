@@ -209,7 +209,12 @@
 ;; (load "v2ex-mode")
 ;; (add-to-list 'load-path "~/github/leanote-mode/")
 ;; (require 'leanote)
-(add-hook 'markdown-mode-hook 'leanote)
+
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (leanote)
+            (leanote-spaceline-status)  ;; optional, use it if necessary
+            ))
 
 ;; 下面是一些定时任务
 (require 'aborn-timer-task)
