@@ -75,6 +75,7 @@ values."
                                       multiple-cursors
                                       deft
                                       v2ex-mode
+                                      spaceline
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
