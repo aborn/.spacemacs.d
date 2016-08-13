@@ -4,16 +4,6 @@
   (start-process "test-start-process" "*tsp*" "ls"
                  "-l" (file-truename "~/.spacemacs.d")))
 
-(async-start
- ;; What to do in the child process
- (lambda ()
-   (message "This is a test")
-   (sleep-for 3)
-   222)
- ;; What to do when it finishes
- (lambda (result)
-   (message "Async process done, result should be 222: %s" result)))
-
 (fset 'return-a-marked-pos
       (lambda (&optional arg)
         "Keyboard macro."
@@ -23,91 +13,6 @@
 
 (require 'widget-demo)
 (require 'cip-mode)
-
-(defun aborn/test-async-fc (result)
-  "finished call"
-  (message "aborn/test-async-fc")
-  (setq ab/debug result))
-
-(defun aborn-async-current-note-status (note-id)
-  "578e2182ab644133ed01800b"
-  (interactive)
-  (let* ((token leanote-token))
-    (async-start
-     `(lambda ()
-        ,(async-inject-variables "\\`note-id\\'")
-        ,(async-inject-variables "\\`leanote-token\\'")
-        ;;(require 'package)
-        (package-initialize)
-        (add-to-list 'load-path "~/github/leanote-mode")
-        (require 'leanote)
-        (let* (result)
-          (setq result (leanote-get-note-and-content note-id))
-          result))
-     (lambda (result)
-       (setq ab/debug result)
-       (message "finished.")))))
-
-(defun aborn/test-async ()
-  (interactive)
-  (async-start
-   ;; What to do in the child process
-   (lambda ()
-     (add-to-list 'load-path "~/.spacemacs.d/parts")
-     (require 'aborn-log)
-     (aborn/log "This is a test %s" aa)
-     (sleep-for 3)
-     222))
-  ;; What to do when it finishes
-  (lambda (result)
-    (message "Async process done, result should be 222: %s" result)))
-
-;; 在子进程中插入参数
-(defun aborn/test-async-param ()
-  (interactive)
-  (let* ((param "param-a")
-         (param-b "param-b"))
-    (async-start
-     `(lambda ()
-        ,(async-inject-variables "\\`param\\'")
-        ,(async-inject-variables "\\`param-b\\'") 
-        (format "param = %s %s" param param-b))
-     'aborn/test-async-fc)))
-
-(require 'timp)
-(defun aborn/test-timp ()
-  "test timp multi-thread, actual its multi-process"
-  (interactive)
-  (let ((thread1 (timp-get :name "thread1" :persist t)))
-    (when (timp-validate thread1)
-      (message "thread1: alive")
-      ;; 这个require-package的机制比较好，不需要处理load-path
-      (timp-require-package thread1 'aborn-log)  
-      (timp-send-exec thread1 (lambda ()
-                                (aborn/log "begin to run thread1.")
-                                (message "start thread1 job...")
-                                (sleep-for 10)
-                                (message "after 10s")
-                                (sleep-for 50)
-                                (message "after 50s")
-                                (sleep-for 120)
-                                (message "after 120s")
-                                (mapcar 'number-to-string (number-sequence 1 99)))
-                      :reply-func (lambda (result)
-                                    (aborn/log "finished thread1, now callback!")
-                                    (message "finished thread1 job. now callback!")
-                                    (message (car (last result)))))
-      (timp-quit thread1))))
-
-;; 函数可选参数
-(defun aborn/test-fun-parameter (a &optional b &rest args)
-  (interactive)
-  (when (null b)
-    (message "paramete b is not provided, use default.")
-    (setq b "ddd"))    ;; set to default value
-  (message "a=%s, b=%s, rest-args-length:%d" a b (length args)))
-
-(setq ab/debug '("a" "b" "d" "m" "eee"))
 
 (defun aborn/test-timer-task-async ()
   (async-start
@@ -188,17 +93,3 @@
                 elt)
               ))
           spaceline--mode-lines))
-
-(defun aborn/test-helm ()
-  "test helm"
-  (interactive)
-  (let (collection)
-    (setq collection '(("a key" "good") ("second" "secoe val") ("c" "ddd")))
-    (helm :sources (helm-build-sync-source "test"
-                     :candidates collection
-                     :fuzzy-match t
-                     :action (lambda (x)
-                               (setq ab/debug x)
-                               (message "sssddd %s" x)))
-          :buffer "*helm test*"
-          )))
