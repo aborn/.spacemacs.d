@@ -210,6 +210,7 @@
 ;; (add-to-list 'load-path "~/github/leanote-mode/")
 ;; (require 'leanote)
 
+(setq leanote-user-email "aborn@aborn.me")
 (add-hook 'markdown-mode-hook
           (lambda ()
             (leanote)
