@@ -8,7 +8,7 @@
                  ((not prefix) "%Y-%m-%d")
                  ((equal prefix '(4)) "%Y-%m-%d")
                  ((equal prefix '(16)) "%A, %d. %B %Y")))
-        (system-time-locale "de_DE"))
+        (system-time-locale "zh_CN"))
     (insert (format-time-string format))))
 
 (defun insert-date-format (format)
