@@ -30,6 +30,10 @@
 (require 'init-helm-aborn)
 (require 'insert-string)                   ;; 插入基本字符串
 (require 'multi-term-config)
+
+;; -----------------------------------------------------------------------------
+;; parts 部分，自己写的一些函数，在parts/目录
+;; -----------------------------------------------------------------------------
 (require 'aborn-async-action)
 (require 'aborn-persistent)
 (require 'aborn-swift)
@@ -227,5 +231,5 @@
 (global-set-key [f8] 'deft)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-07-29
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-19
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
