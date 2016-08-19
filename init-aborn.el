@@ -21,7 +21,7 @@
 (require 'move-swift)                      ;; 快速移动
 (require 'aborn-basic-key-binding)         ;; 基本的快捷键设置
 (require 'aborn-global-key-binding)        ;; 全局的快捷键绑定
-(require 'aborn-major-mode-binding)              ;; local major mode key binding
+(require 'aborn-major-mode-binding)        ;; local major mode key binding
 (require 'package-part)
 (require 'emacs-nifty-tricks)
 (require 'copy-line)
@@ -34,6 +34,7 @@
 (require 'aborn-persistent)
 (require 'aborn-swift)
 (require 'aborn-gtd)
+(require 'aborn-utils)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
