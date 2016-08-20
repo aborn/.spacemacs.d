@@ -21,6 +21,8 @@
                     elt
                   (concat "~/github/" elt "/")))
                (default-directory working-directory))
+          (unless (file-exists-p default-directory)
+            (aborn/log (format "path %s doesnot exists" default-directory)))
           (when (file-exists-p default-directory)
             (aborn/log (shell-command-to-string "echo $PWD"))
             ;; 执行操作是异步的!
