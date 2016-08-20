@@ -2,7 +2,7 @@
 (defvar aborn-git-project-list
   '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal" "pelpa"
     "eden" "leanote-mode" "v2ex-mode" "learn-elisp-by-examples"
-    "aborn-multi-term"))
+    "aborn-multi-term" "eeb"))
 
 (defun aborn/git-code-update ()
   "update code async."
@@ -11,6 +11,7 @@
    ;; 异步执行更新code操作
    `(lambda ()
       ,(async-inject-variables "\\`load-path\\'")
+      ,(async-inject-variables "\\`aborn-git-project-list\\'")
       (require 'aborn-log)
       (require 'subr-x)
       (aborn/log "exec-when-emacs-boot....")
@@ -20,9 +21,10 @@
                     elt
                   (concat "~/github/" elt "/")))
                (default-directory working-directory))
-          (aborn/log (shell-command-to-string "echo $PWD"))
-          ;; 执行操作是异步的!
-          (aborn/log (shell-command-to-string "git pull"))))
+          (when (file-exists-p default-directory)
+            (aborn/log (shell-command-to-string "echo $PWD"))
+            ;; 执行操作是异步的!
+            (aborn/log (shell-command-to-string "git pull")))))
       (aborn/log "finished aborn/git-code-update."))
    (lambda (result)
      (message "finished aborn/git-code-update. %s" result))))

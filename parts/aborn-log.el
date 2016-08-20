@@ -7,6 +7,7 @@
    each line with timestamp as prefix."
   (let* ((local-current-time (format-time-string "[%Y-%m-%d %H:%M:%S] " (current-time))))
     (with-temp-buffer
+      (goto-char (point-max))
       (insert (concat local-current-time (string-join args " ")))
       (insert "\n")
       (append-to-file (point-min) (point-max) ab--log-file-name))))
