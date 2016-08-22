@@ -25,7 +25,7 @@
 (require 'package-part)
 (require 'emacs-nifty-tricks)
 (require 'copy-line)
-(require 'buffer-dealing)
+(require 'aborn-buffer)
 (require 'window-dealing)
 (require 'init-helm-aborn)
 (require 'insert-string)                   ;; 插入基本字符串

@@ -1,5 +1,3 @@
-(provide 'buffer-dealing)
-
 (defun buffer-mode (buffer-or-string)
   "Returns the major mode associated with a buffer."
   (with-current-buffer buffer-or-string
@@ -107,6 +105,15 @@
         (when (listp recentf-list)
           (delete filename recentf-list))))))
 
+(defun aborn/delete-file-and-buffer ()
+  "Delete current buffer and its visiting file."
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (delete-file filename)
+      (kill-buffer)
+      (when (listp recentf-list)
+        (delete filename recentf-list)))))
+
 (defun aborn/delete-file ()
   "Kill the current buffer and deletes the file it is visiting."
   (interactive)
@@ -114,7 +121,7 @@
     (when filename
       (when (yes-or-no-p
              (format "Do you really want to delete %s?" filename))
-        (delete-file-and-buffer)
+        (aborn/delete-file-and-buffer)
         (message "file %s was deleted" filename)
         (when (listp recentf-list)
           (delete filename recentf-list))
@@ -144,3 +151,5 @@
 (defalias 'ab/buffer-exists 'buffer-exists)
 (defalias 'ab/shell 'make-shell)
 (defalias 'swap-buffer 'switch-buffer-each-other)
+
+(provide 'aborn-buffer)
