@@ -16,7 +16,7 @@
 (global-set-key "\C-cm" 'ab/insert-email-address)
 (global-set-key "\C-cn" 'ab/insert-name-english)
 (global-set-key "\C-cN" 'ab/insert-name-chinese)
-(global-set-key "\C-cl" 'ab/switch-buffer-each-other)
+(global-set-key "\C-cl" 'aborn/switch-buffer-each-other)
 
 ;; window-dealing related.
 (global-set-key "\C-ch" 'ab/window-layout-default)

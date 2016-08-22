@@ -14,7 +14,7 @@
   (interactive "P")
   (message (buffer-file-name (current-buffer)))) 
 
-(defun ab/switch-buffer-each-other (arg)
+(defun aborn/switch-buffer-each-other (arg)
   "switch current buffer with other window buffer 
    right-2-left and up-2-down"
   (interactive "p")
