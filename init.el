@@ -38,12 +38,17 @@ values."
       elixir
       erlang
       html
+      java
       javascript
       python
       ruby
       go
       sql
+      racket
+      shell-scripts
       colors
+      gtags      ;; 见http://spacemacs.org/layers/gtags/README.html
+      semantic
       aborn           ;; 自己安装包的layer
       )
    ;;
