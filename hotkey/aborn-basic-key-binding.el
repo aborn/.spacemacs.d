@@ -15,6 +15,7 @@
 ;; (global-set-key "\C-xk" 'kill-buffer)            ; emacs built-in key
 (global-set-key "\C-x\C-r" 'revert-buffer)
 ;; (global-set-key "\C-x\C-m" 'indent-region)
+(global-set-key "\C-i" 'aborn/just-one-space)
 
 ;; 格式化当前buffer所有内容
 (defun ab/indent-regin ()
