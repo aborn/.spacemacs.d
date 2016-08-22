@@ -39,6 +39,7 @@
 (require 'aborn-swift)
 (require 'aborn-gtd)
 (require 'aborn-utils)
+(global-set-key "\C-i" 'aborn/just-one-space)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
