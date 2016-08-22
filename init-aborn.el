@@ -184,7 +184,7 @@
 (require 'reddit)
 
 (global-disable-mouse-mode)
-;; locad cip mode if exists.
+;; load cip mode if exists.
 (let ((cip-mode-code-file "~/github/cip-mode/cip-mode.el"))
   (when (file-exists-p cip-mode-code-file)
     (load-file cip-mode-code-file)
@@ -196,7 +196,7 @@
                             (shell-command-to-string command)))
 
 ;; 当emacs退出时，执行这个函数
-(defun ab/exec-when-emacs-kill ()
+(defun aborn/exec-when-emacs-kill ()
   (message "exec some operationi when kill emacs")
   (ab/save-message-content)
   (message "now emacs exit!"))
@@ -204,11 +204,12 @@
 (add-hook 'after-init-hook
           (lambda ()
             (message "after-init-hook")))
-(add-hook 'kill-emacs-hook 'ab/exec-when-emacs-kill)
+(add-hook 'kill-emacs-hook 'aborn/exec-when-emacs-kill)
 
 ;; develop && test v2ex-mode
 ;; (add-to-list 'load-path "~/github/v2ex-mode/")
 ;; (load "v2ex-mode")
+;; develop && test leanote-mode
 ;; (add-to-list 'load-path "~/github/leanote-mode/")
 ;; (require 'leanote)
 
@@ -231,5 +232,5 @@
 (global-set-key [f8] 'deft)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-19
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-22
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
