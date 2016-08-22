@@ -8,9 +8,11 @@
   (save-buffer)
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
-  (aborn/timer-task-delay-excute-once
-   1       ;; 延时1s执行 git push操作
-   (lambda ()
-     (call-interactively #'magit-push-current-to-upstream))))
+  (magit-push-current-to-upstream)
+  ;; (aborn/timer-task-delay-excute-once
+  ;;  1       ;; 延时1s执行 git push操作
+  ;;  (lambda ()
+  ;;    (call-interactively #'magit-push-current-to-upstream)))
+  )
 
 (provide 'aborn-swift)
