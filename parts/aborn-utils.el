@@ -4,15 +4,8 @@
   (switch-to-buffer (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
 
-(defun aborn/debug ()
-  "interactive"
-  (interactive)
-  (message "is-space:%s number:%d"
-           (aborn/is-space (char-after))
-           (aborn/cal-space-count)))
-
 (defun aborn/cal-space-count ()
-  "Count how many space."
+  "Count how many space char."
   (let ((char-list (list (char-after)
                          (char-before))))
     (when (aborn/is-space (char-after))
@@ -37,7 +30,7 @@
       ))
 
 (defun aborn/just-one-space (&optional n)
-  "Smart version of just-one-space"
+  "Intelligent version of just-one-space."
   (interactive "*p")
   (if (or (> (aborn/cal-space-count) 1)
           (= (aborn/cal-space-count) 0))
