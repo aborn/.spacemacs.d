@@ -16,7 +16,7 @@
         ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
         (require 'aborn-timer-task)
         (require 'aborn-log)
-        (aborn/log ("exec push in %s" default-directory))
+        (aborn/log (format "exec push in %s" default-directory))
         (aborn/timer-task-delay-excute-once
          1       ;; 延时1s执行 git push操作
          (lambda ()
