@@ -8,7 +8,6 @@
   (save-buffer)
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
-  (setq exec-path-current default-directory)
   (async-start
    `(lambda ()
       ,(async-inject-variables "\\`default-directory\\'")
@@ -16,11 +15,14 @@
       (require 'aborn-timer-task)
       (require 'magit)
       (require 'aborn-log)
-      (aborn/log (format "exec push in %s" default-directory))
-      (aborn/timer-task-delay-excute-once
-       1       ;; 延时1s执行 git push操作
-       (lambda ()
-         (call-interactively #'magit-push-current-to-upstream)))
+      (aborn/log (format "start to execute push in %s" default-directory))
+      (aborn/log (shell-command-to-string "echo $PWD"))
+      (when (file-exists-p default-directory)
+        (aborn/log (shell-command-to-string "git push")))
+      ;; (aborn/timer-task-delay-excute-once
+      ;;  1       ;; 延时1s执行 git push操作
+      ;;  (lambda ()
+      ;;    (call-interactively #'magit-push-current-to-upstream)))
       default-directory)
    (lambda (result)
      (message "push to upstream success. %s" result))
