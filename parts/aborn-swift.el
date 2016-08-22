@@ -12,7 +12,7 @@
     (setq exec-path-current default-directory)
     (async-start
      `(lambda ()
-        (setq default-directory ,exec-path-current)
+        ,(async-inject-variables "\\`default-directory\\'")
         ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
         (require 'aborn-timer-task)
         (require 'aborn-log)
