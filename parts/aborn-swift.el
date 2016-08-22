@@ -15,10 +15,11 @@
       (require 'aborn-timer-task)
       (require 'magit)
       (require 'aborn-log)
-      (aborn/log (format "start to execute push in %s" default-directory))
+      (aborn/log (format "** start to execute push in directory %s" default-directory))
       (aborn/log (shell-command-to-string "echo $PWD"))
       (when (file-exists-p default-directory)
-        (aborn/log (shell-command-to-string "git push")))
+        (aborn/log (shell-command-to-string "git push"))
+        (aborn/log "finished push. **"))
       ;; (aborn/timer-task-delay-excute-once
       ;;  1       ;; 延时1s执行 git push操作
       ;;  (lambda ()
