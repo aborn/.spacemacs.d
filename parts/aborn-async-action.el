@@ -2,7 +2,7 @@
 (defvar aborn-git-project-list
   '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal" "pelpa"
     "eden" "leanote-mode" "v2ex-mode" "learn-elisp-by-examples"
-    "aborn-multi-term" "eeb"))
+    "multi-term-plus" "eeb"))
 
 (defun aborn/git-code-update ()
   "update code async."
