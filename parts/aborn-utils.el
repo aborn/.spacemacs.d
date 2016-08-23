@@ -42,4 +42,22 @@
       (just-one-space)
     (just-one-space 0)))
 
+(defun aborn/get-ip (arg)
+  "Get current machine local ip adress."
+  (interactive "P")
+  (insert (shell-command-to-string "ifconfig |egrep \"10\\.|172\\.|192\\.\" |awk '{print $2}'")))
+
+(defun aborn/copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (or
+                       (eq major-mode 'dired-mode)
+                       (eq major-mode 'inferior-emacs-lisp-mode)
+                       (eq major-mode 'term-mode))
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "File name was copied '%s' to the clipboard." filename))))
+
 (provide 'aborn-utils)
