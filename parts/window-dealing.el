@@ -71,8 +71,8 @@
   (when (and (window-valid-p (window-in-direction 'above rbwindow))
              (window-valid-p (window-in-direction 'right main-content-wind)))
     (setq name "default"))
-    (select-window cw)           ;; restore save window
-    (message name))
+  (select-window cw)           ;; restore save window
+  (message name))
 
 (defun ab/window-normal ()
   "display normal window layout (default)"
@@ -196,7 +196,7 @@
   (when (ab/ecb-activate?)
     (throw 'break "ecb already is activated!"))
   (ab/ecb-sr-switch 'ecb-activate)
-)
+  )
 
 (defun ab/ecb-deactivate ()
   "aborn ecb deactive and set default layout"
@@ -216,3 +216,28 @@
   "aborn only for testing "
   (interactive)
   (message (visited-file-modtime)))
+
+(defun aborn/toggle-window-split ()
+  (interactive)
+  (when (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
