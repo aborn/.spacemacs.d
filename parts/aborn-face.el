@@ -1,5 +1,3 @@
-;;(defvar aborn/highlight-defined-function-face 'elixir-atom-face)
-
 (defface aborn/highlight-defined-function-face
   '((((class color) (min-colors 88) (background light))
      :foreground "RoyalBlue4")
@@ -9,6 +7,7 @@
   "For use with atoms & map keys."
   :group 'font-lock-faces)
 
+;; aborn customize highlight-defined https://github.com/Fanael/highlight-defined
 (custom-set-faces
  '(highlight-defined-function-name-face
    ((((class color) (min-colors 88))
