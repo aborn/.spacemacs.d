@@ -11,9 +11,16 @@
 
 (custom-set-faces
  '(highlight-defined-function-name-face
-   ((t (:inherit aborn/highlight-defined-function-face :bold nil))))
+   ((((class color) (min-colors 88))
+     :foreground "#997599")))
  '(highlight-defined-builtin-function-name-face
-   ((((class color) (min-colors 89) (background dark))
-     :foreground "#7b875b"))))
+   ((((class color) (min-colors 88) (background dark))
+     :foreground "#7b875b")))
+ '(highlight-defined-special-form-name-face
+   ((((class color) (min-colors 88))
+     :foreground "#626262")))
+ '(highlight-defined-variable-name-face
+   ((((class color) (min-colors 88))
+     :foreground "#8d5351"))))
 
 (provide 'aborn-face)

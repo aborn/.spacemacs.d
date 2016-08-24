@@ -39,6 +39,7 @@
 (require 'aborn-swift)
 (require 'aborn-gtd)
 (require 'aborn-utils)
+(require 'aborn-face)
 (global-set-key "\C-i" 'aborn/just-one-space)
 
 ;; -----------------------------------------------------------------------------
@@ -232,7 +233,7 @@
 (global-set-key [f8] 'deft)
 
 ;; https://github.com/Fanael/highlight-defined
-;; (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
+(add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-24
