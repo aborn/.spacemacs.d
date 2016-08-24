@@ -45,6 +45,7 @@ values."
       go
       sql
       racket
+      clojure
       shell-scripts
       colors
       gtags      ;; 见http://spacemacs.org/layers/gtags/README.html
