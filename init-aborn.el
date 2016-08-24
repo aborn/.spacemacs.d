@@ -159,7 +159,6 @@
 (require 'aborn-org)
 (require 'ivy-parts)
 (require 'counsel)
-(require 'os-utils)
 
 ;; (ab/list-packages)                      ;; 异步打开下软件源
 (add-hook 'after-init-hook
@@ -232,6 +231,9 @@
 (setq deft-recursive t)
 (global-set-key [f8] 'deft)
 
+;; https://github.com/Fanael/highlight-defined
+;; (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-22
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-24
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
