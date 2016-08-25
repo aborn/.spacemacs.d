@@ -109,15 +109,18 @@
   (interactive "P")
   (when (equal current-prefix-arg '(4))
     (message "insert %% only"))
-  (cond
-   ((equal current-prefix-arg '(4)) (self-insert-command 1))
-   ((and (char-equal (char-after) ?])
-    (char-equal (char-before) ?[)) (self-insert-command (or arg 1)))
-   ((and (char-equal (char-after) ?\))
-         (char-equal (char-before) ?\()) (self-insert-command (or arg 1)))
-   ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-   ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-   (t (self-insert-command (or arg 1)))))
+  (let ((charafter (char-after)))
+    (if charafter
+        (cond
+         ((equal current-prefix-arg '(4)) (self-insert-command 1))
+         ((and (char-equal (char-after) ?])
+          (char-equal (char-before) ?[)) (self-insert-command (or arg 1)))
+         ((and (char-equal (char-after) ?\))
+               (char-equal (char-before) ?\()) (self-insert-command (or arg 1)))
+         ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+         (t (self-insert-command (or arg 1))))
+      (self-insert-command 1))))
 (global-set-key "%" 'match-paren)
 
 ;; -----------------------------------------------------------------------------
