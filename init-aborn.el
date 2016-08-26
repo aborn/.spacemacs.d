@@ -30,6 +30,8 @@
 (require 'init-helm-aborn)
 (require 'insert-string)                   ;; 插入基本字符串
 (require 'multi-term-config)
+(add-to-list 'ivy-sort-functions-alist
+             '(t . nil))                   ;; 不要按字符串排序，使用默认排序
 
 ;; -----------------------------------------------------------------------------
 ;; parts 部分，自己写的一些函数，在parts/目录
