@@ -82,6 +82,9 @@ values."
                                       deft
                                       v2ex-mode
                                       leanote
+                                      smex
+                                      ivy-smex
+                                      helm-smex
                                       highlight-defined
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
