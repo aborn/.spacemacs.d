@@ -81,7 +81,6 @@ values."
                                       multiple-cursors
                                       deft
                                       v2ex-mode
-                                      leanote
                                       smex
                                       ivy-smex
                                       helm-smex

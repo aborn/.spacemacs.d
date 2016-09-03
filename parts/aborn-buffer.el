@@ -74,7 +74,10 @@
         (save-current-buffer
           (message "append buffer *Messages* content to %s" local-save-file-name)
           (set-buffer "*Messages*")
-          (append-to-file (point-min) (point-max) local-save-file-name))))))
+          (write-region (decode-coding-string (buffer-string) 'utf-8)
+                        nil local-save-file-name 'append)
+          ;;(append-to-file (point-min) (point-max) local-save-file-name)
+          )))))
 
 (defun aborn/rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
