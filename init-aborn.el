@@ -218,6 +218,8 @@
 ;; develop && test leanote-mode
 (add-to-list 'load-path "~/github/leanote-mode/")
 (require 'leanote)
+(add-to-list 'load-path "~/github/emacs-neotree/")
+(require 'neotree)
 
 (setq leanote-user-email "aborn@aborn.me")
 (add-hook 'markdown-mode-hook
