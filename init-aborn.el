@@ -216,10 +216,12 @@
 ;; (add-to-list 'load-path "~/github/v2ex-mode/")
 ;; (load "v2ex-mode")
 ;; develop && test leanote-mode
-(add-to-list 'load-path "~/github/leanote-mode/")
-(require 'leanote)
-(add-to-list 'load-path "~/github/emacs-neotree/")
-(require 'neotree)
+;; (add-to-list 'load-path "~/github/leanote-mode/")
+;; (require 'leanote)
+
+(when (file-directory-p "~/github/emacs-neotree/")
+  (add-to-list 'load-path "~/github/emacs-neotree/")
+  (require 'neotree))
 
 (setq leanote-user-email "aborn@aborn.me")
 (add-hook 'markdown-mode-hook
@@ -243,5 +245,5 @@
 (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-08-30
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
