@@ -30,28 +30,28 @@ values."
      markdown
      org
      (shell :variables
-             shell-default-height 30
-             shell-default-position 'bottom)
-      spell-checking
-      syntax-checking
-      version-control
-      elixir
-      erlang
-      html
-      java
-      javascript
-      python
-      ruby
-      go
-      sql
-      racket
-      clojure
-      shell-scripts
-      colors
-      gtags      ;; 见http://spacemacs.org/layers/gtags/README.html
-      semantic
-      aborn           ;; 自己安装包的layer
-      )
+            shell-default-height 30
+            shell-default-position 'bottom)
+     spell-checking
+     syntax-checking
+     version-control
+     elixir
+     erlang
+     html
+     java
+     javascript
+     python
+     ruby
+     go
+     sql
+     racket
+     clojure
+     shell-scripts
+     colors
+     gtags      ;; 见http://spacemacs.org/layers/gtags/README.html
+     semantic
+     aborn           ;; 自己安装包的layer
+     )
    ;;
    ;; 通过package-install安装的包放在dotspacemacs-additional-packages
    ;; 这个变量里，否则spacemacs初始化的时候会删除它
@@ -87,6 +87,7 @@ values."
                                       highlight-defined
                                       cider
                                       projectile
+                                      leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
