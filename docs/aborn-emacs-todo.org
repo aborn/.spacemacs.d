@@ -12,6 +12,8 @@
 ** TODO 添加对当前local的elpa的备份
 ** TODO 从本地安装cask的依赖
 ** TODO C-DEL 表现跟intellij一样
+** TODO 删除~/.emacs.d/elpa里无用老版本包
+** TODO elisp文件快速的函数名跳转
 ** TODO 添加recent-visit-directories功能，并且可搜索切换
 ** ONGOING multi-term的优化, multi-term-plus.el开发
 - State "ONGOING"    from "TODO"       [2016-08-21 Sun 16:29]
