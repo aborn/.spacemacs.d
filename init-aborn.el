@@ -64,6 +64,7 @@
 (prefer-coding-system 'utf-8)
 (beacon-mode 1)                            ;; 再也不用担心鼠标在哪了
 (setq beacon-blink-when-focused t)
+(setq show-paren-style 'expression)        ;; 高亮括号内内容
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
