@@ -63,6 +63,7 @@
 (defun aborn/backward-kill-word ()
   "Customize backward-kill-word for RET."
   (interactive)
-  )
+  (let* ((pos (re-search-backward "\t" nil t)))
+    (message "%s %s" (point) pos)))
 
 (provide 'aborn-utils)
