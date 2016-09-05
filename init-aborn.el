@@ -65,6 +65,8 @@
 (beacon-mode 1)                            ;; 再也不用担心鼠标在哪了
 (setq beacon-blink-when-focused t)
 (setq show-paren-style 'expression)        ;; 高亮括号内内容
+;;(set-face-background 'hl-line "#3e4446") ;; 设置高亮当前行的颜色
+;;(set-face-foreground 'highlight nil)
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
