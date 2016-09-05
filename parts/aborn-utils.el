@@ -60,4 +60,9 @@
       (kill-new filename)
       (message "File name was copied '%s' to the clipboard." filename))))
 
+(defun aborn/backward-kill-word ()
+  "Customize backward-kill-word for RET."
+  (interactive)
+  )
+
 (provide 'aborn-utils)
