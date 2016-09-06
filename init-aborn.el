@@ -247,6 +247,12 @@
 ;; https://github.com/Fanael/highlight-defined
 (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
 
+;; wakatime的配置
+;; 两个关键变量 wakatime-api-key & wakatime-cli-path (which wakatime)
+;; https://wakatime.com/help/plugins/emacs
+;; https://wakatime.com/@aborn
+(global-wakatime-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

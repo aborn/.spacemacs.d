@@ -87,6 +87,7 @@ values."
                                       highlight-defined
                                       cider
                                       projectile
+                                      wakatime-mode
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -314,11 +315,17 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/github/eden/dianping/SharkPush.org" "~/github/eden/career/appkit-buglist.org" "~/github/leanote-mode/docs/leanote-dev-plan.org" "~/github/eden/dianping/agenda.org" "~/.spacemacs.d/docs/aborn-emacs-todo.org" "~/github/eden/plan/reading2016/reading-plan.org"))))
+    ("~/github/eden/dianping/SharkPush.org" "~/github/eden/career/appkit-buglist.org" "~/github/leanote-mode/docs/leanote-dev-plan.org" "~/github/eden/dianping/agenda.org" "~/.spacemacs.d/docs/aborn-emacs-todo.org" "~/github/eden/plan/reading2016/reading-plan.org")))
+ '(wakatime-api-key "e191899f-9e2a-4d00-8100-4e9f9523decb"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Source Code Pro" :foundry "nil" :slant normal :weight normal :height 150 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(highlight-defined-builtin-function-name-face ((((class color) (min-colors 88) (background dark)) :foreground "#7b875b")))
+ '(highlight-defined-function-name-face ((((class color) (min-colors 88)) :foreground "#997599")))
+ '(highlight-defined-special-form-name-face ((((class color) (min-colors 88)) :foreground "#626262")))
+ '(highlight-defined-variable-name-face ((((class color) (min-colors 88)) :foreground "#8d5351"))))
