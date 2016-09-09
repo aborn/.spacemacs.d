@@ -255,6 +255,11 @@
 ;; https://wakatime.com/@aborn
 (global-wakatime-mode)
 
+;; helm-github-stars 插件
+;; M-x helm-github-stars
+;; 更新本地缓存 M-x helm-github-stars-fetch
+(setq helm-github-stars-username "aborn")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-04
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-10
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
