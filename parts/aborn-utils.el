@@ -61,9 +61,16 @@
       (message "File name was copied '%s' to the clipboard." filename))))
 
 (defun aborn/backward-kill-word ()
-  "Customize backward-kill-word for RET."
+  "Customize/Smart backward-kill-word."
   (interactive)
-  (let* ((pos (search-backward "\n")))
-    (message "%s %s" (point) pos)))
+  (let* ((cp (point))
+         (end))
+    (save-excursion
+      (let* ((pos (search-backward-regexp "\n")))
+        (setq end (and (s-blank? (s-trim (buffer-substring pos cp)))
+                       pos))))
+    (if end
+        (kill-region cp end)
+      (backward-kill-word 1))))
 
 (provide 'aborn-utils)
