@@ -70,3 +70,5 @@
       (message "ggg")
     (message "kkk"))
   (message "%s%s" arg current-prefix-arg))
+
+(setq neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" ".el$"))

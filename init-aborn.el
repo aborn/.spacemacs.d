@@ -225,8 +225,8 @@
 (when (file-directory-p "~/github/emacs-neotree/")
   (add-to-list 'load-path "~/github/emacs-neotree/")
   (require 'neotree)
-  (when (symbolp neo-toggle-window-keep-p)
-    (setq neo-toggle-window-keep-p t)))
+  (setq neo-toggle-window-keep-p t)
+  (setq neo-force-change-root t))
 
 (setq leanote-user-email "aborn@aborn.me")
 (add-hook 'markdown-mode-hook
