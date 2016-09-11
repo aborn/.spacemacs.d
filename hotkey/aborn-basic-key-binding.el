@@ -17,10 +17,10 @@
 ;; (global-set-key "\C-x\C-m" 'indent-region)
 
 ;; 格式化当前buffer所有内容
-(defun ab/indent-regin ()
+(defun aborn/indent-regin ()
   (interactive)
   (indent-region (point-min) (point-max)))
-(global-set-key "\C-x\C-m" 'ab/indent-regin)
+(global-set-key "\C-x\C-m" 'aborn/indent-regin)
 
 ;; (global-set-key (kbd "M-n") 'set-mark-command)
 (global-set-key "\C-x\C-l" 'copy-one-line)
