@@ -227,7 +227,8 @@
   (require 'neotree)
   (setq neo-toggle-window-keep-p t)  ;; 刷新时保持光标在当前位置
   (setq neo-show-hidden-files nil)   ;; 不显示隐藏文件
-  (setq neo-force-change-root t))
+  (setq neo-force-change-root t)
+  (spacemacs/set-leader-keys "tr" 'neotree-refresh))
 
 (setq leanote-user-email "aborn@aborn.me")
 (add-hook 'markdown-mode-hook
