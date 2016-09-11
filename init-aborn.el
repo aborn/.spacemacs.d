@@ -225,7 +225,8 @@
 (when (file-directory-p "~/github/emacs-neotree/")
   (add-to-list 'load-path "~/github/emacs-neotree/")
   (require 'neotree)
-  (setq neo-toggle-window-keep-p t)
+  (setq neo-toggle-window-keep-p t)  ;; 刷新时保持光标在当前位置
+  (setq neo-show-hidden-files nil)   ;; 不显示隐藏文件
   (setq neo-force-change-root t))
 
 (setq leanote-user-email "aborn@aborn.me")
