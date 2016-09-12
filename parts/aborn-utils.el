@@ -1,3 +1,4 @@
+;; Package-Requires: ((let-alist "1.0.3") (s "1.10.0"))
 (defun aborn/create-scratch-buffer nil
   "create a scratch buffer"
   (interactive)
