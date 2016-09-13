@@ -1,4 +1,4 @@
-;;; aborn-utils.el --- A minor mode writing markdown leanote  -*- lexical-binding: t; -*-
+;;; aborn-utils.el --- Aborn's utils package.  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2016 Aborn Jiang
 
 ;; Author: Aborn Jiang <aborn.jiang@gmail.com>
