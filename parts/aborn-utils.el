@@ -1,4 +1,11 @@
+;;; aborn-utils.el --- A minor mode writing markdown leanote  -*- lexical-binding: t; -*-
+;; Copyright (C) 2016 Aborn Jiang
+
+;; Author: Aborn Jiang <aborn.jiang@gmail.com>
+;; Version: 0.1.0
 ;; Package-Requires: ((let-alist "1.0.3") (s "1.10.0"))
+;; Keywords: utils
+
 (defun aborn/create-scratch-buffer nil
   "create a scratch buffer"
   (interactive)
@@ -75,3 +82,4 @@
       (backward-kill-word 1))))
 
 (provide 'aborn-utils)
+;;; aborn-utils.el ends here
