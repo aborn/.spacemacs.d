@@ -68,6 +68,7 @@
       (kill-new filename)
       (message "File name was copied '%s' to the clipboard." filename))))
 
+;; http://stackoverflow.com/questions/28221079/ctrl-backspace-in-emacs-deletes-too-much/39438119#39438119
 (defun aborn/backward-kill-word ()
   "Customize/Smart backward-kill-word."
   (interactive)
