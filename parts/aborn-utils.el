@@ -94,8 +94,7 @@
               (fe (re-search-forward "\s")))
           (when (and ft fe)
             (message "%s  %s" (line-number-at-pos) (buffer-substring ft fe))
-            (add-to-list 'result `(,(line-number-at-pos) . ,(s-trim (buffer-substring-no-properties ft fe))))
-            )
+            (add-to-list 'result `(,(line-number-at-pos) . ,(s-trim (buffer-substring-no-properties ft fe)))))
           )))
     result))
 
