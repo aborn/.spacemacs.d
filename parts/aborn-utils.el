@@ -87,12 +87,10 @@
   (interactive)
   (let* (collection key)
     (setq collection (aborn/current-elisp-functions))
-    (setq ab/debug collection)
     (setq key (completing-read "find elisp function by name: "
                                collection))
-    (let ((pos-line (car (assoc-default key collection))))
-      (message "pos-line=%s" pos-line)
-      )))
+    (let ((pos-line (assoc-default key collection)))
+      (goto-line pos-line))))
 
 (defun aborn/current-elisp-functions ()
   "Get current elisp function defs"
@@ -104,11 +102,11 @@
         (let ((ft (re-search-forward "(defun\s+"))
               (fe (re-search-forward "\s")))
           (when (and ft fe)
-            (message "%s  %s" (line-number-at-pos) (buffer-substring ft fe))
             (add-to-list 'result `(,(format "%s %s" (line-number-at-pos) (s-trim (buffer-substring-no-properties ft fe)))
                                    .
                                    ,(line-number-at-pos)
-                                   )))
+                                   )
+                         t))
           )))
     result))
 
