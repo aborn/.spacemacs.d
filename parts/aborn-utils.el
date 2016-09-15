@@ -87,10 +87,14 @@
   (interactive)
   (save-excursion
     (beginning-of-buffer)
-    (let ((ft (re-search-forward "(defun\s+"))
-          (fe (re-search-forward "\s")))
-      (message "%s %s %s" ft fe (buffer-substring ft fe))
-      )))
+    (while (not (eobp))
+      (let ((ft (re-search-forward "(defun\s+"))
+            (fe))
+        (when ft
+          (setq fe (re-search-forward "\s"))
+          (when fe
+            (message "^%s %s" (line-end-position) (buffer-substring ft fe))))
+        ))))
 
 (provide 'aborn-utils)
 ;;; aborn-utils.el ends here
