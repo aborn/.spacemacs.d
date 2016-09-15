@@ -93,7 +93,7 @@
         (when ft
           (setq fe (re-search-forward "\s"))
           (when fe
-            (message "^%s %s" (line-end-position) (buffer-substring ft fe))))
+            (message "^%s %s" (line-number-at-pos) (buffer-substring ft fe))))
         ))))
 
 (provide 'aborn-utils)
