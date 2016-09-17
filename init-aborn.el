@@ -227,7 +227,7 @@
   (require 'neotree)
   (setq neo-toggle-window-keep-p t)  ;; 刷新时保持光标在当前位置
   (setq neo-show-hidden-files nil)   ;; 不显示隐藏文件
-  (setq neo-force-change-root t)
+  (setq neo-force-change-root t)     ;; 当root改变时，是否强制相应改变而不需要询问
   (spacemacs/set-leader-keys "tr" 'neotree-refresh))
 
 (setq leanote-user-email "aborn@aborn.me")
