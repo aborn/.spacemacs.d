@@ -89,6 +89,7 @@ values."
                                       projectile
                                       wakatime-mode
                                       helm-github-stars
+                                      all-the-icons
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
