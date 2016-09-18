@@ -6,7 +6,9 @@
 
 # ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.0.95.tar.xz
 # ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc1.tar.xz
-wget ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc2.tar.xz
+# ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc2.tar.xz
+# 25.1 release version
+wget http://ftpmirror.gnu.org/emacs/emacs-25.1.tar.xz 
 
 # unzip
 xz -d emacs-25.0.95.tar.xz
