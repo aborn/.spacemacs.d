@@ -21,6 +21,7 @@ sudo apt-get install libgtk-3-dev #first
 sudo apt-get install libwebkitgtk-dev
 sudo apt-get install libwebkitgtk-3.0-dev
 
+# ./configure --with-modules
 ./configure --with-xwidgets  --with-x-toolkit=gtk3
 make
 sudo make install
