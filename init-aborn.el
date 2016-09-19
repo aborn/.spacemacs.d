@@ -228,6 +228,8 @@
   (setq neo-toggle-window-keep-p t)  ;; 刷新时保持光标在当前位置
   (setq neo-show-hidden-files nil)   ;; 不显示隐藏文件
   (setq neo-force-change-root t)     ;; 当root改变时，是否强制相应改变而不需要询问
+  (setq neo-persist-show t)          ;; C-x 1 时neotree window不关闭
+  (setq neo-dont-be-alone t)         ;; 不要让neotree window单独存在
   (require 'all-the-icons)
   (setq neo-theme (if window-system 'icons 'arrow))
   ;; (setq neo-theme 'icons)
@@ -266,5 +268,5 @@
 (setq helm-github-stars-username "aborn")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-10
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-19
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
