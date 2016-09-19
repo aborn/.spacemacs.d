@@ -90,6 +90,7 @@ values."
                                       wakatime-mode
                                       helm-github-stars
                                       all-the-icons
+                                      column-marker
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.

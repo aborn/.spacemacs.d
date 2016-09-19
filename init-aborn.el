@@ -232,6 +232,7 @@
   (setq neo-dont-be-alone t)         ;; 不要让neotree window单独存在
   (require 'all-the-icons)
   (setq neo-theme (if window-system 'icons 'arrow))
+  ;; (setq neo-theme (if window-system 'classic 'arrow))
   ;; (setq neo-theme 'icons)
   (spacemacs/set-leader-keys "tr" 'neotree-refresh))
 
