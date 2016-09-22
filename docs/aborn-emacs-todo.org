@@ -13,6 +13,7 @@
 ** TODO 从本地安装cask的依赖
 ** TODO C-DEL 表现跟intellij一样
 ** TODO 删除~/.emacs.d/elpa里无用老版本包
+** TODO orgmode时C-o没绑定到ace-window
 ** DONE elisp文件快速的函数名跳转
 CLOSED: [2016-09-16 Fri 20:36]
 - State "DONE"       from "ONGOING"    [2016-09-16 Fri 20:36]
