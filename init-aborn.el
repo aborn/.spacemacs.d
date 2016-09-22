@@ -268,6 +268,7 @@
 ;; 更新本地缓存 M-x helm-github-stars-fetch
 (setq helm-github-stars-username "aborn")
 
+;; 注意：ivy创建文件M-ENTER
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-22
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
