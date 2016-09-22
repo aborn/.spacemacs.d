@@ -91,6 +91,7 @@ values."
                                       helm-github-stars
                                       all-the-icons
                                       column-marker
+                                      easy-kill
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
