@@ -26,7 +26,11 @@
 (global-set-key "\C-x\C-l" 'copy-one-line)
 (global-set-key "\C-i" 'just-one-space)
 (if (functionp 'ace-window)
-    (global-set-key "\C-o" 'ace-window)
+    (progn
+      (global-set-key "\C-o" 'ace-window)
+      (setq aw-ignored-buffers `("*Calc Trail*" "*LV*" " *NeoTree*"))  ;; ,neo-buffer-name
+      ;;(add-to-list 'aw-ignored-buffers " *NeoTree*")  ;; 这要加到hook里才行
+      )
   (global-set-key "\C-o" 'other-window))
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key "\C-x\C-e" 'eval-current-buffer)
