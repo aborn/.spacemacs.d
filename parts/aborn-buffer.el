@@ -111,11 +111,13 @@
 (defun aborn/delete-file-and-buffer ()
   "Delete current buffer and its visiting file."
   (let ((filename (buffer-file-name)))
-    (when filename
+    (when (and filename
+               (file-exists-p filename))
       (delete-file filename)
-      (kill-buffer)
       (when (listp recentf-list)
-        (delete filename recentf-list)))))
+        (delete filename recentf-list)))
+    (when (buffer-exists (current-buffer))
+      (kill-buffer))))
 
 (defun aborn/delete-file ()
   "Kill the current buffer and deletes the file it is visiting."
