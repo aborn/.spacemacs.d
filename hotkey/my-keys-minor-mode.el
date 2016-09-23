@@ -13,6 +13,9 @@
     (define-key map (kbd "M-j") 'ido-find-file)
     (define-key map (kbd "C-i") 'aborn/just-one-space)
     (define-key map [C-backspace] 'aborn/backward-kill-word)
+    (define-key map (kbd "C-;") 'move-forward-by-five)
+    (define-key map (kbd "C-:") 'move-backward-by-five)
+    (define-key map (kbd "C-'") 'move-middle-of-line)
     map)
   "my-keys-minor-mode keymap.")
 
