@@ -51,9 +51,6 @@
 (global-set-key (kbd "C-c w")
                 'aborn/copy-selected-content)
 
-(global-set-key  [C-backspace]
-                'aborn/backward-kill-word)
-
 (global-set-key [remap kill-ring-save] 'easy-kill)
 
 (provide 'aborn-global-key-binding)

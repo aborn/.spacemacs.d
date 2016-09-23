@@ -11,6 +11,8 @@
     (define-key map (kbd "C-o") 'ace-window)
     (define-key map (kbd "C-j") 'helm-buffers-list)
     (define-key map (kbd "M-j") 'ido-find-file)
+    (define-key map (kbd "C-i") 'aborn/just-one-space)
+    (define-key map [C-backspace] 'aborn/backward-kill-word)
     map)
   "my-keys-minor-mode keymap.")
 
@@ -18,7 +20,7 @@
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   :init-value t
-  :lighter " my-keys")
+  :lighter " Ⓖ")
 
 (defun my-keys-have-priority (_file)
   "Try to ensure that my keybindings retain priority over other minor modes.

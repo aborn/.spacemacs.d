@@ -6,7 +6,7 @@
 (aborn/log "aborn's emacs start to init...")
 (require 'cl-lib)
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
-(when (string= system-type "darwin")       ;; mac系统用command代替alter作为键
+(when (string= system-type "darwin")       ;; mac系统用command代替alter作为M键
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta))
 
@@ -278,5 +278,5 @@
 ;; 看这里：https://www.reddit.com/r/emacs/comments/40u3ra/how_to_create_a_new_file_with_ivymode_on/
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-22
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-09-24
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
