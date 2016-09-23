@@ -268,6 +268,11 @@
 ;; 更新本地缓存 M-x helm-github-stars-fetch
 (setq helm-github-stars-username "aborn")
 
+;;; 全局的key-binding放在这里
+(require 'my-keys-minor-mode)
+(my-keys-minor-mode 1)
+(add-hook 'minibuffer-setup-hook #'my-keys-turn-off)
+(add-hook 'after-load-functions 'my-keys-have-priority)
 ;;; docs
 ;; 注意：ivy创建文件M-ENTER
 ;; 看这里：https://www.reddit.com/r/emacs/comments/40u3ra/how_to_create_a_new_file_with_ivymode_on/

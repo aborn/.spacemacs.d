@@ -92,6 +92,7 @@ values."
                                       all-the-icons
                                       column-marker
                                       easy-kill
+                                      ace-window
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
