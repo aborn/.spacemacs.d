@@ -1,3 +1,5 @@
+;;; aborn-global-key-binding.el  --- Aborn global key binding.
+
 ;; --------------------------------------------------------------------
 ;; provide all global key bindings 
 ;; global hot key (key binding) setting all together 
@@ -17,10 +19,6 @@
 (global-set-key "\C-cn" 'ab/insert-name-english)
 (global-set-key "\C-cN" 'ab/insert-name-chinese)
 (global-set-key "\C-cl" 'aborn/switch-buffer-each-other)
-
-;; window-dealing related.
-(global-set-key "\C-ch" 'ab/window-layout-default)
-(global-set-key "\C-cH" 'ab/window-layout-codeview)
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -53,4 +51,8 @@
 
 (global-set-key [remap kill-ring-save] 'easy-kill)
 
+(spacemacs/set-leader-keys "gd" 'magit-diff)
+(spacemacs/set-leader-keys "gp" 'aborn/swift-git-commit-push)
+
 (provide 'aborn-global-key-binding)
+;;; aborn-global-key-binding.el ends here
