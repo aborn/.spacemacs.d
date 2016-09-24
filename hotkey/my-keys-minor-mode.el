@@ -39,3 +39,4 @@ Called via the `after-load-functions' special hook."
   (my-keys-minor-mode -1))
 
 (provide 'my-keys-minor-mode)
+;;; my-keys-minor-mode.el ends here
