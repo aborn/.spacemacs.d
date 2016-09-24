@@ -1,10 +1,15 @@
 ;;; move-swift.el   --- Move swfit & fast in emacs
 (defun move-middle-of-line (arg)
   "Move point to the middle of line current displayed" 
-  (interactive "p")
-  (message "move to middle of line, cur=%d." (current-column))
-  (end-of-line)
-  (backward-char (/ (current-column) 2)))
+  (interactive "P")
+  (if (or (bolp) (eolp))
+      (progn
+        (let ((subpos (- (line-end-position) (line-beginning-position))))
+          (goto-char (+ (/ subpos 2) (line-beginning-position)))))
+    (progn
+      (goto-char (if arg
+                     (+ (point) (/ (- (line-end-position) (point)) 2))
+                   (+ (line-beginning-position) (/ (- (point) (line-beginning-position)) 2)))))))
 
 (defun move-forward-by-five (arg)
   "Move point forward by five lines"
