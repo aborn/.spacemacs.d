@@ -5,4 +5,5 @@
 (define-key aborn-prefix-map (kbd "d b") 'aborn/delete-buffer)
 (define-key aborn-prefix-map (kbd "g a") 'aborn/git-code-update)
 (define-key aborn-prefix-map (kbd "g u") 'aborn/swift-git-commit-push)
+(define-key aborn-prefix-map (kbd "f n") 'aborn/copy-file-name-to-clipboard)
 (global-set-key "\C-c\C-c" aborn-prefix-map)
