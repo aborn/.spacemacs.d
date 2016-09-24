@@ -3,13 +3,11 @@
   "Move point to the middle of line current displayed" 
   (interactive "P")
   (if (or (bolp) (eolp))
-      (progn
-        (let ((subpos (- (line-end-position) (line-beginning-position))))
-          (goto-char (+ (/ subpos 2) (line-beginning-position)))))
+      (goto-char (/ (+ (point-at-bol) (point-at-eol)) 2))
     (progn
-      (goto-char (if arg
-                     (+ (point) (/ (- (line-end-position) (point)) 2))
-                   (+ (line-beginning-position) (/ (- (point) (line-beginning-position)) 2)))))))
+      (goto-char (/ (+ (point)
+                       (if arg (point-at-eol) (point-at-bol)))
+                    2)))))
 
 (defun move-forward-by-five (arg)
   "Move point forward by five lines"
