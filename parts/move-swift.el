@@ -1,3 +1,4 @@
+;;; move-swift.el   --- Move swfit & fast in emacs
 (defun move-middle-of-line (arg)
   "Move point to the middle of line current displayed" 
   (interactive "p")
@@ -51,3 +52,4 @@ point reaches the beginning or end of the buffer, stop there."
                    (quote ([21 134217848 115 101 116 45 109 97 114 107 45 99 111 109 109 97 110 100 return] 0 "%d")) arg)))
 
 (provide 'move-swift)
+;;; move-swift.el ends here
