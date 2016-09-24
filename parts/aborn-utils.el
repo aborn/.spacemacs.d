@@ -55,18 +55,17 @@
   (interactive "P")
   (insert (shell-command-to-string "ifconfig |egrep \"10\\.|172\\.|192\\.\" |awk '{print $2}'")))
 
-(defun aborn/copy-file-name-to-clipboard ()
+(defun aborn/copy-file-name-to-clipboard (arg)
   "Copy the current buffer file name to the clipboard."
-  (interactive)
-  (let ((filename (if (or
-                       (eq major-mode 'dired-mode)
-                       (eq major-mode 'inferior-emacs-lisp-mode)
-                       (eq major-mode 'term-mode))
-                      default-directory
-                    (buffer-file-name))))
+  (interactive "P")
+  (let ((filename (or (buffer-file-name) default-directory)))
+    (unless arg
+      (when (string-suffix-p "/" filename)    ;; path
+        (setq filename (substring filename 0 (- (length filename) 1))))
+      (setq filename (file-name-nondirectory filename)))
     (when filename
       (kill-new filename)
-      (message "File name was copied '%s' to the clipboard." filename))))
+      (message "File name \"%s\" was copied to the clipboard." filename))))
 
 ;; http://stackoverflow.com/questions/28221079/ctrl-backspace-in-emacs-deletes-too-much/39438119#39438119
 (defun aborn/backward-kill-word ()
