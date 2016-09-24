@@ -49,7 +49,7 @@ values."
      shell-scripts
      colors
      gtags      ;; 见http://spacemacs.org/layers/gtags/README.html
-     semantic
+     ;; semantic  ;; 暂时不要用这个包，会卡死
      aborn           ;; 自己安装包的layer
      )
    ;;
