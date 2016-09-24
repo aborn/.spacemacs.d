@@ -18,11 +18,11 @@ spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](htt
 全局按键放在[my-keys-mode](./hotkey/my-keys-minor-mode.el)这个mode里
 
 ### 最基本按键绑定
-*C-j* 切换buffer
-*M-j* 打开文件
-*C-;* 快速下移5行
-*C-:* 快速上移动5行
-*C-'* 移动到一行最中间位置
+*C-j* 切换buffer  
+*M-j* 打开文件  
+*C-;* 快速下移5行  
+*C-:* 快速上移动5行  
+*C-'* 移动到一行最中间位置  
 
 ## screenshot 
 * spacemacs  
