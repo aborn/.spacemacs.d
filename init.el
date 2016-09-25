@@ -303,6 +303,7 @@ user code here.  The exception is org related code, which should be placed in
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (setq custom-file "~/.spacemacs.d/custom.el")
+  (load custom-file :noerror)
   (add-to-list 'load-path "~/.spacemacs.d/parts")
   (add-to-list 'load-path "~/.spacemacs.d/modules")
   (add-to-list 'load-path "~/.spacemacs.d/hotkey")
