@@ -302,6 +302,7 @@ user code here.  The exception is org related code, which should be placed in
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  ;; https://www.reddit.com/r/emacs/comments/53zpv9/how_do_i_get_emacs_to_stop_adding_custom_fields/
   (setq custom-file "~/.spacemacs.d/custom.el")
   (load custom-file :noerror)
   (add-to-list 'load-path "~/.spacemacs.d/parts")
