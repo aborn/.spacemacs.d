@@ -1,6 +1,7 @@
 ;;;  my-keys-minor-mode.el --- Global key minor mode
 
-;; ref:
+;; 强制的全局快捷键绑定
+;; 参考:
 ;; http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs
 ;; http://emacs.stackexchange.com/questions/352/how-to-override-major-mode-bindings
 ;;
