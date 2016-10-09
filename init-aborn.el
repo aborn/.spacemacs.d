@@ -268,6 +268,8 @@
 ;; https://wakatime.com/help/plugins/emacs
 ;; https://wakatime.com/@aborn
 (global-wakatime-mode)
+;; https://github.com/wakatime/wakatime-mode/issues/6
+(setq wakatime-python-bin "/usr/bin/python")
 
 ;; helm-github-stars 插件
 ;; M-x helm-github-stars
