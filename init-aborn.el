@@ -81,6 +81,9 @@
 ;; 前提条件：Source Code Pro 这种字体在你电脑里已经安装了！
 ;; https://github.com/adobe-fonts/source-code-pro
 ;; mac osx用户将.otf文件拷贝到 ~/Library/Fonts/ 即可
+;; ubuntu linux:
+;;     1. sudo cp TTF/*.ttf  /usr/share/fonts
+;;     2. reboot computer or execute command: fc-cache -f -v
 ;; -----------------------------------------------------------------------------
 (setq-default dotspacemacs-default-font '("Source Code Pro"
                                           :size 15
