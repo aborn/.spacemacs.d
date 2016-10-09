@@ -11,6 +11,11 @@ Starting new Ispell process /usr/bin/aspell with default dictionary...
 Error enabling Flyspell mode:
 (Error: The file "/usr/lib/aspell/en-common.rws" can not be opened for reading.)
 
+error in process sentinel: progn: WakaTime Error (2)
+error in process sentinel: WakaTime Error (2)
+error in process sentinel: progn: WakaTime Error (2)
+error in process sentinel: WakaTime Error (2)
+
 Debugger entered--Lisp error: (error "WakaTime Error (2)")
   signal(error ("WakaTime Error (2)"))
   error("WakaTime Error (%s)" 2)
