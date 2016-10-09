@@ -269,7 +269,9 @@
 ;; https://wakatime.com/@aborn
 (global-wakatime-mode)
 ;; https://github.com/wakatime/wakatime-mode/issues/6
-(setq wakatime-python-bin "/usr/bin/python")
+(when (string= system-type "gnu/linux")
+  (message "gnu/linux system")
+  (setq wakatime-python-bin "/usr/bin/python2"))
 
 ;; helm-github-stars 插件
 ;; M-x helm-github-stars
