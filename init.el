@@ -93,6 +93,7 @@ values."
                                       column-marker
                                       easy-kill
                                       ace-window
+                                      buffer-move
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
