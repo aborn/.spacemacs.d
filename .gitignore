@@ -4,3 +4,4 @@ ab-installed-packages
 temp.el
 temp.txt
 custom.el
+*.tex
