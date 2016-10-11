@@ -74,8 +74,11 @@
   (let* ((cp (point))
          (end))
     (save-excursion
-      (let* ((pos (search-backward-regexp "\n")))
-        (setq end (and (s-blank? (s-trim (buffer-substring pos cp)))
+      (let* ((pos (search-backward-regexp "\n"))
+             (substr (buffer-substring pos cp)))
+        (message "%S" substr)
+        (setq ab/debug substr)
+        (setq end (and (s-blank? (s-trim substr))
                        pos))))
     (if end
         (kill-region cp end)
