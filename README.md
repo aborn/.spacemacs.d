@@ -6,7 +6,7 @@ spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](htt
 * **backup** 备份文件  
 * **demo** 一些示例代码，仅用于debug  
 * **docs** 文档目录  
-* **hotkey** 按键绑定的配置  
+* **hotkey** 按键绑定的配置,全局按键的绑定见[my-keys-minor-mode.el](./hotkey/my-keys-minor-mode.el)  
 * **layers** 自己写的layer  
 * **modules** 文件夹主要保存网上的开源packages(主要是些不在melpa源里的包)  
 * **parts** 主要一些自己写的配置及工具  
