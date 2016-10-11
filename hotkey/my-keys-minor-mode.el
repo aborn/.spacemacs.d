@@ -17,6 +17,7 @@
     (define-key map (kbd "C-;") 'move-forward-by-five)
     (define-key map (kbd "C-:") 'move-backward-by-five)
     (define-key map (kbd "C-'") 'move-middle-of-line)
+    (define-key map (kbd "C-s") 'swiper)
     map)
   "my-keys-minor-mode keymap.")
 
