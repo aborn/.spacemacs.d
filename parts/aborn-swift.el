@@ -3,9 +3,10 @@
   "commit modified and push to upstream"
   (interactive "sCommit Message: ")
   (when (= 0 (length msg))
-    (setq msg (format-time-string "update@%Y-%m-%d %H:%M:%S" (current-time))))
+    (setq msg (format-time-string "commit by magit in emacs@%Y-%m-%d %H:%M:%S" (current-time))))
   (message "commit message is %s" msg)
-  (save-buffer)
+  (when (buffer-file-name)
+    (save-buffer))
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
   (async-start
