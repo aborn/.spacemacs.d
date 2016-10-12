@@ -87,7 +87,7 @@
          (ext (file-name-extension filename)))
     (unless filename
       (error "Buffer '%s' is not visiting a file! Rename failed." name))
-    (unless (string-suffix-p ext new-name)
+    (unless (s-contains? "." new-name)
       (setq new-name (concat new-name "." ext)))
     (when (equal current-prefix-arg '(4))
       (message "insert %% only"))
