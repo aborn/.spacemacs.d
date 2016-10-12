@@ -95,4 +95,9 @@
  org-catch-invisible-edits 'error ;; don't edit invisible text
  org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
  )
+
+;; 采用xelatex，支持Unicode(UTF-8)，支持中文汉字
+;; 原始值为: ("pdflatex -interaction nonstopmode -output-directory %o %f" "pdflatex -interaction nonstopmode -output-directory %o %f" "pdflatex -interaction nonstopmode -output-directory %o %f")
+(setq org-latex-pdf-process    '("xelatex -interaction nonstopmode %f"
+                                 "xelatex -interaction nonstopmode %f"))
 (provide 'aborn-org)
