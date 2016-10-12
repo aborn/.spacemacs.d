@@ -68,18 +68,21 @@
       (message "File name \"%s\" was copied to the clipboard." filename))))
 
 ;; http://stackoverflow.com/questions/28221079/ctrl-backspace-in-emacs-deletes-too-much/39438119#39438119
+;; 当backward-word里有"\n"只到"\n"处
 (defun aborn/backward-kill-word ()
   "Customize/Smart backward-kill-word."
   (interactive)
   (let* ((cp (point))
+         (backword)
          (end))
+    (save-excursion
+      (setq backword (buffer-substring (point) (progn (forward-word -1) (point)))))
     (save-excursion
       (let* ((pos (search-backward-regexp "\n"))
              (substr (buffer-substring pos cp)))
-        (message "%S" substr)
-        (setq ab/debug substr)
-        (setq end (and (s-blank? (s-trim substr))
-                       pos))))
+        (when (or (and (s-blank? (s-trim substr)))
+                  (s-contains? "\n" backword))
+          (setq end pos))))
     (if end
         (kill-region cp end)
       (backward-kill-word 1))))
