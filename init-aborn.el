@@ -68,6 +68,7 @@
 ;;(set-face-background 'hl-line "#3e4446") ;; 设置高亮当前行的颜色
 ;;(set-face-foreground 'highlight nil)
 (setq save-silently t)                     ;; 保存文件时不要询问,直接保存
+(setq buffer-save-without-query t)         ;; 调用save-some-buffers不需要询问
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
