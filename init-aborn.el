@@ -67,6 +67,7 @@
 (setq show-paren-style 'parenthesis)       ;; 高亮括号内内容 'expression
 ;;(set-face-background 'hl-line "#3e4446") ;; 设置高亮当前行的颜色
 ;;(set-face-foreground 'highlight nil)
+(setq save-silently t)                     ;; 保存文件时不要询问,直接保存
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
@@ -225,9 +226,9 @@
 ;; (add-to-list 'load-path "~/github/leanote-mode/")
 ;; (require 'leanote)
 
-(when (file-directory-p "~/github/emacs-neotree/")
-  (add-to-list 'load-path "~/github/emacs-neotree/")
-  (require 'neotree))
+;; (when (file-directory-p "~/github/emacs-neotree/")
+;;   (add-to-list 'load-path "~/github/emacs-neotree/")
+;;   (require 'neotree))
 
 ;; 设置neotree
 (setq neo-toggle-window-keep-p t)       ;; 刷新时保持光标在当前位置
