@@ -5,3 +5,6 @@ temp.el
 temp.txt
 custom.el
 *.tex
+GPATH
+GRTAGS
+GTAGS
