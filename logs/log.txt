@@ -1,3 +1,5 @@
+(Error: The file "/usr/lib/aspell/en-common.rws" can not be opened for reading.)
+
 Starting new Ispell process /usr/bin/aspell with default dictionary...
 Error enabling Flyspell mode:
 (Error: The file "/usr/lib/aspell/en-common.rws" is not in the proper format.)
