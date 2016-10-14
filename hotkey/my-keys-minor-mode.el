@@ -20,6 +20,7 @@
     (define-key map (kbd "C-s") 'swiper)
     (define-key map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
     (define-key map (kbd "M-,") 'pop-tag-mark)
+    (define-key map (kbd "C-M-i") 'complete-symbol)
     map)
   "my-keys-minor-mode keymap.")
 
@@ -27,7 +28,9 @@
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   :init-value t
-  :lighter " Ⓖ")
+  :lighter " Ⓖ"
+  ;; 区别C-i与TAB http://stackoverflow.com/questions/1792326/how-do-i-bind-a-command-to-c-i-without-changing-tab
+  (setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map)))
 
 (defun my-keys-have-priority (_file)
   "Try to ensure that my keybindings retain priority over other minor modes.
