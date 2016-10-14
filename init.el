@@ -316,6 +316,7 @@ layers configuration. You are free to put any user code."
   (add-to-list 'load-path "~/.spacemacs.d/modules")
   (add-to-list 'load-path "~/.spacemacs.d/hotkey")
   (add-to-list 'load-path "~/github/multi-term-plus")
+  (add-to-list 'load-path "~/github/emacs-cookbook")
   (require 'aborn-log)
   (load-file "~/.spacemacs.d/init-aborn.el")
   (load-file "~/.spacemacs.d/hotkey/aborn-prefix.el")
