@@ -18,6 +18,8 @@
     (define-key map (kbd "C-:") 'move-backward-by-five)
     (define-key map (kbd "C-'") 'move-middle-of-line)
     (define-key map (kbd "C-s") 'swiper)
+    (define-key map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
+    (define-key map (kbd "M-,") 'pop-tag-mark)
     map)
   "my-keys-minor-mode keymap.")
 

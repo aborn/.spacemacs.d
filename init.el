@@ -49,6 +49,10 @@ values."
      clojure
      shell-scripts
      colors
+     ;;(gtags :variables
+     ;;       gtags-enabled-for (php-mode emacs-lisp-mode)
+     ;;       gtags-enable-eldoc-for (emacs-lisp-mode))
+     ;;(cscope :variables cscope-enabled-for (c-mode python-mode))
      gtags      ;; 见http://spacemacs.org/layers/gtags/README.html
      ;; semantic  ;; 暂时不要用这个包，会卡死
      aborn           ;; 自己安装包的layer
@@ -96,6 +100,7 @@ values."
                                       ace-window
                                       buffer-move
                                       leanote
+                                      elisp-slime-nav
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
