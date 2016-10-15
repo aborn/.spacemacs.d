@@ -1,12 +1,6 @@
 ;;; aborn-core.el --- Aborn's core package
 
 ;; Copyright (C) 2016 Aborn Jiang
-
-;; Author: Aborn Jiang <aborn.jiang@gmail.com>
-;; Version: 0.1.0
-;; Package-Requires: ((let-alist "1.0.3") (s "1.10.0"))
-;; Keywords: core function
-
 ;; This file is not part of GNU Emacs.
 
 ;;; Code:

@@ -1,9 +1,12 @@
 ;; -----------------------------------------------------------------------------
-;; spacemacs 的个人配置及键绑定
+;; Aborn's Spacemacs Configurations.
 ;; by Aborn Jiang (aborn.jiang AT foxmail.com)
 ;; project: https://github.com/aborn/.spacemacs.d
 ;; -----------------------------------------------------------------------------
 (aborn/log "aborn's emacs start to init...")
+(message "------------------------------")
+(message "aborn's emacs start to init...")
+
 (require 'cl-lib)
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
 (when (string= system-type "darwin")       ;; mac系统用command代替alter作为M键
@@ -11,38 +14,36 @@
   (setq mac-command-modifier 'meta))
 
 ;; -----------------------------------------------------------------------------
-;; 最基本的全局快捷键
-;; 和全局require
+;; 最基本的全局load有require
 ;; -----------------------------------------------------------------------------
-(global-set-key "\C-o" 'other-window)
-(global-set-key (kbd "C-j") 'helm-buffers-list)
-(global-set-key (kbd "M-j") 'helm-find-files)
+(aborn/load-path-and-pkgs
+ '(("~/github/emacs-cookbook" cookbook)
+   ("~/.spacemacs.d/hotkey"                ;; 按键相关放在hotkey/目录下
+    aborn-basic-key-binding                ;; 基本的快捷键设置
+    aborn-global-key-binding               ;; 全局的快捷键绑定
+    aborn-major-mode-binding               ;; local major mode key binding
+    )
+   ("~/.spacemacs.d/parts"                 ;; 自己写的一些函数放在parts/目录下
+    move-swift                             ;; 快速移动
+    package-part                           ;; 包相关的
+    emacs-nifty-tricks
+    copy-line                              ;; copy当前行
+    aborn-buffer                           ;; buffer相关
+    window-dealing                         ;; window相关
+    init-helm-aborn                        ;; helm的初始化
+    insert-string                          ;; 插入基本字符串
+    aborn-async-action
+    aborn-persistent                       ;; 持久化存储
+    aborn-swift
+    aborn-gtd                              ;; getting things done
+    aborn-utils                            ;; 工具函数
+    aborn-face                             ;; 异步执行的任务
+    )
+   ("~/github/multi-term-plus" multi-term-config)
+   ))
 
-(require 'move-swift)                      ;; 快速移动
-(require 'aborn-basic-key-binding)         ;; 基本的快捷键设置
-(require 'aborn-global-key-binding)        ;; 全局的快捷键绑定
-(require 'aborn-major-mode-binding)        ;; local major mode key binding
-(require 'package-part)
-(require 'emacs-nifty-tricks)
-(require 'copy-line)
-(require 'aborn-buffer)
-(require 'window-dealing)
-(require 'init-helm-aborn)
-(require 'insert-string)                   ;; 插入基本字符串
-(require 'multi-term-config)
 (add-to-list 'ivy-sort-functions-alist
              '(t . nil))                   ;; 不要按字符串排序，使用默认排序
-
-;; -----------------------------------------------------------------------------
-;; parts 部分，自己写的一些函数，在parts/目录
-;; -----------------------------------------------------------------------------
-(require 'aborn-async-action)
-(require 'aborn-persistent)
-(require 'aborn-swift)
-(require 'aborn-gtd)
-(require 'aborn-utils)
-(require 'aborn-face)
-(global-set-key "\C-i" 'aborn/just-one-space)
 
 ;; -----------------------------------------------------------------------------
 ;; 基本设置
@@ -253,7 +254,6 @@
 ;; 下面是一些定时任务
 (require 'aborn-timer-task)
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
-(aborn/log "aborn's emacs have successful finished initialization!")
 
 ;; 下面是deft的配置
 (setq deft-extensions '("txt" "text" "md" "markdown" "org"))
@@ -280,7 +280,7 @@
 (setq helm-github-stars-username "aborn")
 
 ;;; 全局的key-binding放在这里
-(require 'my-keys-minor-mode)
+(aborn/load-path-and-pkgs '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)))
 (my-keys-minor-mode 1)
 (add-hook 'minibuffer-setup-hook #'my-keys-turn-off)
 (add-hook 'after-load-functions 'my-keys-have-priority)
@@ -288,6 +288,9 @@
 ;; 注意：ivy创建文件M-ENTER
 ;; 看这里：https://www.reddit.com/r/emacs/comments/40u3ra/how_to_create_a_new_file_with_ivymode_on/
 
+(aborn/log "aborn's emacs have successful finished initialization!")
+(message "aborn's emacs have successful finished initialization!")
+(message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2016-10-14
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
