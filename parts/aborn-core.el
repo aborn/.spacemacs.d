@@ -27,7 +27,10 @@
                       (require (intern pkg-str))  ;; 注意make-symbol与intern的关系
                       (add-to-list 'actived-pkgs pkg-str))))))
           pkgs)
-    (message "load path %s active feautes:%s" path (mapconcat 'identity actived-pkgs " "))))
+    (message (aborn/log-format
+              (format "load path %s active feautes:%s"
+                      path
+                      (mapconcat 'identity actived-pkgs " "))))))
 
 (defun aborn/load-path-and-pkgs (args &optional is-load-file)
   "Add path to load-path and require package.

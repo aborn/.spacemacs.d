@@ -3,8 +3,8 @@
 ;; by Aborn Jiang (aborn.jiang AT foxmail.com)
 ;; project: https://github.com/aborn/.spacemacs.d
 ;; -----------------------------------------------------------------------------
+(message "------------------------------------------------------")
 (aborn/log "aborn's emacs start to init...")
-(message "------------------------------")
 (message "aborn's emacs start to init...")
 
 (require 'cl-lib)
@@ -14,7 +14,7 @@
   (setq mac-command-modifier 'meta))
 
 ;; -----------------------------------------------------------------------------
-;; 最基本的全局load有require
+;; 最基本的全局load及features require
 ;; -----------------------------------------------------------------------------
 (aborn/load-path-and-pkgs
  '(("~/github/emacs-cookbook" "cookbook")
@@ -39,9 +39,14 @@
     aborn-utils                            ;; 工具函数
     aborn-face                             ;; 异步执行的任务
     )
+   ;;; 下面是aborn自己需要加载的一些mode
    ("~/github/multi-term-plus" multi-term-config)
+   ("~/github/pelpa-mode" pelpa-mode)
+   ("~/github/cip-mode" cip-mode)
+   ;; ("~/github/v2ex-mode" v2ex-mode)
+   ;; ("~/github/leanote-mode" leanote)    ;; 本地开发leanote时用
+   ("~/github/emacs-neotree" neotree)
    ))
-
 (add-to-list 'ivy-sort-functions-alist
              '(t . nil))                   ;; 不要按字符串排序，使用默认排序
 
@@ -171,7 +176,6 @@
 (require 'ace-jump-helm-line)
 (require 'web-utils)
 (require 'search-buffers)
-(require 'aborn-org)
 (require 'ivy-parts)
 (require 'counsel)
 
@@ -188,23 +192,7 @@
 (ws-butler-global-mode -1)
 (message "open emacs finished!")
 
-;; pelpa-mode load
-(let ((pelpa-mode-file "~/github/pelpa-mode/pelpa-mode.el"))
-  (when (file-exists-p pelpa-mode-file)
-    (load-file pelpa-mode-file)
-    (require 'pelpa-mode)))
-
-(ensure-package-installed 'tree-mode)
-(load-file "~/.spacemacs.d/modules/reddit.el")
-(require 'reddit)
-
 (global-disable-mouse-mode)
-;; load cip mode if exists.
-(let ((cip-mode-code-file "~/github/cip-mode/cip-mode.el"))
-  (when (file-exists-p cip-mode-code-file)
-    (load-file cip-mode-code-file)
-    (require 'cip-mode)))
-
 (setq wttrin-default-cities '("Shanghai"))
 (defun ab/shell-command-to-string (command)
   (replace-regexp-in-string "\r?\n$" ""    ;; 去掉换行符号
@@ -220,17 +208,6 @@
           (lambda ()
             (message "after-init-hook")))
 (add-hook 'kill-emacs-hook 'aborn/exec-when-emacs-kill)
-
-;; develop && test v2ex-mode
-;; (add-to-list 'load-path "~/github/v2ex-mode/")
-;; (load "v2ex-mode")
-;; develop && test leanote-mode
-;; (add-to-list 'load-path "~/github/leanote-mode/")
-;; (require 'leanote)
-
-;; (when (file-directory-p "~/github/emacs-neotree/")
-;;   (add-to-list 'load-path "~/github/emacs-neotree/")
-;;   (require 'neotree))
 
 ;; 设置neotree
 (setq neo-toggle-window-keep-p t)       ;; 刷新时保持光标在当前位置
@@ -279,8 +256,11 @@
 ;; 更新本地缓存 M-x helm-github-stars-fetch
 (setq helm-github-stars-username "aborn")
 
-;;; 全局的key-binding放在这里
-(aborn/load-path-and-pkgs '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)))
+(ensure-package-installed 'tree-mode)                ;; reddit需要tree-mode
+(aborn/load-path-and-pkgs
+ '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)      ;; 全局的key-binding放在这里
+   ("~/.spacemacs.d/modules" reddit)))
+
 (my-keys-minor-mode 1)
 (add-hook 'minibuffer-setup-hook #'my-keys-turn-off)
 (add-hook 'after-load-functions 'my-keys-have-priority)
