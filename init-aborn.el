@@ -17,7 +17,7 @@
 ;; 最基本的全局load有require
 ;; -----------------------------------------------------------------------------
 (aborn/load-path-and-pkgs
- '(("~/github/emacs-cookbook" cookbook)
+ '(("~/github/emacs-cookbook" "cookbook")
    ("~/.spacemacs.d/hotkey"                ;; 按键相关放在hotkey/目录下
     aborn-basic-key-binding                ;; 基本的快捷键设置
     aborn-global-key-binding               ;; 全局的快捷键绑定

@@ -22,7 +22,7 @@
                     (progn
                       (aborn/add-to-load-path path)
                       (require (if (stringp pkg)
-                                   (make-symbol pkg)
+                                   (intern pkg)   ;; 注意make-symbol与intern的关系
                                  pkg))
                       (add-to-list 'actived-pkgs pkg-str))))))
           pkgs)
