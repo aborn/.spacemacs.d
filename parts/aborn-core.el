@@ -14,9 +14,7 @@
   (let ((actived-pkgs '()))
     (mapc #'(lambda (pkg)
               (let* ((pkg-str (if (symbolp pkg) (symbol-name pkg) pkg))
-                     (file-name (expand-file-name (concat pkg-str
-                                                          ".el")
-                                                  path)))
+                     (file-name (expand-file-name (concat pkg-str ".el") path)))
                 (when (and (file-exists-p file-name)
                            (or (symbolp pkg) (stringp pkg)))
                   (if is-load-file
