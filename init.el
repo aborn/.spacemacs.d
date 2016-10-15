@@ -312,11 +312,11 @@ layers configuration. You are free to put any user code."
   ;; https://www.reddit.com/r/emacs/comments/53zpv9/how_do_i_get_emacs_to_stop_adding_custom_fields/
   (setq custom-file "~/.spacemacs.d/custom.el")
   (load custom-file :noerror)
+  (load-file "~/.spacemacs.d/parts/aborn-core.el")
   (add-to-list 'load-path "~/.spacemacs.d/parts")
   (add-to-list 'load-path "~/.spacemacs.d/modules")
   (add-to-list 'load-path "~/.spacemacs.d/hotkey")
   (add-to-list 'load-path "~/github/multi-term-plus")
-  (add-to-list 'load-path "~/github/emacs-cookbook")
   (require 'aborn-log)
   (load-file "~/.spacemacs.d/init-aborn.el")
   (load-file "~/.spacemacs.d/hotkey/aborn-prefix.el")
