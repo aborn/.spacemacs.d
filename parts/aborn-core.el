@@ -1,6 +1,9 @@
 ;;; aborn-core.el --- Aborn's core package
 
 ;; Copyright (C) 2016 Aborn Jiang
+
+;; Author: Aborn Jiang <aborn.jiang@gmail.com>
+;; Version: 0.1.0
 ;; This file is not part of GNU Emacs.
 
 ;;; Code:
@@ -10,7 +13,7 @@
   (add-to-list 'load-path dir))
 
 (defun aborn/load-path-pkgs (path pkgs &optional is-load-file)
-  (setq ab/debug pkgs)
+  "Active `PATH' all `PKGS'"
   (let ((actived-pkgs '()))
     (mapc #'(lambda (pkg)
               (let* ((pkg-str (if (symbolp pkg) (symbol-name pkg) pkg))
@@ -21,13 +24,10 @@
                       (load-file file-name)
                     (progn
                       (aborn/add-to-load-path path)
-                      (require (if (stringp pkg)
-                                   (intern pkg)   ;; 注意make-symbol与intern的关系
-                                 pkg))
+                      (require (intern pkg-str))  ;; 注意make-symbol与intern的关系
                       (add-to-list 'actived-pkgs pkg-str))))))
           pkgs)
-    (message "load path %s feautes:%s" path (s-join " " actived-pkgs))
-    ))
+    (message "load path %s active feautes:%s" path (mapconcat 'identity actived-pkgs " "))))
 
 (defun aborn/load-path-and-pkgs (args &optional is-load-file)
   "Add path to load-path and require package.
