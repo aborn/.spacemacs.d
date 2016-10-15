@@ -11,22 +11,25 @@
 
 (defun aborn/load-path-pkgs (path pkgs &optional is-load-file)
   (setq ab/debug pkgs)
-  (mapc #'(lambda (pkg)
-            (let ((file-name (expand-file-name (concat (if (symbolp pkg)
-                                                           (symbol-name pkg)
-                                                         pkg)
-                                                       ".el")
-                                               path)))
-              (when (and (file-exists-p file-name)
-                         (or (symbolp pkg) (stringp pkg)))
-                (if is-load-file
-                    (load-file file-name)
-                  (progn
-                    (aborn/add-to-load-path path)
-                    (require (if (stringp pkg)
-                                 (make-symbol pkg)
-                               pkg)))))))
-        pkgs))
+  (let ((actived-pkgs '()))
+    (mapc #'(lambda (pkg)
+              (let* ((pkg-str (if (symbolp pkg) (symbol-name pkg) pkg))
+                     (file-name (expand-file-name (concat pkg-str
+                                                          ".el")
+                                                  path)))
+                (when (and (file-exists-p file-name)
+                           (or (symbolp pkg) (stringp pkg)))
+                  (if is-load-file
+                      (load-file file-name)
+                    (progn
+                      (aborn/add-to-load-path path)
+                      (require (if (stringp pkg)
+                                   (make-symbol pkg)
+                                 pkg))
+                      (add-to-list 'actived-pkgs pkg-str))))))
+          pkgs)
+    (message "load path %s feautes:%s" path (s-join " " actived-pkgs))
+    ))
 
 (defun aborn/load-path-and-pkgs (args &optional is-load-file)
   "Add path to load-path and require package.
@@ -37,6 +40,5 @@
               (when (and path pkgs
                          (file-exists-p path)
                          (file-readable-p path))
-                (aborn/load-path-pkgs path pkgs is-load-file)
-                (message "path:%s finished." path))))
+                (aborn/load-path-pkgs path pkgs is-load-file))))
         args))
