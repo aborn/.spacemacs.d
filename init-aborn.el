@@ -38,6 +38,7 @@
     aborn-gtd                              ;; getting things done
     aborn-utils                            ;; 工具函数
     aborn-face                             ;; 异步执行的任务
+    aborn-org                              ;; org相关配置
     )
    ;;; 下面是aborn自己需要加载的一些mode
    ("~/github/multi-term-plus" multi-term-config)
