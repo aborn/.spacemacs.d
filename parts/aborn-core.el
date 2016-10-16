@@ -45,6 +45,8 @@
   (mapc #'(lambda (x)
             (let* ((path (car x))
                    (pkgs (cdr x)))
+              (unless (file-exists-p path)
+                (message "warning: path %s doesn't exists!!"))
               (when (and path pkgs
                          (file-exists-p path)
                          (file-readable-p path))
