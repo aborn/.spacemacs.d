@@ -14,10 +14,13 @@
 
 (defun aborn/load-path-pkgs (path pkgs &optional is-load-file)
   "Active `PATH' all `PKGS'"
-  (let ((actived-pkgs '()))
+  (let ((actived-pkgs '())
+        (unknown-pkgs '()))
     (mapc #'(lambda (pkg)
               (let* ((pkg-str (if (symbolp pkg) (symbol-name pkg) pkg))
                      (file-name (expand-file-name (concat pkg-str ".el") path)))
+                (unless (file-exists-p file-name)
+                  (add-to-list 'unknown-pkgs pkg-str))
                 (when (and (file-exists-p file-name)
                            (or (symbolp pkg) (stringp pkg)))
                   (if is-load-file
@@ -30,7 +33,11 @@
     (message (aborn/log-format
               (format "load path %s active feautes:%s"
                       path
-                      (mapconcat 'identity actived-pkgs " "))))))
+                      (mapconcat 'identity actived-pkgs " "))))
+    (when unknown-pkgs
+      (message "not find %s package in path %s"
+               (mapconcat 'identity unknown-pkgs " ")
+               path))))
 
 (defun aborn/load-path-and-pkgs (args &optional is-load-file)
   "Add path to load-path and require package.
