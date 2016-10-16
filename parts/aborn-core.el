@@ -46,7 +46,7 @@
             (let* ((path (car x))
                    (pkgs (cdr x)))
               (unless (file-exists-p path)
-                (message "warning: path %s doesn't exists!!"))
+                (message "warning: path %s doesn't exists!!" path))
               (when (and path pkgs
                          (file-exists-p path)
                          (file-readable-p path))
