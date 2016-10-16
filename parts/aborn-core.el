@@ -35,7 +35,7 @@
                       path
                       (mapconcat 'identity actived-pkgs " "))))
     (when unknown-pkgs
-      (message "not find %s package in path %s"
+      (message "warning: not find [%s] package in path %s"
                (mapconcat 'identity unknown-pkgs " ")
                path))))
 
