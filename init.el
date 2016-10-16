@@ -99,7 +99,7 @@ values."
                                       easy-kill
                                       ace-window
                                       buffer-move
-                                      dired+
+                                      ;; dired+
                                       elisp-slime-nav
                                       leanote
                                       )
