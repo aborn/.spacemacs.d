@@ -78,7 +78,7 @@
   (let* ((cp (point))
          (backword)
          (end)
-         (backword-char (if (equal cp 1)
+         (backword-char (if (bobp)
                             ""           ;; point位于buffer最开始处时
                           (buffer-substring cp (- cp 1)))))
     (save-excursion
