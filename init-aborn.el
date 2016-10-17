@@ -262,6 +262,12 @@
  '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)      ;; 全局的key-binding放在这里
    ("~/.spacemacs.d/modules" reddit)))
 
+;; 对elisp文件，保存之前进行indent
+(add-hook 'before-save-hook
+          #'(lambda ()
+              (when (string-suffix-p ".el" (buffer-file-name))
+                (aborn/indent-regin))))
+
 (my-keys-minor-mode 1)
 (add-hook 'minibuffer-setup-hook #'my-keys-turn-off)
 (add-hook 'after-load-functions 'my-keys-have-priority)
