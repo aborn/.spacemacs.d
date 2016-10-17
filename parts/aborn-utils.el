@@ -78,23 +78,32 @@
   (let* ((cp (point))
          (backword)
          (end)
+         (space-pos)
          (backword-char (if (bobp)
-                            ""           ;; point位于buffer最开始处时
+                            ""           ;; cursor in begin of buffer
                           (buffer-substring cp (- cp 1)))))
-    (save-excursion
-      (setq backword (buffer-substring (point) (progn (forward-word -1) (point)))))
-    (save-excursion
-      (let* ((pos (ignore-errors (search-backward-regexp "\n")))
-             (substr (when pos (buffer-substring pos cp))))
-        (when (or (and substr (s-blank? (s-trim substr)))
-                  (s-contains? "\n" backword))
-          (setq end pos))))
-    (unless (equal                       ;; 当前一个word为非英文时，只删除一个
-             (length backword-char) (string-width backword-char))
-      (setq end (- cp 1)))
-    (if end
-        (kill-region cp end)
-      (backward-kill-word 1))))
+    (if (equal (length backword-char) (string-width backword-char))
+        (progn
+          (save-excursion
+            (setq backword (buffer-substring (point) (progn (forward-word -1) (point)))))
+          (setq ab/debug backword)
+          (save-excursion
+            (when (and backword          ;; when backword contains space
+                       (s-contains? " " backword))
+              (setq space-pos (ignore-errors (search-backward " ")))))
+          (save-excursion
+            (let* ((pos (ignore-errors (search-backward-regexp "\n")))
+                   (substr (when pos (buffer-substring pos cp))))
+              (when (or (and substr (s-blank? (s-trim substr)))
+                        (s-contains? "\n" backword))
+                (setq end pos))))
+          (if end
+              (kill-region cp end)
+            (if space-pos
+                (kill-region cp space-pos)
+              (backward-kill-word 1))))
+      (kill-region cp (- cp 1)))         ;; word is non-english word
+    ))
 
 (defun aborn/elisp-function-find ()
   "Find current elisp file function!"
