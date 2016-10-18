@@ -14,6 +14,7 @@
 ** TODO 删除~/.emacs.d/elpa里无用老版本包
 ** TODO helm-find-file-pinyin ivy-switch-buffer
 ** TODO 添加recent-visit-directories功能，并且可搜索切换
+** TODO 对当前word的高亮
 ** DONE C-'移动行中，对中文的优化
 CLOSED: [2016-09-24 Sat 12:54]
 - State "DONE"       from "ONGOING"    [2016-09-24 Sat 12:54]
