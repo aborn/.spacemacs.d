@@ -10,3 +10,4 @@
 ** [[https://github.com/Fuco1/clippy.el][clippy.el]] 以tooltip的方式显示当前函数的文档
 ** [[https://github.com/alphapapa/helm-org-rifle][helm-org-rifle]] 这个包可以用来搜索当前打开的org文件,非常有用
 ** kanban orgtodo 转成kanban模式
+** elisp-slime-nav 跳转到elisp函数定义处
