@@ -1,15 +1,16 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 这里放的是从 Marmalade and MELPA 安装的包
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; package-part.el --- Package releated package.
+
+;; Copyright (C) 2016 Aborn Jiang
+
+;; Author: Aborn Jiang <aborn.jiang@gmail.com>
+;; Version: 0.1.0
+;; This file is not part of GNU Emacs.
+
+;;; Code:
 
 (require 'use-package)
-(require 'aborn-log)
+(require 'async)
 (setq use-package-verbose t)
-
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("popkit" . "http://elpa.popkit.org/packages/") t)
-;; (package-initialize)
 
 ;; --------------------------------------------------------------------
 ;; exec-path-from-shell
@@ -19,80 +20,80 @@
   (exec-path-from-shell-initialize))
 
 ;; 下面是自己写的函数，主要是多电脑时，把安装的packages保存到一个文件里去
-(setq ab/save-package-activated-list-file "~/.spacemacs.d/ab-installed-packages")
-(defvar ab-installed-packages nil)
+(setq aborn/save-package-activated-list-file "~/.spacemacs.d/aborn-installed-packages")
+(defvar aborn-installed-packages nil)
 
-(defun ab/save-package-activated-list (&optional arg)
+(defun aborn/save-package-activated-list (&optional arg)
   "Save history information to file given by `helm-adaptive-history-file'."
   (interactive "p")
   (with-temp-buffer
     (insert
      ";; -*- mode: emacs-lisp -*-\n"
      ";; Installed packages list used for multi computer env.\n")
-    (prin1 `(setq ab-installed-packages ',package-activated-list)
+    (prin1 `(setq aborn-installed-packages ',package-activated-list)
            (current-buffer))
     (insert ?\n)
-    (write-region (point-min) (point-max) ab/save-package-activated-list-file nil
+    (write-region (point-min) (point-max) aborn/save-package-activated-list-file nil
                   (unless arg 'quiet))))
 
 ;; 关闭emacs的时候，保存下当前已经安装的packages
-(add-hook 'kill-emacs-hook 'ab/save-package-activated-list)
+(add-hook 'kill-emacs-hook 'aborn/save-package-activated-list)
 ;; 打开emacs的时候，load安装的packages
 (add-hook 'after-init-hook
           (lambda ()
-            (when (file-readable-p ab/save-package-activated-list-file)
-              (load-file ab/save-package-activated-list-file))))
+            (when (file-readable-p aborn/save-package-activated-list-file)
+              (load-file aborn/save-package-activated-list-file))))
 
 ;;http://ergoemacs.org/emacs/elisp_printing.html
-(defun ab/print-installed-packages (&optional arg)
+(defun aborn/print-installed-packages (&optional arg)
   "print info installed packages"
   (interactive "p")
   (with-current-buffer (get-buffer-create ab-message-buffer-name)
-    (dolist (pkg ab-installed-packages)
+    (dolist (pkg aborn-installed-packages)
       (insert "\n")
       (princ pkg (current-buffer)))))
 
-(defun ab/install-missed-package (&optional arg)
+(defun async/install-missed-package (&optional arg)
   "install missed package"
   (interactive "p")
   (async-start
    '(lambda ()
       ;; install the missing packages
-      (dolist (package ab-installed-packages)
+      (dolist (package aborn-installed-packages)
         (message "package %s" package)
         (unless (package-installed-p package)
           (package-install package))))))
 
-(defun ab/get-readme-file-path (name)
+(defun aborn/get-readme-file-path (name)
   (format "%s/%s-readme.txt" package-user-dir name))
 
-(defun ab/get-pkg-info (pkg)
+(defun aborn/get-pkg-info (pkg)
   "获得包的详细说明，readme文件内容"
   (interactive)
   (let ((file-content (with-temp-buffer
-                        (insert-file-contents (ab/get-readme-file-path pkg))
+                        (insert-file-contents (aborn/get-readme-file-path pkg))
                         (buffer-string))))
     (format "package %s info:\n %s\n\n %s"
             pkg
-            (ab/get-readme-file-path pkg)
+            (aborn/get-readme-file-path pkg)
             file-content)))
 
 ;; 这里也是使用ivy-read的一个例子
-(defun ab/search-pkg-installed ()
+(defun aborn/search-pkg-installed ()
   "搜索已经安装的包名,选择后显示包的ReadeMe内容"
   (interactive)
   (ivy-read "search installed package name: "
             (remove-duplicates (mapcar (lambda (elt)
                                          (symbol-name elt))
-                                       ab-installed-packages)
+                                       aborn-installed-packages)
                                :test 'string=)
             :action (lambda (x)
                       (with-help-window
                           (help-buffer)
-                        (print (ab/get-pkg-info x))))))
+                        (print (aborn/get-pkg-info x))))))
 
 ;; 异步的列出packages
-(defun ab/list-packages ()
+(defun async/list-packages ()
   "package-install async"
   (interactive)
   (async-start
@@ -145,9 +146,7 @@
 Return a list of installed packages or nil for every skipped package."
   (mapcar
    (lambda (package)
-     ;; (package-installed-p 'evil)
-     (if (package-installed-p package)
-         nil
+     (unless (package-installed-p package)
        (if (y-or-n-p (format "Package %s is missing. Install it? " package))
            (package-install package)
          package)))
@@ -159,17 +158,13 @@ Return a list of installed packages or nil for every skipped package."
     (package-refresh-contents))
 
 ;;(ensure-package-installed 'find-file-in-project 'swiper);
-(when (boundp ab-installed-packages)
-  (message "ab-installed-packages exists!")
-  (dolist (pkg ab-installed-packages)
+(when (boundp aborn-installed-packages)
+  (message "aborn-installed-packages exists!")
+  (dolist (pkg aborn-installed-packages)
     (message "%s\n" pkg)))
 
 (ensure-package-installed 'find-file-in-project 'swiper);
 (global-set-key (kbd "C-x f") 'find-file-in-project)
-;; (ab/install-missed-package)
-;; activate installed packages
-(package-initialize)
 
 (provide 'package-part)
-
-
+;;; package-part.el ends here

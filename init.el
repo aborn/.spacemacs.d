@@ -312,6 +312,7 @@ user code here.  The exception is org related code, which should be placed in
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   ;; https://www.reddit.com/r/emacs/comments/53zpv9/how_do_i_get_emacs_to_stop_adding_custom_fields/
+  (benchmark-init/activate)
   (setq custom-file "~/.spacemacs.d/custom.el")
   (load custom-file :noerror)
   (load-file "~/.spacemacs.d/parts/aborn-core.el")
