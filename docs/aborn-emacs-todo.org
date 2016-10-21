@@ -16,6 +16,7 @@
 ** TODO 添加recent-visit-directories功能，并且可搜索切换
 ** TODO 对当前word的高亮
 ** TODO 异步执行的任务返回时，统计耗时
+** TODO push失败时提示
 ** DONE C-'移动行中，对中文的优化
 CLOSED: [2016-09-24 Sat 12:54]
 - State "DONE"       from "ONGOING"    [2016-09-24 Sat 12:54]
