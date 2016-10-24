@@ -7,6 +7,7 @@
 (define-key aborn-prefix-map (kbd "g u") 'aborn/swift-git-commit-push)
 (define-key aborn-prefix-map (kbd "g p") 'magit-git-pull)
 (define-key aborn-prefix-map (kbd "f n") 'aborn/copy-file-name-to-clipboard)
+(define-key aborn-prefix-map (kbd "p f") 'org-latex-export-to-pdf)
 (define-key aborn-prefix-map (kbd "j")   'aborn/elisp-function-find)
 
 (global-set-key "\C-c\C-c" aborn-prefix-map)
