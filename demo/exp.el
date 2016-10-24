@@ -71,4 +71,17 @@
     (message "kkk"))
   (message "%s%s" arg current-prefix-arg))
 
+(defun say-word (word)
+  (interactive (list
+                (read-string (format "word (%s): " (thing-at-point 'word))
+                             nil nil (thing-at-point 'word))))
+  (message "The word is %s" word))
+
+(defun test-fun ()
+  "Prompt user to enter a file path, with file name completion and input history support."
+  (interactive)
+  (let ((input-value  (read-from-minibuffer
+                       (format "Directory (default %s):" default-directory) default-directory )))
+    (message "Input value is 「%s」." input-value)))
+
 (setq neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" ".el$"))

@@ -79,12 +79,17 @@
           ;;(append-to-file (point-min) (point-max) local-save-file-name)
           )))))
 
-(defun aborn/rename-file-and-buffer (new-name)
+(defun aborn/rename-file-and-buffer ()
   "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
+  ;;(interactive "sNew name: ")
+  (interactive)
   (let* ((name (buffer-name))
          (filename (buffer-file-name))
-         (ext (file-name-extension filename)))
+         (ext (file-name-extension filename))
+         (old-name (file-name-nondirectory filename))
+         (new-name))
+    (setq new-name (read-from-minibuffer
+                    (format "New name (origin %s): " old-name) old-name ))
     (unless filename
       (error "Buffer '%s' is not visiting a file! Rename failed." name))
     (unless (s-contains? "." new-name)
