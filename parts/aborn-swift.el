@@ -1,4 +1,4 @@
-;;; aborn-swift.el --- some sift actions. -*- lexical-binding: t; -*-
+;;; aborn-swift.el --- some swift actions.
 
 ;; Copyright (C) 2016  Aborn Jiang
 
