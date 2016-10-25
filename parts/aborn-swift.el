@@ -34,7 +34,6 @@
         ,(async-inject-variables "\\`default-directory\\'")
         ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
         ,(async-inject-variables "\\`begin-time\\'")
-        (require 'aborn-timer-task)
         (require 'magit)
         (require 'aborn-log)
         (aborn/log (format "** start to execute push in directory %s" default-directory))
