@@ -31,9 +31,9 @@
   (let* ((begin-time (current-time)))
     (async-start
      `(lambda ()
+        ,(async-inject-variables "\\`begin-time\\'")
         ,(async-inject-variables "\\`default-directory\\'")
         ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
-        ,(async-inject-variables "\\`begin-time\\'")
         (require 'magit)
         (require 'aborn-log)
         (aborn/log (format "** start to execute push in directory %s %S"
