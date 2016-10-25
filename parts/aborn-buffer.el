@@ -11,7 +11,6 @@
 
 ;;; Code:
 
-
 (defun buffer-mode (buffer-or-string)
   "Returns the major mode associated with a buffer."
   (with-current-buffer buffer-or-string

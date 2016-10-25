@@ -1,4 +1,23 @@
+;;; aborn-swift.el --- some sift actions. -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2016  Aborn Jiang
+
+;; Author: Aborn Jiang <aborn.jiang@gmail.com>
+;; Version: 0.1.0
+;; Package-Requires: ((async "1.9"))
+;; Keywords: emacs cookbook
+;; URL: https://github.com/aborn/.spacemacs.d
+
+;; This file is NOT part of GNU Emacs.
+
+;;; Commentary:
+
 ;; some swift action
+
+;;; Code:
+
+(require 'async)
+
 (defun aborn/swift-git-commit-push (msg)
   "commit modified and push to upstream"
   (interactive "sCommit Message: ")
@@ -31,3 +50,4 @@
    ))
 
 (provide 'aborn-swift)
+;;; aborn-swift.el ends here
