@@ -17,7 +17,10 @@
 ** TODO 对当前word的高亮
 ** TODO 异步执行的任务返回时，统计耗时
 ** TODO push失败时提示
-** TODO aborn/rename时原来的名字也显示出来
+** DONE aborn/rename时原来的名字也显示出来
+   CLOSED: [2016-10-25 Tue 09:26]
+   - State "DONE"       from "ONGOING"    [2016-10-25 Tue 09:26]
+   - State "ONGOING"    from "TODO"       [2016-10-25 Tue 09:26]
 ** DONE C-'移动行中，对中文的优化
 CLOSED: [2016-09-24 Sat 12:54]
 - State "DONE"       from "ONGOING"    [2016-09-24 Sat 12:54]
