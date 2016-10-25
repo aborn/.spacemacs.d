@@ -17,6 +17,7 @@
 ** TODO 对当前word的高亮
 ** TODO 异步执行的任务返回时，统计耗时
 ** TODO push失败时提示
+** TODO ace-jump跳走后能跳回来C-,
 ** DONE aborn/rename时原来的名字也显示出来
    CLOSED: [2016-10-25 Tue 09:26]
    - State "DONE"       from "ONGOING"    [2016-10-25 Tue 09:26]
