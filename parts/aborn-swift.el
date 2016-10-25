@@ -28,16 +28,18 @@
     (save-buffer))
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
-  (let* ((begin-time (current-time)))
+  (let* ((begin-time (current-time))
+         (secondpar "seconddddd"))
     (async-start
      `(lambda ()
         ,(async-inject-variables "\\`begin-time\\'")
+        ,(async-inject-variables "\\`secondpar\\'")
         ,(async-inject-variables "\\`default-directory\\'")
         ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
         (require 'magit)
         (require 'aborn-log)
         (aborn/log (format "** start to execute push in directory %s %S"
-                           default-directory begin-time))
+                           default-directory secondpar))
         (aborn/log (shell-command-to-string "echo $PWD"))
         (when (file-exists-p default-directory)
           (aborn/log (shell-command-to-string "git push"))
