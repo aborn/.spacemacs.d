@@ -1,3 +1,17 @@
+;;; aborn-buffer.el --- buffer utils function.  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2016  Aborn Jiang
+
+;; This file is NOT part of GNU Emacs.
+
+;;; Commentary:
+
+;; Buffer utils function.
+;;
+
+;;; Code:
+
+
 (defun buffer-mode (buffer-or-string)
   "Returns the major mode associated with a buffer."
   (with-current-buffer buffer-or-string
@@ -28,11 +42,11 @@
 (defun buffer-exists (bufname)   
   (not (eq nil (get-buffer bufname))))
 
-(defvar ab/compile-log-buffer-name "*Compile-Log*")
-(defun ab/save-compile-log-by-date (arg)
+(defvar aborn/compile-log-buffer-name "*Compile-Log*")
+(defun aborn/save-compile-log-by-date (arg)
   "save each package install *Compile-Log* buffer content"
   (interactive "P")
-  (if (not (buffer-exists ab/compile-log-buffer-name))
+  (if (not (buffer-exists aborn/compile-log-buffer-name))
       (message "not buffer name *Compile-Log* exists!")
     (progn
       (let* ((current-buffer-save (current-buffer))
@@ -42,7 +56,7 @@
               (format "~/.spacemacs.d/local/compile-log-%s.txt" current-time-stamp-local)))
         (save-current-buffer
           (message "*Compile-Log* save to '%s'" compile-log-file-name)
-          (set-buffer ab/compile-log-buffer-name)
+          (set-buffer aborn/compile-log-buffer-name)
           (write-file compile-log-file-name)
           (save-buffer))))))
 
@@ -52,7 +66,7 @@
                 (substring buf-name 1 (- (string-width buf-name) 1))
               buf-name)))
 
-(defun ab/save-buffer-content-by-date (buf-name)
+(defun aborn/save-buffer-content-by-date (buf-name)
   (if (not (buffer-exists buf-name))
       (message "warning: not find buffer with name %s" buf-name)
     (progn
@@ -66,7 +80,7 @@
           (write-file local-save-file-name)
           (save-buffer))))))
 
-(defun ab/save-message-content ()
+(defun aborn/save-message-content ()
   (if (not (buffer-exists "*Messages*"))
       (message "warning: not find buffer with name *Messages*")
     (progn
@@ -160,8 +174,5 @@
     (message "buffer:%s was deleted!" name)
     ))
 
-(defalias 'ab/buffer-exists 'buffer-exists)
-(defalias 'ab/shell 'make-shell)
-(defalias 'swap-buffer 'switch-buffer-each-other)
-
 (provide 'aborn-buffer)
+;;; aborn-buffer.el ends here

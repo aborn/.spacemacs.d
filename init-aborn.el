@@ -202,7 +202,7 @@
 ;; 当emacs退出时，执行这个函数
 (defun aborn/exec-when-emacs-kill ()
   (message "exec some operationi when kill emacs")
-  (ab/save-message-content)
+  (aborn/save-message-content)
   (message "now emacs exit!"))
 
 (add-hook 'after-init-hook
