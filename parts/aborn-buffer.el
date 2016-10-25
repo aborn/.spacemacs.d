@@ -83,6 +83,8 @@
   "Renames both current buffer and file it's visiting to NEW-NAME."
   ;;(interactive "sNew name: ")
   (interactive)
+  (unless (buffer-file-name)
+    (error "no visited file for current buffer."))
   (let* ((name (buffer-name))
          (filename (buffer-file-name))
          (ext (file-name-extension filename))
