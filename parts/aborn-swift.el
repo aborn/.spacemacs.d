@@ -36,7 +36,8 @@
         ,(async-inject-variables "\\`begin-time\\'")
         (require 'magit)
         (require 'aborn-log)
-        (aborn/log (format "** start to execute push in directory %s" default-directory))
+        (aborn/log (format "** start to execute push in directory %s %S"
+                           default-directory begin-time))
         (aborn/log (shell-command-to-string "echo $PWD"))
         (when (file-exists-p default-directory)
           (aborn/log (shell-command-to-string "git push"))
