@@ -41,7 +41,7 @@
         (aborn/log (shell-command-to-string "echo $PWD"))
         (when (file-exists-p default-directory)
           (aborn/log (shell-command-to-string "git push"))
-          (aborn/log "finished push. **"))
+          (aborn/log "finished push."))
         (format "push to upstream success. %s. time cost: %ss."
                 default-directory
                 (float-time (time-subtract (current-time) begin-time))))
