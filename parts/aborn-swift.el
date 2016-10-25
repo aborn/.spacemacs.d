@@ -28,26 +28,25 @@
     (save-buffer))
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
-  (async-start
-   `(lambda ()
-      ,(async-inject-variables "\\`default-directory\\'")
-      ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
-      (require 'aborn-timer-task)
-      (require 'magit)
-      (require 'aborn-log)
-      (aborn/log (format "** start to execute push in directory %s" default-directory))
-      (aborn/log (shell-command-to-string "echo $PWD"))
-      (when (file-exists-p default-directory)
-        (aborn/log (shell-command-to-string "git push"))
-        (aborn/log "finished push. **"))
-      ;; (aborn/timer-task-delay-excute-once
-      ;;  1       ;; 延时1s执行 git push操作
-      ;;  (lambda ()
-      ;;    (call-interactively #'magit-push-current-to-upstream)))
-      default-directory)
-   (lambda (result)
-     (message "push to upstream success. %s" result))
-   ))
+  (let* ((begin-time (current-time)))
+    (async-start
+     `(lambda ()
+        ,(async-inject-variables "\\`default-directory\\'")
+        ,(async-inject-variables "\\`load-path\\'") ;; add main process load-path
+        ,(async-inject-variables "\\`begin-time\\'")
+        (require 'aborn-timer-task)
+        (require 'magit)
+        (require 'aborn-log)
+        (aborn/log (format "** start to execute push in directory %s" default-directory))
+        (aborn/log (shell-command-to-string "echo $PWD"))
+        (when (file-exists-p default-directory)
+          (aborn/log (shell-command-to-string "git push"))
+          (aborn/log "finished push. **"))
+        (format "push to upstream success. %s. time cost: %ss."
+                default-directory
+                (float-time (time-subtract (current-time) begin-time))))
+     (lambda (result)
+       (message "%s" result)))))
 
 (provide 'aborn-swift)
 ;;; aborn-swift.el ends here
