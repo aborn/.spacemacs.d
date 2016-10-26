@@ -104,9 +104,26 @@
 ;; 开启 ace-jump-mode
 ;; -----------------------------------------------------------------------------
 (require 'ace-jump-mode)
+
+;; 下面配置好ace-jump-mode的回跳
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+;; (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(add-hook 'ace-jump-mode-before-jump-hook
+          (lambda ()
+            (if (fboundp 'xref-push-marker-stack)
+                (xref-push-marker-stack)
+              (with-no-warnings
+                (ring-insert find-tag-marker-ring (point-marker))))))
+
+;; 定义快捷键
 (global-set-key (kbd "M-n") 'ace-jump-mode)
-(define-key global-map (kbd "C-x n") 'ace-jump-char-mode)
-(define-key global-map (kbd "C-x N") 'ace-jump-line-mode)
+(define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
 
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
