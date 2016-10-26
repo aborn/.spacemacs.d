@@ -56,7 +56,9 @@
 ;; -----------------------------------------------------------------------------
 (require 'hl-line)                         ;; 高亮当前行
 (global-hl-line-mode t)                    ;; setting as global hl
-(setq x-select-enable-clipboard t)         ;; copy and paste with other program
+(if (version<= emacs-version "24.5")
+    (setq x-select-enable-clipboard t)     ;; copy and paste with other program
+  (setq select-enable-clipboard t))        ;; 25.1 版本改成这个变量了
 (show-paren-mode t)                        ;; paren match show
 (column-number-mode t)                     ;; show column number
 ;; (global-linum-mode t)                   ;; 显示行号
