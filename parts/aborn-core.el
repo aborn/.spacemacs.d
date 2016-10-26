@@ -12,6 +12,13 @@
   "Util function add path to load-path"
   (add-to-list 'load-path dir))
 
+(defun aborn/push-marker-stack ()
+  "Push marker to stack."
+  (if (fboundp 'xref-push-marker-stack)
+      (xref-push-marker-stack)
+    (with-no-warnings
+      (ring-insert find-tag-marker-ring (point-marker)))))
+
 (defun aborn/load-path-pkgs (path pkgs &optional is-load-file)
   "Active `PATH' all `PKGS'"
   (let ((actived-pkgs '())

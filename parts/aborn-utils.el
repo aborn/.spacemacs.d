@@ -113,6 +113,7 @@
     (setq key (completing-read "find elisp function by name: "
                                collection))
     (let ((pos-line (assoc-default key collection)))
+      (aborn/push-marker-stack)
       (goto-line pos-line))))
 
 (defun aborn/current-elisp-functions ()

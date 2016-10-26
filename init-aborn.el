@@ -116,12 +116,7 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 ;; (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-(add-hook 'ace-jump-mode-before-jump-hook
-          (lambda ()
-            (if (fboundp 'xref-push-marker-stack)
-                (xref-push-marker-stack)
-              (with-no-warnings
-                (ring-insert find-tag-marker-ring (point-marker))))))
+(add-hook 'ace-jump-mode-before-jump-hook 'aborn/push-marker-stack)
 
 ;; 定义快捷键
 (global-set-key (kbd "M-n") 'ace-jump-mode)
@@ -298,5 +293,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-10-25
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-10-26
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
