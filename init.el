@@ -102,6 +102,7 @@ values."
                                       ;; dired+
                                       elisp-slime-nav
                                       benchmark-init
+                                      dired-k
                                       leanote
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
