@@ -41,7 +41,8 @@
         (when (file-exists-p default-directory)
           (aborn/log (shell-command-to-string "git push"))
           (aborn/log "finished push. **]]"))
-        (format "push to upstream success. %s. time cost: %ss."
+        (format "%s push to upstream success. %s. time cost: %ss."
+                (aborn/log-format "")
                 default-directory
                 (float-time (time-subtract (current-time) begin-time))))
      (lambda (result)

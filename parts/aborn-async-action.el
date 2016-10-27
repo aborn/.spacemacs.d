@@ -33,7 +33,8 @@
         (aborn/log "finished aborn/git-code-update.")
         begin-time)
      (lambda (result)
-       (message "aborn/git-code-update finished. time cost: %ss"
+       (message "%s aborn/git-code-update finished. time cost: %ss"
+                (aborn/log-format "")
                 (float-time (time-subtract (current-time) result)))))))
 
 (provide 'aborn-async-action)
