@@ -18,7 +18,7 @@
   (local-set-key (kbd "C-;") 'move-forward-by-five)
   (local-set-key (kbd "C-:") 'move-backward-by-five)
   (flyspell-mode-off)      ;; 跟快捷键 C-; 有冲突，暂时关闭
-  (message "aborn/major-mode-key-binding done!"))
+  )
 
 ;; define lisp-interaction-mode-map
 (define-key lisp-interaction-mode-map (kbd "C-j") 'helm-buffers-list)
