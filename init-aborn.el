@@ -282,6 +282,12 @@
               (when (string-suffix-p ".el" (buffer-file-name))
                 (aborn/indent-regin))))
 
+;; 将频繁访问的书签放在最前面
+(defadvice bookmark-jump (after bookmark-jump activate)
+  (let ((latest (bookmark-get-bookmark bookmark)))
+    (setq bookmark-alist (delq latest bookmark-alist))
+    (add-to-list 'bookmark-alist latest)))
+
 (my-keys-minor-mode 1)
 (add-hook 'minibuffer-setup-hook #'my-keys-turn-off)
 (add-hook 'after-load-functions 'my-keys-have-priority)
@@ -293,5 +299,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-10-26
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-10-30
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
