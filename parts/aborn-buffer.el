@@ -139,6 +139,15 @@
     (when (buffer-exists (current-buffer))
       (kill-buffer))))
 
+(defun aborn/create-file (&optional fname)
+  "Create file in current default-directory."
+  (interactive)
+  (when (null fname)
+    (setq fname (read-string (format "New file name in %s: " default-directory))))
+  (when (s-blank-str? fname)
+    (error "file name can not be empty!"))
+  (find-file fname))
+
 (defun aborn/delete-file ()
   "Kill the current buffer and deletes the file it is visiting."
   (interactive)
