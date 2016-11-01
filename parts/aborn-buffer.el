@@ -139,6 +139,13 @@
     (when (buffer-exists (current-buffer))
       (kill-buffer))))
 
+(defun aborn/find-file (args)
+  "find file in different style."
+  (interactive "P")
+  (if args
+      (aborn/create-file)
+    (ido-find-file)))
+
 (defun aborn/create-file (&optional fname)
   "Create file in current default-directory."
   (interactive)
