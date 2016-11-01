@@ -11,7 +11,7 @@
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-o") 'ace-window)
     (define-key map (kbd "C-j") 'helm-buffers-list)
-    (define-key map (kbd "M-j") 'ido-find-file)
+    (define-key map (kbd "M-j") 'aborn/find-file)
     (define-key map (kbd "C-i") 'aborn/just-one-space)
     (define-key map [C-backspace] 'aborn/backward-kill-word)
     (define-key map (kbd "C-;") 'move-forward-by-five)

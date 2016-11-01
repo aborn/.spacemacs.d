@@ -299,5 +299,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-10-30
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-11-01
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
