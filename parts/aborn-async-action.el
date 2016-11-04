@@ -3,7 +3,7 @@
   '("~/.emacs.d/" "popkit" "~/.spacemacs.d/" "piece-meal" "pelpa"
     "eden" "leanote-mode" "v2ex-mode" "learn-elisp-by-examples"
     "multi-term-plus" "eeb" "emacs-neotree" "nicemacs"
-    "appkit-web" "emacs-cookbook"))
+    "appkit-web" "emacs-cookbook" "emacsist"))
 
 (defun aborn/git-code-update ()
   "update code async."
