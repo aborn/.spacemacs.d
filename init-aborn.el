@@ -47,6 +47,7 @@
    ;; ("~/github/v2ex-mode" v2ex-mode)
    ;; ("~/github/leanote-mode" leanote)    ;; 本地开发leanote时用
    ("~/github/emacs-neotree" neotree)
+   ("~/github/emacsist" emacsist)
    ))
 (add-to-list 'ivy-sort-functions-alist
              '(t . nil))                   ;; 不要按字符串排序，使用默认排序
