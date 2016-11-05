@@ -104,6 +104,7 @@ values."
                                       benchmark-init
                                       ;; dired-k  ;; 让dired显示得更好看点
                                       leanote
+                                      emacsist
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
