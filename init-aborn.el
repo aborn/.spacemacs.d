@@ -118,11 +118,6 @@
   '(ace-jump-mode-enable-mark-sync))
 ;; (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 (add-hook 'ace-jump-mode-before-jump-hook 'aborn/push-marker-stack)
-
-;; 定义快捷键
-(global-set-key (kbd "M-n") 'ace-jump-mode)
-(define-key global-map (kbd "C-x n") 'ace-jump-line-mode)
-
 (require 'ace-jump-helm-line)
 (eval-after-load "helm"
   '(define-key helm-map (kbd "M-n") 'ace-jump-helm-line))

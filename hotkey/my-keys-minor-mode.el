@@ -21,6 +21,9 @@
     (define-key map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
     (define-key map (kbd "M-,") 'pop-tag-mark)
     (define-key map (kbd "C-M-i") 'complete-symbol)
+    (define-key map (kbd "M-n") 'ace-jump-mode)
+    (define-key map (kbd "C-x n") 'ace-jump-line-mode)
+    (define-key map (kbd "C-c C-c n") 'ace-pinyin-dwim)
     map)
   "my-keys-minor-mode keymap.")
 
