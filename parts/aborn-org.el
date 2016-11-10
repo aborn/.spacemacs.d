@@ -1,5 +1,5 @@
 ;; --------------------------------------------------------------------
-;; org-mode 相关配置
+;; org-mode 相关配置及GTD
 ;; --------------------------------------------------------------------
 ;; (setq org-todo-keywords
 ;; '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
@@ -15,8 +15,10 @@
 ;; (setq org-log-done 'note)   ;;  setting a log note
 ;; (set org-modules 'habits)
 (setq org-startup-folded nil)  ;; 打开org文件默认不展开所有
+
 (when (string= system-type "darwin")
-  (setq org-directory "/Users/aborn/github/iGTD/mobile")
+  (setq org-directory "~/github/eden/gtd/")  ;; 设置gtd的根目录
+  (setq org-default-notes-file "inbox.org")  ;; 设置默认的记录文件
   (setq org-mobile-directory "/Users/aborn/github/iGTD/mobile")
   (setq org-mobile-inbox-for-pull "/Users/aborn/github/iGTD/from-mobile.org"))
 
