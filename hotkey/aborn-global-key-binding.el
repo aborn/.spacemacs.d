@@ -15,7 +15,6 @@
 ;; insert-string related
 (global-set-key (kbd "C-c d") 'aborn/insert-date)
 (global-set-key "\C-xt" 'ab/insert-current-date-time)
-(global-set-key "\C-cm" 'ab/insert-email-address)
 (global-set-key "\C-cn" 'ab/insert-name-english)
 (global-set-key "\C-cN" 'ab/insert-name-chinese)
 (global-set-key "\C-cl" 'aborn/switch-buffer-each-other)

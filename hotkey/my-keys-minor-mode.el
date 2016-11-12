@@ -7,6 +7,7 @@
 ;;
 
 ;; 全局的key-binding放在这里
+;; 注意 C-c C-c 这个按键在一些mode(如org-mode, trem-mode)还是很有用的，另覆盖它
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-o") 'ace-window)
@@ -23,7 +24,7 @@
     (define-key map (kbd "C-M-i") 'complete-symbol)
     (define-key map (kbd "M-n") 'ace-jump-mode)
     (define-key map (kbd "C-x n") 'ace-jump-line-mode)
-    (define-key map (kbd "C-c C-c n") 'ace-pinyin-dwim)
+    (define-key map (kbd "C-c m") 'ace-pinyin-dwim)
     map)
   "my-keys-minor-mode keymap.")
 

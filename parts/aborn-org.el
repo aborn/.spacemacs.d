@@ -22,6 +22,15 @@
   (setq org-mobile-directory "/Users/aborn/github/iGTD/mobile")
   (setq org-mobile-inbox-for-pull "/Users/aborn/github/iGTD/from-mobile.org"))
 
+;; 设置capture的模版
+(setq org-capture-templates
+      '(("i" "Inbox" entry (file+headline (expand-file-name org-default-notes-file org-directory) "收集")
+         "* %?\n  %i\n  %a")
+        ("t" "Todo" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+
 (defun org-agenda-timeline-all (&optional arg)
   (interactive "P")
   (with-temp-buffer

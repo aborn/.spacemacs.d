@@ -1,6 +1,6 @@
 (provide 'insert-string)
 
-(defun ab/insert-email-address (arg)
+(defun aborn/insert-email-address (arg)
   "Insert email address at the current ponit"
   (interactive "p")
   (unless (boundp 'user-mail-address)   ;; check variable defined.
