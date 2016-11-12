@@ -24,10 +24,14 @@
 
 ;; 设置capture的模版
 (setq org-capture-templates
-      '(("i" "Inbox" entry (file+headline (expand-file-name org-default-notes-file org-directory) "收集")
+      '(("o" "Others" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Others")
          "* %?\n  %i\n  %a")
         ("t" "Todo" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Tasks")
-         "* TODO %?\n  %i\n  %a")
+         "* TODO %?\n  创建于:%T  %i\n  %a")
+        ("l" "学习/了解" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Need-To-Learn")
+         "* %?\n  创建于:%T  %i\n  %a")
+        ("b" "备忘" entry (file+headline (expand-file-name org-default-notes-file org-directory) "BackUps")
+         "* %?\n  创建于:%T  %i\n  %a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 
