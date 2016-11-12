@@ -31,7 +31,7 @@
         ("l" "学习/了解" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Need-To-Learn")
          "* %?\n  创建于:%T  %i\n  %a")
         ("b" "备忘" entry (file+headline (expand-file-name org-default-notes-file org-directory) "BackUps")
-         "* %?\n  创建于:%T  %i\n  %a")
+         "* %?\n  创建于:%T\n")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 
