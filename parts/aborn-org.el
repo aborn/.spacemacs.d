@@ -41,13 +41,18 @@
          "* %?\n  %i\n  %a")))
 
 (setq aborn-gtd-files (list (expand-file-name "finished.org" org-directory)
+                            (expand-file-name "trash.org" org-directory)
                             (expand-file-name org-default-notes-file org-directory)
                             ))
 
-(setq org-refile-targets (quote ((aborn-gtd-files . (:level . 1))
-                                 (nil :maxlevel . 9)
-                                 ("inbox.org" :level . 2)
-                                 ("finished.org" :level . 2))))
+(setq org-refile-targets
+      '((nil :maxlevel . 3)
+        (aborn-gtd-files :maxlevel . 3)))
+
+;; (setq org-refile-targets (quote ((aborn-gtd-files . (:level . 1))
+;;                                  (nil :maxlevel . 9)
+;;                                  ("inbox.org" :level . 2)
+;;                                  ("finished.org" :level . 2))))
 
 (defun org-agenda-timeline-all (&optional arg)
   (interactive "P")
