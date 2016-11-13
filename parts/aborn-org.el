@@ -24,16 +24,30 @@
 
 ;; 设置capture的模版
 (setq org-capture-templates
-      '(("o" "Others" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Others")
-         "* %?\n  %i\n  %a")
+      '(
         ("t" "Todo" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Tasks")
          "* TODO %?\n  创建于:%T  %i\n  %a")
         ("l" "学习/了解" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Need-To-Learn")
          "* %?\n  创建于:%T  %i\n  %a")
         ("b" "备忘" entry (file+headline (expand-file-name org-default-notes-file org-directory) "BackUps")
          "* %?\n  创建于:%T\n")
+        ("c" "Calendar" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Calendar")
+         "* %?\n  创建于:%T\n")
+        ("p" "Projects" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Projects")
+         "* %?\n  创建于:%T\n")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")))
+         "* %?\nEntered on %U\n  %i\n  %a")
+        ("o" "Others" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Others")
+         "* %?\n  %i\n  %a")))
+
+(setq aborn-gtd-files (list (expand-file-name "finished.org" org-directory)
+                            (expand-file-name org-default-notes-file org-directory)
+                            ))
+
+(setq org-refile-targets (quote ((aborn-gtd-files . (:level . 1))
+                                 (nil :maxlevel . 9)
+                                 ("inbox.org" :level . 2)
+                                 ("finished.org" :level . 2))))
 
 (defun org-agenda-timeline-all (&optional arg)
   (interactive "P")
