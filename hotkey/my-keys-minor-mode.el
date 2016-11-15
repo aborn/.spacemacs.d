@@ -25,6 +25,7 @@
     (define-key map (kbd "M-n") 'ace-jump-mode)
     (define-key map (kbd "C-x n") 'ace-jump-line-mode)
     (define-key map (kbd "C-c m") 'ace-pinyin-dwim)
+    (define-key map (kbd "C-c C-w") 'org-refile)
     map)
   "my-keys-minor-mode keymap.")
 
