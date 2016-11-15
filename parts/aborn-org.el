@@ -25,6 +25,9 @@
 ;; 设置capture的模版
 (setq org-capture-templates
       '(
+        ("a" "Account" table-line
+         (file+headline "~/github/eden/pass/pass.org" "Web accounts")
+         "| %? | | %a | %U |")
         ("t" "Todo" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Tasks")
          "* TODO %?\n  创建于:%T  %i\n  %a")
         ("l" "学习/了解" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Need-To-Learn")
