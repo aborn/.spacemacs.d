@@ -46,13 +46,8 @@
                             ))
 
 (setq org-refile-targets
-      '((nil :maxlevel . 3)
+      '((nil :maxlevel . 3)       ;; 当前文件的最大层级
         (aborn-gtd-files :maxlevel . 3)))
-
-;; (setq org-refile-targets (quote ((aborn-gtd-files . (:level . 1))
-;;                                  (nil :maxlevel . 9)
-;;                                  ("inbox.org" :level . 2)
-;;                                  ("finished.org" :level . 2))))
 
 (defun org-agenda-timeline-all (&optional arg)
   (interactive "P")
