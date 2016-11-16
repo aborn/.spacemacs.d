@@ -45,6 +45,7 @@
 
 (setq aborn-gtd-files (list (expand-file-name "finished.org" org-directory)
                             (expand-file-name "trash.org" org-directory)
+                            (expand-file-name "agenda.org" org-directory)
                             (expand-file-name org-default-notes-file org-directory)
                             ))
 
