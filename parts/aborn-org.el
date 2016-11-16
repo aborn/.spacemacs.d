@@ -125,7 +125,7 @@
  org-completion-use-ido t         ;; use IDO for completion
  org-cycle-separator-lines 0      ;; Don't show blank lines
  org-catch-invisible-edits 'error ;; don't edit invisible text
- org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
+ ;; org-refile-targets '((org-agenda-files . (:maxlevel . 6)))  ;; 前面已经设置过
  )
 
 ;; 采用xelatex，支持Unicode(UTF-8)，支持中文汉字，注意：电脑里需要SimSun(宋体)这个字体
