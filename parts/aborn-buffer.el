@@ -189,5 +189,17 @@
     (message "buffer:%s was deleted!" name)
     ))
 
+(defun aborn/save-all-visited-files ()
+  "Do save buffer list action."
+  (interactive)
+  (mapcar (lambda (elt)
+            (save-current-buffer
+              (set-buffer elt)
+              (when (and buffer-file-name
+                         (buffer-modified-p))
+                (save-buffer)
+                (message "- %s saved! -" buffer-file-name))))
+          (buffer-list)))
+
 (provide 'aborn-buffer)
 ;;; aborn-buffer.el ends here

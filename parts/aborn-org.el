@@ -136,19 +136,8 @@
 (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                               "xelatex -interaction nonstopmode %f"))
 
-(defun aborn/save-all ()
-  "Do save buffer list action."
-  (interactive)
-  (mapcar (lambda (elt)
-            (save-current-buffer
-              (set-buffer elt)
-              (when buffer-file-name
-                (message "%s" buffer-file-name))))
-          (buffer-list)))
-
 (add-hook 'org-after-refile-insert-hook
           (lambda ()
-            (aborn/save-all)
-            (message "after insert ")))
+            (aborn/save-all-visited-files)))
 
 (provide 'aborn-org)
