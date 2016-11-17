@@ -135,4 +135,9 @@
 ;; 原始值为: ("pdflatex -interaction nonstopmode -output-directory %o %f" "pdflatex -interaction nonstopmode -output-directory %o %f" "pdflatex -interaction nonstopmode -output-directory %o %f")
 (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                               "xelatex -interaction nonstopmode %f"))
+
+(add-hook 'org-after-refile-insert-hook
+          (lambda ()
+            (message "after insert ")))
+
 (provide 'aborn-org)
