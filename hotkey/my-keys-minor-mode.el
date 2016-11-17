@@ -27,6 +27,7 @@
     (define-key map (kbd "C-c m") 'ace-pinyin-dwim)
     (define-key map (kbd "C-c C-w") 'org-refile)
     (define-key map (kbd "C-c M-w") 'org-copy)
+    (define-key map (kbd "C-x C-s") 'aborn/save-all-visited-files)
     map)
   "my-keys-minor-mode keymap.")
 
