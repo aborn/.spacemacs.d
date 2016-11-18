@@ -28,6 +28,8 @@
     (define-key map (kbd "C-c C-w") 'org-refile)
     (define-key map (kbd "C-c M-w") 'org-copy)
     (define-key map (kbd "C-x C-s") 'aborn/save-all-visited-files)
+    (define-key map (kbd "C-c f") 'iy-go-to-char)
+    (define-key map (kbd "C-c b") 'iy-go-to-char-backward)
     map)
   "my-keys-minor-mode keymap.")
 

@@ -102,7 +102,8 @@ values."
                                       ;; dired+
                                       elisp-slime-nav
                                       benchmark-init
-                                      ;; dired-k  ;; 让dired显示得更好看点
+                                      ;; dired-k       ;; 让dired显示得更好看点
+                                      iy-go-to-char    ;; 快速移动 https://github.com/doitian/iy-go-to-char
                                       leanote
                                       emacsist
                                       )
