@@ -19,13 +19,14 @@
 (require 'async)
 
 (defun aborn/swift-git-commit-push (msg)
-  "commit modified and push to upstream"
+  "Commit modified and push to upstream."
   (interactive "sCommit Message: ")
   (when (= 0 (length msg))
     (setq msg (format-time-string "commit by magit in emacs@%Y-%m-%d %H:%M:%S" (current-time))))
   (message "commit message is %s" msg)
-  (when (buffer-file-name)
-    (save-buffer))
+  (when (and buffer-file-name
+             (buffer-modified-p))
+    (save-buffer))                                     ;; save it first if modified.
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
   (let* ((begin-time (current-time)))
@@ -33,7 +34,7 @@
      `(lambda ()
         ,(async-inject-variables "\\`begin-time\\'")
         ,(async-inject-variables "\\`default-directory\\'")
-        ,(async-inject-variables "\\`load-path\\'")    ;; main-process load-path
+        ,(async-inject-variables "\\`load-path\\'")    ;; main-process load-path.
         (require 'magit)
         (require 'aborn-log)
         (aborn/log (format "[[** start to execute push in directory %s" default-directory))
