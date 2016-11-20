@@ -31,7 +31,9 @@
       (if (and cbranch
                (not (string= cbranch bname))
                (string= "master" cbranch))
-          (magit-branch-and-checkout bname "master")
+          (progn
+            (magit-branch-and-checkout bname "master")
+            (message "create&checkout %s success." bname))
         (message "current branch is %s (not master), create branch %s failed." cbranch bname))
       (force-mode-line-update))))
 
