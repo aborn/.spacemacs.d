@@ -43,7 +43,7 @@
           (aborn/log "finished push. **]]"))
         (format "%s push to upstream success. %s. time cost: %ss."
                 (aborn/log-format "")
-                default-directory
+                (or (magit-get "remote" "origin" "url") default-directory)
                 (float-time (time-subtract (current-time) begin-time))))
      (lambda (result)
        (message "%s" result)))))

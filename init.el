@@ -324,3 +324,17 @@ layers configuration. You are free to put any user code."
   (load-file "~/.spacemacs.d/init-aborn.el")
   (load-file "~/.spacemacs.d/hotkey/aborn-prefix.el")
   )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (org-plus-contrib yapfify yaml-mode wttrin ws-butler window-numbering which-key wgrep web-mode web-beautify wakatime-mode volatile-highlights vi-tilde-fringe v2ex-mode uuidgen use-package tree-mode toc-org timp tagedit swiper sql-indent spacemacs-theme spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters racket-mode quelpa pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-page org-download org-bullets open-junk-file ob-elixir neotree mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode leanote kanban json-mode js2-refactor js-doc iy-go-to-char ivy-smex insert-shebang info+ indent-guide ido-vertical-mode hyperbole hy-mode hungry-delete hl-todo highlight-symbol highlight-parentheses highlight-numbers highlight-indentation highlight-defined hide-comnt help-fns+ helm-themes helm-swoop helm-smex helm-pydoc helm-projectile helm-org-rifle helm-mode-manager helm-make helm-gtags helm-gitignore helm-github-stars helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hackernews google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags format-sql flyspell-correct-helm flycheck-pos-tip flycheck-mix flx-ido fish-mode find-file-in-project fill-column-indicator fancy-battery f3 eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erlang emmet-mode emacsist elisp-slime-nav easy-kill dumb-jump disable-mouse diff-hl deft define-word cython-mode company-web company-tern company-statistics company-shell company-go company-emacs-eclim company-anaconda column-marker column-enforce-mode color-identifiers-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby buttercup bundler buffer-move benchmark-init beacon auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile all-the-icons alchemist aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
