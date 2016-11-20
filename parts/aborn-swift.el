@@ -18,6 +18,16 @@
 
 (require 'async)
 
+(defun aborn/magit-create-fix-branch ()
+  "Crate fix branch using magit."
+  (interactive)
+  (let* ((cbranch (magit-get-current-branch))
+         (bname (format-time-string "fix%m%d" (current-time))))
+    (if (and cbranch
+             (string= "master" cbranch))
+        (magit-branch-and-checkout bname "master")
+      (message "not in master branch, create failed."))))
+
 (defun aborn/swift-git-commit-push (msg)
   "Commit modified and push to upstream."
   (interactive "sCommit Message: ")
