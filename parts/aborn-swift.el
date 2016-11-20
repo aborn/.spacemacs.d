@@ -27,7 +27,8 @@
              (not (string= cbranch bname))
              (string= "master" cbranch))
         (magit-branch-and-checkout bname "master")
-      (message "current branch is %s (not master), create branch %s failed." cbranch bname))))
+      (message "current branch is %s (not master), create branch %s failed." cbranch bname))
+    (force-mode-line-update)))
 
 (defun aborn/swift-git-commit-push (msg)
   "Commit modified and push to upstream."
