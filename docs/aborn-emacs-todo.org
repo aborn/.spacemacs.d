@@ -19,6 +19,7 @@
 ** TODO push失败时提示
 ** TODO 添加创建新文件功能，ivy是文件搜索
 ** TODO magit-delete-branch 删除本地和远程分支
+** TODO 对elpa进行备份
 ** DONE ace-jump跳走后能跳回来C-,
    CLOSED: [2016-10-26 Wed 21:17]
    - State "DONE"       from "ONGOING"    [2016-10-26 Wed 21:17]
