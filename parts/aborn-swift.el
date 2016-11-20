@@ -23,11 +23,12 @@
   (interactive)
   (let* ((cbranch (magit-get-current-branch))
          (bname (format-time-string "fix%m%d" (current-time))))
-    (when (member bname (magit-list-local-branch-names))
-      (magit-checkout bname)
-      (message "checkout to branch %s success." bname)
-      (force-mode-line-update)
-      (return-from aborn/magit-create-or-checkout-fix-branch))
+    (catch 'my-cacth
+      (when (member bname (magit-list-local-branch-names))
+        (magit-checkout bname)
+        (message "checkout to branch %s success." bname)
+        (force-mode-line-update)
+        (throw 'my-cacth "done.")))
     (if (and cbranch
              (not (string= cbranch bname))
              (string= "master" cbranch))
