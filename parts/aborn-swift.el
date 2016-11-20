@@ -23,18 +23,17 @@
   (interactive)
   (let* ((cbranch (magit-get-current-branch))
          (bname (format-time-string "fix%m%d" (current-time))))
-    (catch 'my-cacth
-      (when (member bname (magit-list-local-branch-names))
-        (magit-checkout bname)
-        (message "checkout to branch %s success." bname)
-        (force-mode-line-update)
-        (throw 'my-cacth "done.")))
-    (if (and cbranch
-             (not (string= cbranch bname))
-             (string= "master" cbranch))
-        (magit-branch-and-checkout bname "master")
-      (message "current branch is %s (not master), create branch %s failed." cbranch bname))
-    (force-mode-line-update)))
+    (if (member bname (magit-list-local-branch-names))
+        (progn
+          (magit-checkout bname)
+          (message "checkout to branch %s success." bname)
+          (force-mode-line-update))
+      (if (and cbranch
+               (not (string= cbranch bname))
+               (string= "master" cbranch))
+          (magit-branch-and-checkout bname "master")
+        (message "current branch is %s (not master), create branch %s failed." cbranch bname))
+      (force-mode-line-update))))
 
 (defun aborn/swift-git-commit-push (msg)
   "Commit modified and push to upstream."
