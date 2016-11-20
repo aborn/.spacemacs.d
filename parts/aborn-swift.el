@@ -33,7 +33,7 @@
                (string= "master" cbranch))
           (progn
             (magit-branch-and-checkout bname "master")
-            (message "create&checkout %s success." bname))
+            (message "create & checkout to branch %s success." bname))
         (message "current branch is %s (not master), create branch %s failed." cbranch bname))
       (force-mode-line-update))))
 
