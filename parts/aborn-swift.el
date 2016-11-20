@@ -24,9 +24,10 @@
   (let* ((cbranch (magit-get-current-branch))
          (bname (format-time-string "fix%m%d" (current-time))))
     (if (and cbranch
+             (not (string= cbranch bname))
              (string= "master" cbranch))
         (magit-branch-and-checkout bname "master")
-      (message "not in master branch, create failed."))))
+      (message "current branch is %s (not master), create branch %s failed." cbranch bname))))
 
 (defun aborn/swift-git-commit-push (msg)
   "Commit modified and push to upstream."
