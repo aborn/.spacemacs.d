@@ -18,11 +18,16 @@
 
 (require 'async)
 
-(defun aborn/magit-create-fix-branch ()
+(defun aborn/magit-create-or-checkout-fix-branch ()
   "Crate fix branch using magit."
   (interactive)
   (let* ((cbranch (magit-get-current-branch))
          (bname (format-time-string "fix%m%d" (current-time))))
+    (when (member bname (magit-list-local-branch-names))
+      (magit-checkout bname)
+      (message "checkout to branch %s success." bname)
+      (force-mode-line-update)
+      (throw 'return nil))
     (if (and cbranch
              (not (string= cbranch bname))
              (string= "master" cbranch))
