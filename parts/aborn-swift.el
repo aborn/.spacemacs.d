@@ -27,7 +27,7 @@
       (magit-checkout bname)
       (message "checkout to branch %s success." bname)
       (force-mode-line-update)
-      (throw 'return nil))
+      (return-from aborn/magit-create-or-checkout-fix-branch))
     (if (and cbranch
              (not (string= cbranch bname))
              (string= "master" cbranch))
