@@ -19,7 +19,7 @@
 (require 'async)
 
 (defun aborn/magit-create-or-checkout-fix-branch ()
-  "Crate fix branch using magit."
+  "Crate (or checkout to) fix branch using magit."
   (interactive)
   (let* ((cbranch (magit-get-current-branch))
          (bname (format-time-string "fix%m%d" (current-time))))
