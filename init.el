@@ -106,6 +106,7 @@ values."
                                       iy-go-to-char    ;; 快速移动 https://github.com/doitian/iy-go-to-char
                                       leanote
                                       emacsist
+                                      jump
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
