@@ -226,7 +226,7 @@
 (setq neo-force-change-root t)          ;; 当root改变时，是否强制相应改变而不需要询问
 (setq neo-persist-show t)               ;; C-x 1 时neotree window不关闭
 (require 'all-the-icons)
-(setq neo-theme (if window-system 'icons 'arrow))
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 ;; (setq neo-theme (if window-system 'classic 'arrow))
 ;; (setq neo-theme 'icons)
 (spacemacs/set-leader-keys "tr" 'neotree-refresh)
