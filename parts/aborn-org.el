@@ -43,7 +43,7 @@
         ("s" "日程" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Tasks")
          "\n\n** TODO %?\n  SCHEDULED: <%(org-read-date nil nil \"+1d\")>")
         ("t" "Todo" entry (file+headline (expand-file-name org-default-notes-file org-directory) "Tasks")
-         "* TODO %?\n  创建于:%T  %i\n  %a")
+         "* TODO %?\n  创建于:%T  %i\n")
         ))
 
 (setq aborn-gtd-files (list (expand-file-name "finished.org" org-directory)
