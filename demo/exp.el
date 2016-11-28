@@ -71,12 +71,6 @@
     (message "kkk"))
   (message "%s%s" arg current-prefix-arg))
 
-(defun say-word (word)
-  (interactive (list
-                (read-string (format "word (%s): " (thing-at-point 'word))
-                             nil nil (thing-at-point 'word))))
-  (message "The word is %s" word))
-
 (defun test-fun ()
   "Prompt user to enter a file path, with file name completion and input history support."
   (interactive)
