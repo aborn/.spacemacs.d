@@ -29,7 +29,9 @@
   (interactive "P")
   (if args
       (aborn/loop-each-char-action 'aborn/do-convert-action t)
-    (aborn/loop-each-char-action 'aborn/do-convert-action)))
+    (aborn/loop-each-char-action 'aborn/do-convert-action))
+  (if buffer-file-name
+      (save-buffer)))
 
 (defun aborn/loop-each-char-action (action &optional args)
   "Do loop `ACTION' iterator for each char in current buffer."
@@ -42,9 +44,10 @@
       (forward-char))))
 
 (defun aborn/is-A-to-Z (char)
-  "char a(A) ~ z(Z)"
-  (and (<= char 122)
-       (>= char 65)))
+  "char a(A) ~ z(Z), 0~9"
+  (and
+   (>= char 33)
+   (<= char 126)))
 
 (defun aborn/do-convert-action (&optional versa)
   "do convert action"
@@ -55,6 +58,8 @@
      (lambda (x)
        (when (and
               (string= (aref x 0) (string cchar))
+              (or versa
+                  (or (not cbchar) (not (aborn/is-A-to-Z cbchar))))
               (or versa
                   (not (aborn/is-A-to-Z cachar))))
          (aborn/replace-current-char (aref x 1))))
