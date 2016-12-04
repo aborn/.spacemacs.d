@@ -51,7 +51,6 @@
   (let* ((cchar (char-after))                   ;; char current
          (cachar (char-after (+ (point) 1)))    ;; char after
          (cbchar (char-before (point))))        ;; char before
-    (setq ab/debug cbchar)
     (mapc
      (lambda (x)
        (when (and
