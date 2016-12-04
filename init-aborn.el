@@ -39,6 +39,7 @@
     aborn-utils                            ;; 工具函数
     aborn-face                             ;; 异步执行的任务
     aborn-org                              ;; org相关配置
+    aborn-char                             ;; char相关操作
     )
    ;;; 下面是aborn自己需要加载的一些mode
    ("~/github/multi-term-plus" multi-term-config)
@@ -295,5 +296,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-11-19
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-12-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

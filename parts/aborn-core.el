@@ -8,6 +8,11 @@
 
 ;;; Code:
 
+(defgroup aborn nil
+  "aborn package group"
+  :prefix "aborn-"
+  :group 'convenience)
+
 (defun aborn/add-to-load-path (dir)
   "Util function add path to load-path"
   (add-to-list 'load-path dir))
@@ -59,3 +64,6 @@
                          (file-readable-p path))
                 (aborn/load-path-pkgs path pkgs is-load-file))))
         args))
+
+(provide 'aborn-core)
+;;; aborn-core.el ends here
