@@ -8,8 +8,10 @@ spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](htt
 * **docs** 文档目录  
 * **hotkey** 按键绑定的配置,全局按键的绑定见[my-keys-minor-mode.el](./hotkey/my-keys-minor-mode.el)  
 * **layers** 自己写的layer  
+* **lib3rd** 第三方的库，主要保存从网上收集的比较有用的Emacs Lisp函数库  
 * **modules** 文件夹主要保存网上的开源packages(主要是些不在melpa源里的包)  
 * **parts** 主要一些自己写的配置及工具  
+* **screenshots** 屏幕截图  
 * **scripts** 存放一些有用的脚本  
 
 ## 基本按键

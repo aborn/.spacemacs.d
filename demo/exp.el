@@ -83,7 +83,7 @@
 (defun aborn/convert-en-punctuation-to-cn ()
   "Convert English punctuation to chinese style or vice versa."
   (interactive)
-  (aborn/loop-each-char-action 'aborn/do-convert-action))
+  (xah-convert-english-chinese-punctuation (point-min) (point-max) "chinese"))
 
 (defun aborn/loop-each-char-action (action)
   "Do loop `ACTION' iterator for each char in current buffer."
