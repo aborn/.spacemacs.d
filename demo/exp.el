@@ -88,7 +88,7 @@
 (defun aborn/loop-each-char-action (action)
   "Do loop `ACTION' iterator for each char in current buffer."
   (unless (functionp action)
-    (error "Argument action need function"))
+    (error "Argument action needs function type."))
   (save-excursion
     (goto-char (point-min))
     (while (not (eobp))
@@ -99,5 +99,13 @@
   "do convert action"
   (let ((cchar (char-after)))
     (when (char-equal ?中 cchar)
-      (delete-char 1)
-      (insert "."))))
+      (aborn/replace-current-char ?.)
+      )))
+
+(defun aborn/replace-current-char (char)
+  "Replace current char with `CHAR'"
+  (unless (or (characterp char)
+              (stringp char))
+    (error "Argument error, need char or string type."))
+  (delete-char 1)
+  (insert char))
