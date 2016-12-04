@@ -79,3 +79,25 @@
     (message "Input value is 「%s」." input-value)))
 
 (setq neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" ".el$"))
+
+(defun aborn/convert-en-punctuation-to-cn ()
+  "Convert English punctuation to chinese style or vice versa."
+  (interactive)
+  (aborn/loop-each-char-action 'aborn/do-convert-action))
+
+(defun aborn/loop-each-char-action (action)
+  "Do loop `ACTION' iterator for each char in current buffer."
+  (unless (functionp action)
+    (error "Argument action need function"))
+  (save-excursion
+    (goto-char (point-min))
+    (while (not (eobp))
+      (funcall action)
+      (forward-char))))
+
+(defun aborn/do-convert-action (&optional versa)
+  "do convert action"
+  (let ((cchar (char-after)))
+    (when (char-equal ?中 cchar)
+      (delete-char 1)
+      (insert "."))))
