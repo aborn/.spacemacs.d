@@ -79,3 +79,11 @@
     (message "Input value is 「%s」." input-value)))
 
 (setq neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" ".el$"))
+
+
+(defun neotree-test (buffer)
+  "only for test"
+  (interactive
+   (list (read-buffer-to-switch "Switch to buffer in other window: ")))
+  (display-buffer buffer t)
+  )
