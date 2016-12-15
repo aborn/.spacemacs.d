@@ -25,10 +25,11 @@
       (ring-insert find-tag-marker-ring (point-marker)))))
 
 (defun aborn/load-path-pkgs (path pkgs &optional is-load-file)
-  "Active `PATH' all `PKGS'"
+  "Active `PATH' all `PKGS', TODO add :before & :after action."
   (let ((actived-pkgs '())
         (unknown-pkgs '()))
     (mapc #'(lambda (pkg)
+              (setq ab/debug pkg)     ;; TODO only for debug
               (let* ((pkg-str (if (symbolp pkg) (symbol-name pkg) pkg))
                      (file-name (expand-file-name (concat pkg-str ".el") path)))
                 (unless (file-exists-p file-name)
