@@ -16,7 +16,6 @@
 ;; -----------------------------------------------------------------------------
 ;; 最基本的全局load及features require
 ;; -----------------------------------------------------------------------------
-(setq neo-keymap-style 'concise)           ;; 设置按键模式，这种按键比较短
 (aborn/load-path-and-pkgs
  '(("~/github/emacs-cookbook" "cookbook")
    ("~/.spacemacs.d/hotkey"                ;; 按键相关放在hotkey/目录下
@@ -49,7 +48,12 @@
    ;; ("~/github/v2ex-mode" v2ex-mode)
    ;; ("~/github/leanote-mode" leanote)    ;; 本地开发leanote时用
    ("~/github/emacsist" emacsist)
-   ("~/github/emacs-neotree" neotree)
+   ("~/github/emacs-neotree"
+    (neotree :before (lambda ()
+                       (message "before neotree")
+                       ;; 设置按键模式，这种按键比较短
+                       (setq neo-keymap-style 'concise))
+             :after (lambda () (message "after neotree."))))
    ))
 (add-to-list 'ivy-sort-functions-alist
              '(t . nil))                   ;; 不要按字符串排序，使用默认排序
@@ -227,7 +231,6 @@
 (setq neo-show-hidden-files nil)        ;; 不显示隐藏文件
 (setq neo-force-change-root t)          ;; 当root改变时，是否强制相应改变而不需要询问
 (setq neo-persist-show t)               ;; C-x 1 时neotree window不关闭
-(setq neo-keymap-style 'concise)        ;; 设置按键模式，这种按键比较短
 (setq split-window-preferred-function 'neotree-split-window-sensibly)
 (require 'all-the-icons)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))

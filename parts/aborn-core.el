@@ -25,22 +25,28 @@
       (ring-insert find-tag-marker-ring (point-marker)))))
 
 (defun aborn/load-path-pkgs (path pkgs &optional is-load-file)
-  "Active `PATH' all `PKGS', TODO add :before & :after action."
+  "Active `PATH' all `PKGS'."
   (let ((actived-pkgs '())
         (unknown-pkgs '()))
     (mapc #'(lambda (pkg)
-              (setq ab/debug pkg)     ;; TODO only for debug
-              (let* ((pkg-str (if (symbolp pkg) (symbol-name pkg) pkg))
+              (let* ((pkg-obj (if (listp pkg) (car pkg) pkg))
+                     (before-action (if (listp pkg) (plist-get (cdr pkg) :before)))
+                     (after-action (if (listp pkg) (plist-get (cdr pkg) :after)))
+                     (pkg-str (if (symbolp pkg-obj) (symbol-name pkg-obj) pkg-obj))
                      (file-name (expand-file-name (concat pkg-str ".el") path)))
                 (unless (file-exists-p file-name)
                   (add-to-list 'unknown-pkgs pkg-str))
                 (when (and (file-exists-p file-name)
-                           (or (symbolp pkg) (stringp pkg)))
+                           (or (symbolp pkg-obj) (stringp pkg-obj)))
                   (if is-load-file
                       (load-file file-name)
                     (progn
                       (aborn/add-to-load-path path)
+                      (and (functionp before-action)
+                           (funcall before-action))
                       (require (intern pkg-str))  ;; 注意make-symbol与intern的关系
+                      (and (functionp after-action)
+                           (funcall after-action))
                       (add-to-list 'actived-pkgs pkg-str))))))
           pkgs)
     (message (aborn/log-format
