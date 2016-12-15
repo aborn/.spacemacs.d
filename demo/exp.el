@@ -79,29 +79,3 @@
     (message "Input value is 「%s」." input-value)))
 
 (setq neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" ".el$"))
-
-
-(defun neotree-test (buffer)
-  "only for test"
-  (interactive
-   (list (read-buffer-to-switch "Switch to buffer in other window: ")))
-  ;;(debug)          
-  (display-buffer-aaa buffer t)
-  )
-
-(setq split-window-preferred-function 'neo-split-window-sensibly)
-(defun neo-split-window-sensibly (&optional window)
-  "An neotree-version of split-window-sensibly,
-which is used to fix issue #209.
-(setq split-window-preferred-function 'neo-split-window-sensibly)"
-  (let ((window (or window (selected-window))))
-    (or (split-window-sensibly window)
-        (and (get-buffer-window neo-buffer-name)
-             (not (window-minibuffer-p window))
-             ;; If WINDOW is the only window on its frame (or only include Neo window ) and is not the
-             ;; minibuffer window, try to split it vertically disregarding
-             ;; the value of `split-height-threshold'.
-             (let ((split-height-threshold 0))
-               (when (window-splittable-p window)
-                 (with-selected-window window
-                   (split-window-below))))))))
