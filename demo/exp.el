@@ -107,6 +107,6 @@
                (message "running in bg.")))
 
 (make-thread (lambda ()
-               (sit-for 5)
+               (sleep-for 10)     ;; sleep-for  site-for
                (with-current-buffer "z"
                  (insert "foo"))))
