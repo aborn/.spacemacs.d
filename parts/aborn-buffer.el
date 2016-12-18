@@ -59,7 +59,7 @@
           (write-file compile-log-file-name)
           (save-buffer))))))
 
-(defun ab/wrap-temp-buffer-name (buf-name)
+(defun aborn/wrap-temp-buffer-name (buf-name)
   (downcase (if (and (string-suffix-p "*" buf-name)
                      (string-prefix-p "*" buf-name))
                 (substring buf-name 1 (- (string-width buf-name) 1))
@@ -72,7 +72,7 @@
       (let* ((current-time-stamp-local
               (format-time-string "%Y-%m-%d-%H" (current-time)))
              (local-save-file-name
-              (format "~/.spacemacs.d/local/%s-%s.txt" (ab/wrap-temp-buffer-name buf-name) current-time-stamp-local)))
+              (format "~/.spacemacs.d/local/%s-%s.txt" (aborn/wrap-temp-buffer-name buf-name) current-time-stamp-local)))
         (save-current-buffer
           (message "save buffer %s content to %s" buf-name local-save-file-name)
           (set-buffer buf-name)
