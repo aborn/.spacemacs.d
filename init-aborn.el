@@ -46,7 +46,14 @@
    ("~/github/pelpa-mode" pelpa-mode)
    ("~/github/cip-mode" cip-mode)
    ;; ("~/github/v2ex-mode" v2ex-mode)
-   ;; ("~/github/leanote-mode" leanote)    ;; 本地开发leanote时用
+   ("~/github/leanote-mode"
+    (leanote :after (lambda ()             ;; 本地开发leanote时用
+                      (setq leanote-user-email "aborn@aborn.me")
+                      (add-hook 'markdown-mode-hook
+                                (lambda ()
+                                  (leanote)
+                                  (leanote-spaceline-status)  ;; optional, use it if necessary
+                                  )))))
    ("~/github/emacsist" emacsist)
    ("~/github/emacs-neotree"
     (neotree :before (lambda ()
@@ -239,13 +246,6 @@
 (spacemacs/set-leader-keys "tr" 'neotree-refresh)
 (add-hook 'neotree-mode-hook (lambda () (disable-mouse-mode -1)))
 
-(setq leanote-user-email "aborn@aborn.me")
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (leanote)
-            (leanote-spaceline-status)  ;; optional, use it if necessary
-            ))
-
 ;; 下面是一些定时任务
 (require 'aborn-timer-task)
 (aborn/timer-task-each-8hour 'aborn/git-code-update)
@@ -302,5 +302,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-12-15
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-12-23
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

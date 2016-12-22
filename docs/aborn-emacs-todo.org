@@ -21,6 +21,8 @@
 ** TODO magit-delete-branch 删除本地和远程分支
 ** TODO 对elpa进行备份
 ** TODO 对emacsist.el添加将英文标点替换成中文标点的功能
+** TODO M-n 返回时，当有两个window时(返回的buffer在另一个window)，会有问题
+** TODO aborn-core本地pkg不存在时仍然执行一个函数?
 ** DONE ace-jump跳走后能跳回来C-,
    CLOSED: [2016-10-26 Wed 21:17]
    - State "DONE"       from "ONGOING"    [2016-10-26 Wed 21:17]
