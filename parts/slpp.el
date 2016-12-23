@@ -78,6 +78,7 @@
                (mapconcat 'identity unknown-pkgs " ")
                path))))
 
+;;;###autoload
 (defun slpp-load-path-and-pkgs (args &optional is-load-file)
   "Add path to load-path and require package.
    Usage: (slpp-load-path-and-require '((path1 pkg11 pkg12) (path2 pkg2)))"
