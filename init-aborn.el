@@ -16,7 +16,7 @@
 ;; -----------------------------------------------------------------------------
 ;; 最基本的全局load及features require
 ;; -----------------------------------------------------------------------------
-(aborn/load-path-and-pkgs
+(slpp-load-path-and-pkgs
  '(("~/github/emacs-cookbook" "cookbook")
    ("~/.spacemacs.d/hotkey"                ;; 按键相关放在hotkey/目录下
     aborn-basic-key-binding                ;; 基本的快捷键设置
@@ -275,7 +275,7 @@
 (setq helm-github-stars-username "aborn")
 
 (ensure-package-installed 'tree-mode)                ;; reddit需要tree-mode
-(aborn/load-path-and-pkgs
+(slpp-load-path-and-pkgs
  '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)      ;; 全局的key-binding放在这里
    ("~/.spacemacs.d/modules" reddit)))
 
