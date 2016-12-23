@@ -1,11 +1,13 @@
 ;;; slpp.el --- Smart load path and packages. -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2016 Aborn Jiang
+
 ;; Author: Aborn Jiang <aborn.jiang@gmail.com>
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "24.4") (s "1.10.0"))
 ;; Keywords: convenience load path packages
 ;; Homepage: https://github.com/aborn/.spacemacs.d
-;; URL: https://github.com/aborn/.spacemacs.d
+;; URL: https://github.com/aborn/.spacemacs.d/blob/master/parts/slpp.el
 
 ;; This file is NOT part of GNU Emacs.
 
