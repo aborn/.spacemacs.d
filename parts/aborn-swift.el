@@ -68,7 +68,7 @@
      (lambda (result)
        (message "%s" result)))))
 
-(defun aborn/pop-tag-mark  ()
+(defun aborn/pop-tag-mark ()
   "Rewrite pop-tag-mark alias xref-pop-marker-stack to fix multi-window back.
    Pop back to where \\[xref-find-definitions] was last invoked."
   (interactive)
