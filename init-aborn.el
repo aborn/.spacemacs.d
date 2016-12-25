@@ -280,10 +280,11 @@
  '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)      ;; 全局的key-binding放在这里
    ("~/.spacemacs.d/modules" reddit)))
 
-;; 对elisp文件，保存之前进行indent
+;; 对elisp或org文件，保存之前进行indent
 (add-hook 'before-save-hook
           #'(lambda ()
-              (when (string-suffix-p ".el" (buffer-file-name))  ;; TODO 支持org文件
+              (when (or (string-suffix-p ".el" (buffer-file-name))
+                        (string-suffix-p ".org" (buffer-file-name)))
                 (aborn/indent-regin))))
 
 ;; 将频繁访问的书签放在最前面
