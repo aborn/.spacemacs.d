@@ -20,7 +20,7 @@
     (define-key map (kbd "C-'") 'move-middle-of-line)
     (define-key map (kbd "C-s") 'swiper)
     (define-key map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
-    (define-key map (kbd "M-,") 'pop-tag-mark)
+    (define-key map (kbd "M-,") 'aborn/pop-tag-mark)
     (define-key map (kbd "C-M-i") 'complete-symbol)
     (define-key map (kbd "M-n") 'ace-jump-mode)
     (define-key map (kbd "C-x n") 'ace-jump-line-mode)
