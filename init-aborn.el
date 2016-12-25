@@ -92,6 +92,7 @@
 ;;(set-face-foreground 'highlight nil)
 (setq save-silently t)                     ;; 保存文件时不要询问,直接保存
 (setq buffer-save-without-query t)         ;; 调用save-some-buffers不需要询问
+(setq pyim-isearch-enable-pinyin-search t)
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
@@ -302,5 +303,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2016-12-23
+;; last update by Aborn Jiang (aborn@aborn.me) at 2016-12-25
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
