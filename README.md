@@ -1,5 +1,6 @@
 # .spacemacs.d
 spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](https://github.com/aborn/.spacemacs.d/blob/master/init-aborn.el)
+详细配置请参考[使用手册](./docs/manual.org)
 
 ## 配置项目结构
 配置文件入口为[init.el](./init.el)及[init-aborn.el](./init-aborn.el)，大部分配置文件存放在*modules*和*parts*文件夹里，按键的绑定在*hotkey*文件夹。

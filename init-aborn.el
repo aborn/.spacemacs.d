@@ -283,7 +283,7 @@
 ;; 对elisp文件，保存之前进行indent
 (add-hook 'before-save-hook
           #'(lambda ()
-              (when (string-suffix-p ".el" (buffer-file-name))
+              (when (string-suffix-p ".el" (buffer-file-name))  ;; TODO 支持org文件
                 (aborn/indent-regin))))
 
 ;; 将频繁访问的书签放在最前面

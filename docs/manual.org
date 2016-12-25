@@ -1,9 +1,16 @@
-#+TITLE:     配置使用指南
+#+TITLE:     aborn配置使用指南
 #+AUTHOR:    Aborn Jiang
 #+EMAIL:     (concat "aborn.jiang" at-sign "gmail.com")
 #+DATE:      2016-10-11
 #+SETUPFILE: ~/github/org-html-themes/setup/theme-readtheorg.setup
 
 -----
-* 关于
+
+* 基本功能
 ** 目录
+
+* 快速跳转
+** 函数的定义
+   跳转到函数定义，绑定到快捷键为 *M-.*
+** 跳转回来 *M-,*
+   注意这里我对其原始的pop-tag-mark做了改进，见 *aborn/pop-tag-mark* 这个函数(在aborn-swift.el里)
