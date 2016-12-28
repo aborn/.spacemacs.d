@@ -283,9 +283,10 @@
 ;; 对elisp或org文件，保存之前进行indent
 (add-hook 'before-save-hook
           #'(lambda ()
-              (when (or (string-suffix-p ".el" (buffer-file-name))
-                        (string-suffix-p ".org" (buffer-file-name)))
-                (aborn/indent-regin))))
+              (let ((fname (buffer-file-name)))
+                (when (or (f-ext? fname "org")
+                          (f-ext? fname "el"))
+                  (aborn/indent-regin)))))
 
 ;; 将频繁访问的书签放在最前面
 (defadvice bookmark-jump (after bookmark-jump activate)
