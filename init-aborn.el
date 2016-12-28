@@ -7,7 +7,10 @@
 (aborn/log "aborn's emacs start to init...")
 (message "aborn's emacs start to init...")
 
+(require 'f)
+(require 's)
 (require 'cl-lib)
+
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
 (when (string= system-type "darwin")       ;; mac系统用command代替alter作为M键
   (setq mac-option-modifier 'super)
