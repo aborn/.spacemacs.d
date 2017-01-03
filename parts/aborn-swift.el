@@ -72,6 +72,8 @@
   "Rewrite pop-tag-mark alias xref-pop-marker-stack to fix multi-window back.
    Pop back to where \\[xref-find-definitions] was last invoked."
   (interactive)
+  (unless (boundp 'ggtags-mode)
+    (spacemacs/ggtags-mode-enable))
   (let ((ring xref--marker-ring))
     (when (ring-empty-p ring)
       (user-error "Marker stack is empty"))
