@@ -73,7 +73,7 @@
    Pop back to where \\[xref-find-definitions] was last invoked."
   (interactive)
   (unless (boundp 'ggtags-mode)
-    (spacemacs/ggtags-mode-enable))
+    (spacemacs/ggtags-mode-enable))   ;; 开启 ggtags-mode
   (let ((ring xref--marker-ring))
     (when (ring-empty-p ring)
       (user-error "Marker stack is empty"))
