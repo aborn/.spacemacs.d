@@ -22,6 +22,7 @@
 ** TODO 对elpa进行备份
 ** TODO 对emacsist.el添加将英文标点替换成中文标点的功能
 ** TODO aborn-core本地pkg不存在时仍然执行一个函数?
+** TODO emacsist.el进行url-encode
 ** DONE M-n 返回时，当有两个window时(返回的buffer在另一个window)，会有问题(fixed by aborn/pop-tag-mark)
    CLOSED: [2016-12-25 Sun 22:45]
    - State "DONE"       from "ONGOING"    [2016-12-25 Sun 22:45]
@@ -35,30 +36,30 @@
    - State "DONE"       from "ONGOING"    [2016-10-25 Tue 09:26]
    - State "ONGOING"    from "TODO"       [2016-10-25 Tue 09:26]
 ** DONE C-'移动行中，对中文的优化
-CLOSED: [2016-09-24 Sat 12:54]
-- State "DONE"       from "ONGOING"    [2016-09-24 Sat 12:54]
-- State "ONGOING"    from "TODO"       [2016-09-24 Sat 12:54]
+   CLOSED: [2016-09-24 Sat 12:54]
+   - State "DONE"       from "ONGOING"    [2016-09-24 Sat 12:54]
+   - State "ONGOING"    from "TODO"       [2016-09-24 Sat 12:54]
 ** DONE 优化获取文件名及全path
-CLOSED: [2016-09-24 Sat 11:52]
-- State "DONE"       from "ONGOING"    [2016-09-24 Sat 11:52]
-- State "ONGOING"    from "TODO"       [2016-09-24 Sat 11:18]
+   CLOSED: [2016-09-24 Sat 11:52]
+   - State "DONE"       from "ONGOING"    [2016-09-24 Sat 11:52]
+   - State "ONGOING"    from "TODO"       [2016-09-24 Sat 11:18]
 ** DONE C-DEL 表现跟intellij一样
-CLOSED: [2016-09-24 Sat 00:31]
-- State "DONE"       from "ONGOING"    [2016-09-24 Sat 00:31]
-- State "ONGOING"    from "TODO"       [2016-09-24 Sat 00:31]
+   CLOSED: [2016-09-24 Sat 00:31]
+   - State "DONE"       from "ONGOING"    [2016-09-24 Sat 00:31]
+   - State "ONGOING"    from "TODO"       [2016-09-24 Sat 00:31]
 ** DONE orgmode时C-o没绑定到ace-window
-CLOSED: [2016-09-24 Sat 00:31]
-- State "DONE"       from "ONGOING"    [2016-09-24 Sat 00:31]
-- State "ONGOING"    from "TODO"       [2016-09-24 Sat 00:31]
+   CLOSED: [2016-09-24 Sat 00:31]
+   - State "DONE"       from "ONGOING"    [2016-09-24 Sat 00:31]
+   - State "ONGOING"    from "TODO"       [2016-09-24 Sat 00:31]
 ** DONE elisp文件快速的函数名跳转
-CLOSED: [2016-09-16 Fri 20:36]
-- State "DONE"       from "ONGOING"    [2016-09-16 Fri 20:36]
-- State "ONGOING"    from "TODO"       [2016-09-16 Fri 20:36]
+   CLOSED: [2016-09-16 Fri 20:36]
+   - State "DONE"       from "ONGOING"    [2016-09-16 Fri 20:36]
+   - State "ONGOING"    from "TODO"       [2016-09-16 Fri 20:36]
 ** ONGOING multi-term的优化, multi-term-plus.el开发
-- State "ONGOING"    from "TODO"       [2016-08-21 Sun 16:29]
+   - State "ONGOING"    from "TODO"       [2016-08-21 Sun 16:29]
 ** DONE 对ab/rename优化<2016-07-26 Tue>--<2016-07-31 Sun>
-CLOSED: [2016-07-27 Wed 09:41]
+   CLOSED: [2016-07-27 Wed 09:41]
 *** DONE 如果没有后缀，默认保持老后缀
-CLOSED: [2016-07-27 Wed 09:40]
+    CLOSED: [2016-07-27 Wed 09:40]
 *** DONE 把老的名字从recentf-list列表中删除
-CLOSED: [2016-07-27 Wed 09:41]
+    CLOSED: [2016-07-27 Wed 09:41]
