@@ -28,7 +28,7 @@ This is taken from RFC 2396.")
 (setq ab/bak-url-unreserved-chars url-unreserved-chars)
 
 ;; 按java的格式编码url
-(defun ab/url-encode-java (url)
+(defun aborn/url-encode-java (url)
   (interactive)
   (setq url-unreserved-chars mm-url-unreserved-chars)
   (url-hexify-string url))
@@ -38,7 +38,7 @@ This is taken from RFC 2396.")
   (concat "dianping://web?url=" (ab/url-encode-java url)))
 
 ;; 按elisp的默认方式编码url
-(defun ab/url-encode-default (url)
+(defun aborn/url-encode-default (url)
   (setq url-unreserved-chars ab/bak-url-unreserved-chars)
   (url-hexify-string url))
 

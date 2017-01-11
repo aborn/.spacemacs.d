@@ -22,7 +22,8 @@
 ** TODO 对elpa进行备份
 ** TODO 对emacsist.el添加将英文标点替换成中文标点的功能
 ** TODO aborn-core本地pkg不存在时仍然执行一个函数?
-** TODO emacsist.el进行url-encode
+** ONGOING emacsist.el进行url-encode
+   - State "ONGOING"    from "TODO"       [2017-01-11 Wed 22:55]
 ** DONE M-n 返回时，当有两个window时(返回的buffer在另一个window)，会有问题(fixed by aborn/pop-tag-mark)
    CLOSED: [2016-12-25 Sun 22:45]
    - State "DONE"       from "ONGOING"    [2016-12-25 Sun 22:45]
