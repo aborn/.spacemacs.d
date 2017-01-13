@@ -288,7 +288,8 @@
           #'(lambda ()
               (let ((fname (buffer-file-name)))
                 (when (or (f-ext? fname "org")
-                          (f-ext? fname "el"))
+                          (f-ext? fname "el")
+                          (f-ext? fname "rb"))
                   (aborn/indent-regin)))))
 
 ;; 将频繁访问的书签放在最前面
@@ -308,5 +309,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2017-01-03
+;; last update by Aborn Jiang (aborn@aborn.me) at 2017-01-13
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
