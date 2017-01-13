@@ -43,6 +43,7 @@
     aborn-face                             ;; 异步执行的任务
     aborn-org                              ;; org相关配置
     aborn-char                             ;; char相关操作
+    aborn-cus                              ;; 一些对系统函数的定制
     )
    ;;; 下面是aborn自己需要加载的一些mode
    ("~/github/multi-term-plus" multi-term-config)
