@@ -30,6 +30,8 @@
     (define-key map (kbd "C-x C-s") 'aborn/save-all-visited-files)
     (define-key map (kbd "C-c f") 'iy-go-to-char)
     (define-key map (kbd "C-c b") 'iy-go-to-char-backward)
+    (define-key map (kbd "M-<") 'aborn/beginning-of-buffer)
+    (define-key map (kbd "M->") 'aborn/end-of-buffer)
     map)
   "my-keys-minor-mode keymap.")
 
