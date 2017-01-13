@@ -118,3 +118,7 @@
     (when (or (f-ext? fname "org")
               (f-ext? fname "el"))
       (message "good"))))
+
+(defun aborn/pop-mark ()
+  (interactive)
+  (goto-char (marker-position (car (last mark-ring)))))
