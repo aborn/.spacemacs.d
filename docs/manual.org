@@ -9,8 +9,19 @@
 * 基本功能
 ** 目录
 
-* 快速跳转
-** 函数的定义
-   跳转到函数定义，绑定到快捷键为 *M-.*
-** 跳转回来 M-,
-   注意这里我对其原始的pop-tag-mark做了改进，见 *aborn/pop-tag-mark* 这个函数(在aborn-swift.el里)
+* 一些基本配置说明
+** 字体设置
+   我的配置采用的字体是Source Code Pro这种字体。如果没有安装这种字体，请参考[[https://github.com/adobe-fonts/source-code-pro][Source-Code-Pro]]。
+   安装非常简单：
+*** MacOS系统
+    将.otf文件拷贝到~/Library/Fonts/ 即可
+*** Linux(以Ubuntu为例)
+    + 拷贝TTF/*.ttf到/usr/share/fonts  *sudo cp TTF/\*.ttf  /usr/share/fonts*
+    + 重启电脑或者执行命令: *fc-cache -f -v*
+
+** 快速跳转
+*** 函数的定义
+    跳转到函数定义，绑定到快捷键为 *M-.*
+
+*** 跳转回来 M-,
+    注意这里我对其原始的pop-tag-mark做了改进，见 *aborn/pop-tag-mark* 这个函数(在aborn-swift.el里)
