@@ -1,7 +1,10 @@
 #+TITLE:     aborn配置使用指南
 #+AUTHOR:    Aborn Jiang
-#+EMAIL:     (concat "aborn.jiang" at-sign "gmail.com")
+#+EMAIL:     aborn.jiang@gmail.com
 #+DATE:      2016-10-11
+#+LANGUAGE: zh
+#+LATEX_HEADER: \usepackage{xeCJK}
+
 #+SETUPFILE: ~/github/org-html-themes/setup/theme-readtheorg.setup
 
 -----
