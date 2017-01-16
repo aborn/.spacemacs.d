@@ -122,3 +122,17 @@
 (defun aborn/pop-mark ()
   (interactive)
   (goto-char (marker-position (car (last mark-ring)))))
+
+(defun aborn/test-mkdir ()
+  (interactive)
+  (let* ((lname "~/.spacemacs.d/testlocal/a/log.txt"))
+    (unless (file-exists-p lname)
+      (message "file doesnot exists, good! %s" (f-dirname lname))
+      (mkdir (f-dirname lname) t)
+      )
+    (with-temp-buffer
+      (goto-char (point-max))
+      (insert "aaaa\nbbb")
+      (append-to-file (point-min) (point-max) lname))
+    )
+  )
