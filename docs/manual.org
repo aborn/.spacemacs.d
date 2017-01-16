@@ -16,7 +16,7 @@
 *** MacOS系统
     将.otf文件拷贝到~/Library/Fonts/ 即可
 *** Linux(以Ubuntu为例)
-    + 拷贝TTF/*.ttf到/usr/share/fonts  *sudo cp TTF/\*.ttf  /usr/share/fonts*
+    + 拷贝TTF/*.ttf到/usr/share/fonts  (sudo cp TTF/*.ttf  /usr/share/fonts)
     + 重启电脑或者执行命令: *fc-cache -f -v*
 
 ** 快速跳转

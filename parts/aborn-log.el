@@ -5,6 +5,7 @@
 ;;; Code:
 
 (require 'subr-x)
+(require 'f)
 (defvar aborn--log-file-name "~/.spacemacs.d/local/log.txt")
 
 (defun aborn/log-format (origin)
