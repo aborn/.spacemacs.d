@@ -27,4 +27,26 @@
     跳转到函数定义，绑定到快捷键为 *M-.*
 
 *** 跳转回来 M-,
-    注意这里我对其原始的pop-tag-mark做了改进，见 *aborn/pop-tag-mark* 这个函数(在aborn-swift.el里)
+    注意这里我对其原始的pop-tag-mark做了改进，见 *aborn/pop-tag-mark* 这个函数(在aborn-core.el里)
+
+* 自己写的配置模块
+  自己写的配置模块文件在目录parts/下，主要有以下：
+
+** slpp.el Smart load path and packages.
+   主要用于加载包，加载本地目录下文件夹下对应的配置文件。即使文件夹不存在也不会报错。
+   它的使用例子见 init-aborn.el这个文件，下面是一个例子：
+
+   #+BEGIN_SRC emacs-lisp
+    (slpp-load-path-and-pkgs
+     '(
+       ("~/path/to/fature1" "feature1")
+       ("~/path/to/fature2" feature21 feature22)
+       ))
+   #+END_SRC
+
+   这里它的参数是一个列表，列表中每个元素的第一项表示路径，其他项表示该路径下的feature，
+   feature名可以为字符串也可以为symbol。
+
+** aborn-swift.el
+   主要是一些有用的函数，其中 *aborn/swift-git-commit-push* 这个函数最有用，是用于快速
+   commit和push。
