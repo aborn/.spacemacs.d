@@ -12,7 +12,7 @@
 * 基本功能
 ** 目录
 
-* 一些基本配置说明
+* 基本配置
 ** 字体设置
    我的配置采用的字体是Source Code Pro这种字体。如果没有安装这种字体，请参考[[https://github.com/adobe-fonts/source-code-pro][Source-Code-Pro]]。
    安装非常简单：
@@ -29,7 +29,7 @@
 *** 跳转回来 M-,
     注意这里我对其原始的pop-tag-mark做了改进，见 *aborn/pop-tag-mark* 这个函数(在aborn-core.el里)
 
-* 自己写的配置模块
+* 扩展模块
   自己写的配置模块文件在目录parts/下，主要有以下：
 
 ** slpp.el Smart load path and packages.
