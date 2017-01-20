@@ -20,8 +20,11 @@
 ** TODO 添加创建新文件功能，ivy是文件搜索
 ** TODO magit-delete-branch 删除本地和远程分支
 ** TODO 对elpa进行备份
-** TODO 对emacsist.el添加将英文标点替换成中文标点的功能
 ** TODO aborn-core本地pkg不存在时仍然执行一个函数?
+** DONE 对emacsist.el添加将英文标点替换成中文标点的功能
+   CLOSED: [2017-01-20 Fri 13:34]
+   - State "DONE"       from "ONGOING"    [2017-01-20 Fri 13:34]
+   - State "ONGOING"    from "TODO"       [2017-01-20 Fri 13:34]
 ** DONE emacsist.el进行url-encode
    CLOSED: [2017-01-11 Wed 23:26]
    - State "DONE"       from "ONGOING"    [2017-01-11 Wed 23:26]
