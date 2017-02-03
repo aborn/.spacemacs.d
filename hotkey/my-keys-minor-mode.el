@@ -22,9 +22,9 @@
     (define-key map (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
     (define-key map (kbd "M-,") 'aborn/pop-tag-mark)
     (define-key map (kbd "C-M-i") 'complete-symbol)
-    (define-key map (kbd "M-n") 'ace-jump-mode)
+    (define-key map (kbd "M-n") 'ace-jump-mode)       ;; 英文字的跳转
     (define-key map (kbd "C-x n") 'ace-jump-line-mode)
-    (define-key map (kbd "C-c m") 'ace-pinyin-dwim)
+    (define-key map (kbd "C-c m") 'ace-pinyin-dwim)   ;; 跳转到中文字
     (define-key map (kbd "C-c C-w") 'org-refile)
     (define-key map (kbd "C-c M-w") 'org-copy)
     (define-key map (kbd "C-x C-s") 'aborn/save-all-visited-files)
