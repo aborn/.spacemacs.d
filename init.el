@@ -110,6 +110,8 @@ values."
                                       jump
                                       nginx-mode
                                       chinese-pyim
+                                      diredful         ;; 使得dired模式更好看
+                                      dired-icon       ;; dired图标
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()

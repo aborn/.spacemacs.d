@@ -97,6 +97,9 @@
 (setq save-silently t)                     ;; 保存文件时不要询问,直接保存
 (setq buffer-save-without-query t)         ;; 调用save-some-buffers不需要询问
 (setq pyim-isearch-enable-pinyin-search t)
+(setq diredful-init-file "~/.spacemacs.d/diredful-conf.el")
+(add-hook 'dired-mode-hook 'diredful-mode)
+(add-hook 'dired-mode-hook 'dired-icon-mode)
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
@@ -310,5 +313,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2017-01-13
+;; last update by Aborn Jiang (aborn@aborn.me) at 2017-02-04
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
