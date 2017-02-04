@@ -110,29 +110,3 @@
                (sleep-for 10)     ;; sleep-for  site-for
                (with-current-buffer "z"
                  (insert "foo"))))
-
-(defun test-file-exit ()
-  (interactive)
-  (let ((fname (buffer-file-name)))
-    (setq ab/debug fname)
-    (when (or (f-ext? fname "org")
-              (f-ext? fname "el"))
-      (message "good"))))
-
-(defun aborn/pop-mark ()
-  (interactive)
-  (goto-char (marker-position (car (last mark-ring)))))
-
-(defun aborn/test-mkdir ()
-  (interactive)
-  (let* ((lname "~/.spacemacs.d/testlocal/a/log.txt"))
-    (unless (file-exists-p lname)
-      (message "file doesnot exists, good! %s" (f-dirname lname))
-      (mkdir (f-dirname lname) t)
-      )
-    (with-temp-buffer
-      (goto-char (point-max))
-      (insert "aaaa\nbbb")
-      (append-to-file (point-min) (point-max) lname))
-    )
-  )
