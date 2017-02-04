@@ -12,9 +12,10 @@
 (require 'cl-lib)
 
 (spacemacs/toggle-maximize-frame)          ;; 初始化后，最大化窗口
-(when (string= system-type "darwin")       ;; mac系统用command代替alter作为M键
+(when (string= system-type "darwin")       ;; macOS系统用command代替alter作为M键
   (setq mac-option-modifier 'super)
-  (setq mac-command-modifier 'meta))
+  (setq mac-command-modifier 'meta)
+  (setq dired-use-ls-dired nil))           ;; macOS系统的ls不支持--dired这个option
 
 ;; -----------------------------------------------------------------------------
 ;; 最基本的全局load及features require
