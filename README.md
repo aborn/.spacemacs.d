@@ -27,7 +27,9 @@ spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](htt
 *C-'* 移动到一行最中间位置  
 
 ## screenshot 
-* spacemacs  
-![](screenshots/screenshot1.jpg "spacemacs")
-* use neotree icons theme  
-![](screenshots/screenshot2.jpg "spacemacs")
+* 整体效果图  
+![](screenshots/screenshot1.jpg "spacemacs整体效果图")
+* 采用neotree模式的的效果  
+![](screenshots/screenshot2.jpg "spacemacs neotree")
+* diredful的效果  
+![](screenshots/screenshot3.jpg "diredful的效果")
