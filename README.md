@@ -32,4 +32,4 @@ spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](htt
 * 采用neotree模式的的效果  
 ![](screenshots/screenshot2.jpg "spacemacs neotree")
 * diredful的效果  
-![](screenshots/screenshot3.jpg "diredful的效果")
+![](screenshots/screenshot3.png "diredful的效果")
