@@ -97,7 +97,9 @@
 
 (defun threadaction ()
   ""
-  (insert "I am running in bg")
+  (insert (aborn/log-format "start"))
+  (sleep-for 15)
+  (insert (aborn/log-format "I am running in bg"))
   (insert "\n"))
 
 (define-background-function-wrapper bg-threadaction threadaction)
