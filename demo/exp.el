@@ -105,8 +105,11 @@
 (define-background-function-wrapper bg-threadaction threadaction)
 
 
-(make-thread (lambda ()
-               (message "running in bg.")))
+(if (version<= emacs-version "26.0")
+    (message "make-thread need emacs 26+, current emacs version %s"
+             emacs-version)
+  (make-thread (lambda ()
+                 (message "running in bg."))))
 
 (make-thread (lambda ()
                (sleep-for 10)     ;; sleep-for  site-for
