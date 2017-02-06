@@ -40,9 +40,14 @@
       (set-marker marker nil nil)
       (run-hooks 'xref-after-return-hook))))
 
-(defun aborn/nav-thing-at-point (sym-name)
+(defun aborn/nav-thing-at-point (point)
   "Nav to adopt position in different mode-line"
-  )
+  (interactive "d")
+  (cond ((eq major-mode 'emacs-lisp-mode)
+         (elisp-slime-nav-find-elisp-thing-at-point))
+        ((eq major-mode 'go-mode)
+         (godef-jump point))
+        (t "not found suitable nav-thing-at-point.")))
 
 (provide 'aborn-core)
 ;;; aborn-core.el ends here

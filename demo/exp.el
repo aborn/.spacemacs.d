@@ -142,3 +142,8 @@
                (sleep-for 10)     ;; sleep-for  site-for
                (with-current-buffer "z"
                  (insert "foo"))))
+
+(defun aborn/show-major-mode ()
+  "Show current major mode."
+  (interactive)
+  (message "%s" major-mode))
