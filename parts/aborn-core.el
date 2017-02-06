@@ -40,5 +40,9 @@
       (set-marker marker nil nil)
       (run-hooks 'xref-after-return-hook))))
 
+(defun aborn/nav-thing-at-point (sym-name)
+  "Nav to adopt position in different mode-line"
+  )
+
 (provide 'aborn-core)
 ;;; aborn-core.el ends here
