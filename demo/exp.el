@@ -82,7 +82,9 @@
 
 ;; following only can apply in emacs 26
 (defmacro define-background-function-wrapper (bg-function fn)
-  (let ((is-loading-sym (intern (concat "*" (symbol-name bg-function) "-is-loading*"))))
+  (let ((is-loading-sym (intern (concat "*"
+                                        (symbol-name bg-function)
+                                        "-is-loading*"))))
     `(progn
        (defvar ,is-loading-sym nil)
        (defun ,bg-function ()
@@ -96,16 +98,41 @@
                           (setq ,is-loading-sym nil))))))))
 
 (defun threadaction ()
-  ""
-  (insert (aborn/log-format "start"))
+  "Emacs multi-thread example runner."
+  (message (aborn/log-format "begin running..."))
+  (sleep-for 1)
+  (message (aborn/log-format "running at point 1"))
+  (sleep-for 5)
+  (message (aborn/log-format "running at point 6"))
+  (sleep-for 10)
+  (message (aborn/log-format "running at point 16"))
   (sleep-for 15)
-  (insert (aborn/log-format "I am running in bg"))
-  (insert "\n"))
+  (message (aborn/log-format "finished bg-runner.")))
 
 (define-background-function-wrapper bg-threadaction threadaction)
 
+(defun async-threadaction ()
+  "Emacs async example runner."
+  (interactive)
+  (async-start            
+   ;; 异步执行更新code操作
+   `(lambda ()
+      ,(async-inject-variables "\\`load-path\\'")
+      (require 'aborn-log)
+      (message (aborn/log-format "begin running..."))
+      (sleep-for 1)
+      (message (aborn/log-format "running at point 1"))
+      (sleep-for 5)
+      (message (aborn/log-format "running at point 6"))
+      (sleep-for 10)
+      (message (aborn/log-format "running at point 16"))
+      (sleep-for 15)
+      (message (aborn/log-format "finished bg-runner."))
+      )
+   (lambda (result)
+     (message "finished"))))
 
-(if (version<= emacs-version "26.0")
+(if (version<= emacs-version "26.0.50")
     (message "make-thread need emacs 26+, current emacs version %s"
              emacs-version)
   (make-thread (lambda ()
