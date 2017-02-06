@@ -1,5 +1,5 @@
 # .spacemacs.d
-spacemacs 的个人配置及键绑定,主要配置入口为: [init-aborn.el](https://github.com/aborn/.spacemacs.d/blob/master/init-aborn.el)
+spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: [init-aborn.el](https://github.com/aborn/.spacemacs.d/blob/master/init-aborn.el)
 详细配置请参考[使用手册](./docs/manual.org)
 
 ## 配置项目结构
