@@ -11,6 +11,16 @@
 
 (require 'exec-path-from-shell)
 
+(defcustom aborn/lang-go-deps
+  '("github.com/nsf/gocode"
+    "github.com/rogpeppe/godef"
+    "golang.org/x/tools/cmd/oracle"
+    "golang.org/x/tools/cmd/gorename"
+    "golang.org/x/tools/cmd/goimports")
+  "go language deps"
+  :group 'aborn
+  :type 'sexp)
+
 (defun aborn/deps-verify ()
   "Make sure all deps installed."
   (interactive)
@@ -19,10 +29,19 @@
 (defun aborn/deps-verify-lang-go ()
   "Check language go deps."
   (let ((go-path (exec-path-from-shell-getenv "GOPATH")))
-    (message "start check go-language deps.")
+    (message "start check go-lang deps.")
     (unless go-path
       (error "No go lanuage envs for $GOPATH."))
-    (message "$GOPATH=%s" go-path)))
+    (message "$GOPATH=%s" go-path)
+    (mapc #'(lambda (pkg)
+              (let ((path-pkg (expand-file-name
+                               (concat "src/" pkg)
+                               go-path
+                               )))
+                (unless (file-exists-p path-pkg)
+                  (message "Warning: %s not installed." pkg))))  ;; color-line ?
+          aborn/lang-go-deps)
+    (message "finished check go-lang deps.")))
 
 (provide 'aborn-deps)
 ;;; aborn-deps.el ends here
