@@ -2,7 +2,7 @@
 spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: [init-aborn.el](https://github.com/aborn/.spacemacs.d/blob/master/init-aborn.el)
 详细配置请参考[使用手册](./docs/manual.org)
 
-## 配置项目结构
+## 配置项目结构 Porject layout
 配置文件入口为[init.el](./init.el)及[init-aborn.el](./init-aborn.el)，大部分配置文件存放在*modules*和*parts*文件夹里，按键的绑定在*hotkey*文件夹。
 * **backup** 备份文件  
 * **demo** 一些示例代码，仅用于debug  
@@ -15,7 +15,7 @@ spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: 
 * **screenshots** 屏幕截图  
 * **scripts** 存放一些有用的脚本  
 
-## 基本按键
+## 基本按键 Basic key bindings
 ### 全局按键
 全局按键放在[my-keys-mode](./hotkey/my-keys-minor-mode.el)这个mode里
 
@@ -26,7 +26,12 @@ spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: 
 *C-:* 快速上移动5行  
 *C-'* 移动到一行最中间位置  
 
-## screenshot 
+## 支持的语言 Supported languages
+[elisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/)  
+[elixir](http://elixir-lang.org/)  
+[go](https://golang.org/)  
+
+## 效果截图 Screenshots
 * 整体效果图  
 ![](screenshots/screenshot1.png "spacemacs整体效果图")
 * 采用neotree模式的的效果  
