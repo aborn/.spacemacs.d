@@ -45,6 +45,7 @@
     aborn-org                              ;; org相关配置
     aborn-char                             ;; char相关操作
     aborn-cus                              ;; 一些对系统函数的定制
+    aborn-deps                             ;; emacs运行需要的相关依赖
     )
    ;;; 下面是aborn自己需要加载的一些mode
    ("~/github/multi-term-plus" multi-term-config)
