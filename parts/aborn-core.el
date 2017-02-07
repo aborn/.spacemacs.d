@@ -48,7 +48,7 @@
          (elisp-slime-nav-find-elisp-thing-at-point input))
         ((eq major-mode 'go-mode)
          (godef-jump (point)))
-        (t "not found suitable nav-thing-at-point.")))
+        (t (message "not found suitable nav-thing-at-point."))))
 
 (provide 'aborn-core)
 ;;; aborn-core.el ends here
