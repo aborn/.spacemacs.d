@@ -48,6 +48,8 @@
          (elisp-slime-nav-find-elisp-thing-at-point input))
         ((eq major-mode 'go-mode)
          (godef-jump (point)))
+        ((eq major-mode 'ruby-mode)
+         (robe-jump))   ;; TODO need fix
         (t (message "not found suitable nav-thing-at-point."))))
 
 (provide 'aborn-core)
