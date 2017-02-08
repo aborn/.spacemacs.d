@@ -4,9 +4,12 @@
 
 ;; Author: Aborn Jiang <aborn.jiang@gmail.com>
 ;; Version: 0.1.0
+;; Package-Requires: ((emacs "24.4") (elisp-slime-nav "0.9"))
 ;; This file is not part of GNU Emacs.
 
 ;;; Code:
+
+(require 'elisp-slime-nav)
 
 (defgroup aborn nil
   "aborn package group"
