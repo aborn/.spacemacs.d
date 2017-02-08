@@ -29,7 +29,8 @@ spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: 
 ## 支持的语言 Supported languages
 [elisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/) /
 [elixir](http://elixir-lang.org/) /
-[go](https://golang.org/)
+[go](https://golang.org/) /
+[ruby](https://www.ruby-lang.org/en/)
 
 ## 效果截图 Screenshots
 * 整体效果图  
