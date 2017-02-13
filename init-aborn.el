@@ -45,6 +45,7 @@
     aborn-org                              ;; org相关配置
     aborn-char                             ;; char相关操作
     aborn-cus                              ;; 一些对系统函数的定制
+    aborn-diary                            ;; 日志相关
     aborn-deps                             ;; emacs运行需要的相关依赖
     )
    ;;; 下面是aborn自己需要加载的一些mode
@@ -315,5 +316,5 @@
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2017-02-08
+;; last update by Aborn Jiang (aborn@aborn.me) at 2017-02-13
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
