@@ -42,7 +42,8 @@
     ))
 
 (defun aborn/diary-time-plus-day (day)
-  "Current time plus day"
+  "Current time plus day,
+   Ref. https://www.gnu.org/software/emacs/manual/html_node/elisp/Time-Calculations.html"
   (time-add (current-time) (* day 24 60 60)))
 
 (provide 'aborn-diary)
