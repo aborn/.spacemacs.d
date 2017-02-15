@@ -25,9 +25,11 @@
    "#+SETUPFILE: ~/github/org-html-themes/setup/theme-readtheorg.setup\n\n"
    "-----\n"))
 
-(defun aborn/diary-create ()
-  (interactive)
-  (let* ((date-name (format-time-string "%Y-%m-%d.org" (current-time)))
+(defun aborn/diary-create (arg)
+  (interactive "P")
+  (let* ((date-name (format-time-string
+                     "%Y-%m-%d.org"
+                     (if arg (aborn/diary-time-plus-day -1) (current-time))))
          file-name)
     (setq file-name (read-from-minibuffer
                      (format "Diary name (default %s): " date-name) date-name ))
@@ -38,6 +40,10 @@
     ;;(save-buffer)
     (message "diary name=%s" file-name)
     ))
+
+(defun aborn/diary-time-plus-day (day)
+  "Current time plus day"
+  (time-add (current-time) (* day 24 60 60)))
 
 (provide 'aborn-diary)
 ;;; aborn-diary.el ends here
