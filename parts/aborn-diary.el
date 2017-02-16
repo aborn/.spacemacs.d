@@ -1,6 +1,6 @@
 ;;; aborn-diary.el --- Aborn' diary package
 
-;; Copyright (C) 2016-2017 Aborn Jiang
+;; Copyright (C) 2017 Aborn Jiang
 
 ;; Author: Aborn Jiang <aborn.jiang@gmail.com>
 ;; Version: 0.1.0
@@ -14,9 +14,9 @@
   :group 'aborn
   :type 'string)
 
-(defun aborn/diary-header-content ()
+(defun aborn/diary-header-content (&optional date-str)
   (concat
-   (format "#+TITLE: %s\n" (format-time-string "%Y-%m-%d"))
+   (format "#+TITLE: %s\n" (or date-str (format-time-string "%Y-%m-%d")))
    "#+AUTHOR: aborn\n"
    (format "#+DATE: %s\n" (format-time-string "%Y-%m-%d %H:%M" (current-time)))
    "#+EMAIL: aborn.jiang@gmail.com\n"
@@ -27,16 +27,15 @@
 
 (defun aborn/diary-create (arg)
   (interactive "P")
-  (let* ((date-name (format-time-string
-                     "%Y-%m-%d.org"
-                     (if arg (aborn/diary-time-plus-day -1) (current-time))))
+  (let* ((date-str (format-time-string "%Y-%m-%d" (if arg (aborn/diary-time-plus-day -1) (current-time))))
+         (date-name (format "%s.org" date-str))
          file-name)
     (setq file-name (read-from-minibuffer
                      (format "Diary name (default %s): " date-name) date-name ))
     (setq file-name (expand-file-name file-name aborn/diary-root-path))
     (find-file file-name)
     (unless (file-exists-p file-name)
-      (insert (aborn/diary-header-content)))
+      (insert (aborn/diary-header-content date-str)))
     ;;(save-buffer)
     (message "diary name=%s" file-name)
     ))
