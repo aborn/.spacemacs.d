@@ -14,9 +14,9 @@
 
 ;; insert-string related
 (global-set-key (kbd "C-c d") 'aborn/insert-date)
-(global-set-key "\C-xt" 'ab/insert-current-date-time)
-(global-set-key "\C-cn" 'ab/insert-name-english)
-(global-set-key "\C-cN" 'ab/insert-name-chinese)
+(global-set-key "\C-xt" 'aborn/insert-current-date-time)
+(global-set-key "\C-cn" 'aborn/insert-name-english)
+(global-set-key "\C-cN" 'aborn/insert-name-chinese)
 (global-set-key "\C-cl" 'aborn/switch-buffer-each-other)
 
 (global-set-key (kbd "C-+") 'text-scale-increase)

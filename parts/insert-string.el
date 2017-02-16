@@ -1,4 +1,12 @@
-(provide 'insert-string)
+;;; insert-string.el --- Aborn's insert string utils
+
+;; Copyright (C) 2016-2017 Aborn Jiang
+
+;; Author: Aborn Jiang <aborn.jiang@gmail.com>
+;; Version: 0.1.0
+;; This file is not part of GNU Emacs.
+
+;;; Code:
 
 (defun aborn/insert-email-address (arg)
   "Insert email address at the current ponit"
@@ -8,21 +16,21 @@
   (insert-string user-mail-address))
 ;;  (insert-string email-address))
 
-(defun ab/insert-name-english (arg)
+(defun aborn/insert-name-english (arg)
   "Insert english name at the current ponit"
   (interactive "p")
   (unless (boundp 'user-full-name)
     (setq user-full-name  "Aborn Jiang"))
   (insert-string user-full-name))
 
-(defun ab/insert-name-chinese (arg)
+(defun aborn/insert-name-chinese (arg)
   "Insert english name at the current ponit"
   (interactive "p")
   (unless (boundp 'chinese-name)
     (setq chinese-name  "蒋国宝"))
   (insert-string chinese-name))
 
-(defun ab/insert-buffer-name (arg)
+(defun aborn/insert-buffer-name (arg)
   "Insert buffer name at the current point"
   (interactive "p")
   (insert-string (buffer-name)))
@@ -32,12 +40,12 @@
   (interactive "P")
   (insert-string (current-time-string)))
 
-(defun ab/insert-current-buffer-file-name (arg)
+(defun aborn/insert-current-buffer-file-name (arg)
   "Insert current buffer file name (full path)"
   (interactive "P")
   (insert-string (buffer-file-name (current-buffer))))
 
-(defun ab/insert-tab-space (arg)
+(defun aborn/insert-tab-space (arg)
   "Insert 4 white space at current point"
   (interactive "P")
   (insert-string "    "))
@@ -50,7 +58,7 @@ See help of `format-time-string' for possible replacements")
   "Format of date to insert with `insert-current-time' func.
 Note the weekly scope of the command's precision.")
 
-(defun ab/insert-current-date-time ()
+(defun aborn/insert-current-date-time ()
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
   (interactive)
@@ -62,7 +70,7 @@ Uses `current-date-time-format' for the formatting the date/time."
       (insert "\n"))
     (message (concat "current:" pkg-string-content))))
 
-(defun ab/insert-current-time ()
+(defun aborn/insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
   (interactive)
   (insert (format-time-string current-time-format (current-time)))
@@ -70,3 +78,5 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 ;; ref : http://www.gnu.org/software/emacs/manual/html_node/elisp/Time-Parsing.html#Time-Parsing
+
+(provide 'insert-string)
