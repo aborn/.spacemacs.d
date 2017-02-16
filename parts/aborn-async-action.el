@@ -4,7 +4,7 @@
     "eden" "leanote-mode" "v2ex-mode" "learn-elisp-by-examples"
     "multi-term-plus" "eeb" "emacs-neotree" "nicemacs"
     "appkit-web" "emacs-cookbook" "emacsist" "diary"
-    "dotfiles"))
+    "dotfiles" "kick-starter"))
 
 (defun aborn/git-code-update ()
   "update code async."
