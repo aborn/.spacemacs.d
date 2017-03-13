@@ -65,9 +65,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   (let* ((pkg-string-content
           (format "%sguobao" (format-time-string "%Y-%m-%d.%H.%M" (current-time)))))
     (kill-new pkg-string-content)
-    (when (string= "emacs.txt" (buffer-name))
-      (insert pkg-string-content)
-      (insert "\n"))
     (message (concat "current:" pkg-string-content))))
 
 (defun aborn/insert-current-time ()
