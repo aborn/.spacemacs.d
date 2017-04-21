@@ -47,6 +47,7 @@
     aborn-cus                              ;; 一些对系统函数的定制
     aborn-diary                            ;; 日志相关
     aborn-deps                             ;; emacs运行需要的相关依赖
+    local-config
     )
    ;;; 下面是aborn自己需要加载的一些mode
    ("~/github/multi-term-plus" multi-term-config)
@@ -276,7 +277,11 @@
 ;; https://wakatime.com/@aborn
 (global-wakatime-mode)
 ;; set as your wakatime-api-key
-;; (setq wakatime-api-key "e191899f-9e2a-4d00-8100-4e9f9523decb")
+(if (and (local-config-check?)
+         (local-config-get "wakatime-api-key"))
+    (setq wakatime-api-key (local-config-get "wakatime-api-key"))
+  (message "warning: cannot find wakatime-api-key in %s." local-config-file))
+
 ;; https://github.com/wakatime/wakatime-mode/issues/6
 (when (string= system-type "gnu/linux")
   (message "gnu/linux system")
