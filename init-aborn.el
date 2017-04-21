@@ -275,6 +275,7 @@
 ;; https://wakatime.com/help/plugins/emacs
 ;; https://wakatime.com/@aborn
 (global-wakatime-mode)
+(setq wakatime-api-key "e191899f-9e2a-4d00-8100-4e9f9523decb")
 ;; https://github.com/wakatime/wakatime-mode/issues/6
 (when (string= system-type "gnu/linux")
   (message "gnu/linux system")
