@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     vimscript
      nginx
      yaml
      ;; ----------------------------------------------------------------
@@ -114,6 +115,7 @@ values."
                                       chinese-pyim
                                       diredful         ;; 使得dired模式更好看
                                       dired-icon       ;; dired图标
+                                      vimrc-mode       ;; user for edit .vimrc file
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
