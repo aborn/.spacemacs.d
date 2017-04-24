@@ -277,10 +277,14 @@
 ;; https://wakatime.com/@aborn
 (global-wakatime-mode)
 ;; set as your wakatime-api-key
+
 (if (and (local-config-check?)
          (local-config-get "wakatime-api-key"))
     (setq wakatime-api-key (local-config-get "wakatime-api-key"))
-  (message "warning: cannot find wakatime-api-key in %s." local-config-file))
+  (progn
+    (if (boundp 'wakatime-api-key)
+        (message "wakatime-api-key already bounded! its value is %s" wakatime-api-key)
+      (message "warning: cannot find wakatime-api-key in %s." local-config-file))))
 
 ;; https://github.com/wakatime/wakatime-mode/issues/6
 (when (string= system-type "gnu/linux")
