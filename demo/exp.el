@@ -147,3 +147,11 @@
   "Show current major mode."
   (interactive)
   (message "%s" major-mode))
+
+(defun load-path-file-exists-p (fname)
+  (let* ((res nil))
+    (mapcar (lambda (elt)
+              (when (file-exists-p (expand-file-name fname elt))
+                (setq res t)))
+            load-path)
+    res))
