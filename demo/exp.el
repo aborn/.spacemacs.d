@@ -155,3 +155,19 @@
                 (setq res t)))
             load-path)
     res))
+
+(defun exp/neo-get-unsaved-buffers-from-projectile ()
+  "Return list of unsaved buffers from projectile buffers."
+  (interactive)
+  (let ((rlist '())
+        (rtag nil))
+    ;; (condition-case nil
+    ;;     (projectile-project-buffers)
+    ;;   (error (setq rtag nil)))
+    (when (and nil (fboundp 'projectile-project-buffers))
+      (dolist (buf (projectile-project-buffers))
+        (with-current-buffer buf
+          (if (and (buffer-modified-p) buffer-file-name)
+              (setq rlist (cons (buffer-file-name) rlist))
+            ))))
+    rlist))
