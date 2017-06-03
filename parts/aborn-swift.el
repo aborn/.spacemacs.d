@@ -72,11 +72,12 @@
   "Simple commit current git project and push to its upstream."
   (interactive "sCommit Message: ")
   (when (= 0 (length msg))
-    (setq msg (format-time-string "commit by magit in emacs@%Y-%m-%d %H:%M:%S" (current-time))))
+    (setq msg (format-time-string "commit by magit in emacs@%Y-%m-%d %H:%M:%S"
+                                  (current-time))))
   (message "commit message is %s" msg)
   (when (and buffer-file-name
              (buffer-modified-p))
-    (save-buffer))                                     ;; save it first if modified.
+    (save-buffer))                   ;; save it first if modified.
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
   (magit-push-current-to-upstream nil))
