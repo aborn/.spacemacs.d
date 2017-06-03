@@ -81,7 +81,7 @@
   (magit-stage-modified)
   (magit-commit (list "-m" msg))
   (magit-push-current-to-upstream nil)
-  (message "now do push %s" (magit-get "remote" "origin" "url")))
+  (message "now do async push to %s" (magit-get "remote" "origin" "url")))
 
 (provide 'aborn-swift)
 ;;; aborn-swift.el ends here
