@@ -69,7 +69,7 @@
        (message "%s" result)))))
 
 (defun aborn/simple-git-commit-push (msg)
-  "Simple commit current project and push to upstream."
+  "Simple commit current git project and push to its upstream."
   (interactive "sCommit Message: ")
   (when (= 0 (length msg))
     (setq msg (format-time-string "commit by magit in emacs@%Y-%m-%d %H:%M:%S" (current-time))))
