@@ -68,5 +68,18 @@
      (lambda (result)
        (message "%s" result)))))
 
+(defun aborn/simple-git-commit-push (msg)
+  "Simple commit current project and push to upstream."
+  (interactive "sCommit Message: ")
+  (when (= 0 (length msg))
+    (setq msg (format-time-string "commit by magit in emacs@%Y-%m-%d %H:%M:%S" (current-time))))
+  (message "commit message is %s" msg)
+  (when (and buffer-file-name
+             (buffer-modified-p))
+    (save-buffer))                                     ;; save it first if modified.
+  (magit-stage-modified)
+  (magit-commit (list "-m" msg))
+  (magit-push-current-to-upstream nil))
+
 (provide 'aborn-swift)
 ;;; aborn-swift.el ends here
