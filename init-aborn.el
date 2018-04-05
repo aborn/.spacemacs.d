@@ -250,6 +250,7 @@
 (setq neo-show-hidden-files nil)        ;; 不显示隐藏文件
 (setq neo-force-change-root t)          ;; 当root改变时，是否强制相应改变而不需要询问
 (setq neo-persist-show t)               ;; C-x 1 时neotree window不关闭
+(setq spell-checking-enable-by-default nil)  ;; 关闭拼写检查
 (setq split-window-preferred-function 'neotree-split-window-sensibly)
 (require 'all-the-icons)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
