@@ -320,6 +320,7 @@
 (my-keys-minor-mode 1)
 (add-hook 'minibuffer-setup-hook #'my-keys-turn-off)
 (add-hook 'after-load-functions 'my-keys-have-priority)
+(setenv "LC_ALL" "en_US.UTF-8")
 ;;; docs
 ;; 注意：ivy创建文件M-ENTER
 ;; 看这里：https://www.reddit.com/r/emacs/comments/40u3ra/how_to_create_a_new_file_with_ivymode_on/
