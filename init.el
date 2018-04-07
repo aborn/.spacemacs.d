@@ -117,6 +117,7 @@ values."
                                       dired-icon       ;; dired图标
                                       vimrc-mode       ;; user for edit .vimrc file
                                       ace-jump-mode
+                                      ghub
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-unimpaired)
