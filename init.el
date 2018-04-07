@@ -112,7 +112,7 @@ values."
                                       emacsist
                                       jump
                                       nginx-mode
-                                      chinese-pyim
+                                      pyim
                                       diredful         ;; 使得dired模式更好看
                                       dired-icon       ;; dired图标
                                       vimrc-mode       ;; user for edit .vimrc file
