@@ -117,6 +117,9 @@ values."
                                       dired-icon       ;; dired图标
                                       vimrc-mode       ;; user for edit .vimrc file
                                       )
+   dotspacemacs-install-packages '(
+                                   ace-jump-mode
+                                   )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-unimpaired)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
