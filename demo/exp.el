@@ -146,7 +146,8 @@
 (defun aborn/show-major-mode ()
   "Show current major mode."
   (interactive)
-  (message "%s" major-mode))
+  (message "%s" major-mode)
+  (message "%s" (cookbook-extract-org-title)))
 
 (defun load-path-file-exists-p (fname)
   (let* ((res nil))
@@ -177,4 +178,8 @@
   "Return a list of lines of a file at filePath."
   (with-temp-buffer
     (insert-file-contents filePath)
-    (split-string (buffer-string) "\n" t)))
+    (mapcar #'(lambda (item)
+                (if (s-starts-with? "*" item)
+                    (concat "*" item)
+                  item))
+            (split-string (buffer-string) "\n" t))))
