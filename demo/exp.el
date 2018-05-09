@@ -183,3 +183,21 @@
                     (concat "*" item)
                   item))
             (split-string (buffer-string) "\n" t))))
+
+
+(defun exp/check-point ()
+  "Insert code format"
+  (interactive)
+  (let* ((cpoint (point))
+         (endcheck nil)
+         (buffer-end-point nil)
+         (bline nil)
+         (eline nil))
+    (save-excursion
+      (beginning-of-line)
+      (setq bline (point))
+      (end-of-line)
+      (setq eline (point))
+      (end-of-buffer)
+      (setq buffer-end-point (point)))
+    (message "%s %s     %s  %s" cpoint buffer-end-point bline eline)))
