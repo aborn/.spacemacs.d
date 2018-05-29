@@ -142,5 +142,5 @@
 (add-hook 'org-after-refile-insert-hook
           (lambda ()
             (aborn/save-all-visited-files)))
-
+(setq org-element-use-cache nil)
 (provide 'aborn-org)
