@@ -108,6 +108,8 @@
       nil)                                 ;; 关闭拼写检查
 (add-hook 'dired-mode-hook 'diredful-mode)
 (add-hook 'dired-mode-hook 'dired-icon-mode)
+(when (version<= "26.1" emacs-version)     ;; emacs 26.1 开始这个值默认为t，还原之
+  (setq term-char-mode-point-at-process-mark nil))
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
