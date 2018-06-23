@@ -109,7 +109,8 @@
 (add-hook 'dired-mode-hook 'diredful-mode)
 (add-hook 'dired-mode-hook 'dired-icon-mode)
 (when (version<= "26.1" emacs-version)     ;; emacs 26.1 开始这个值默认为t，还原之
-  (setq term-char-mode-point-at-process-mark nil))
+  (setq term-char-mode-point-at-process-mark nil)
+  (global-display-line-numbers-mode))
 
 ;; -----------------------------------------------------------------------------
 ;; color-layer setting 
