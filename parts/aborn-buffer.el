@@ -29,13 +29,15 @@
 
 (defun aborn/switch-buffer-each-other (arg)
   "switch current buffer with other window buffer 
-   right-2-left and up-2-down"
+   right-2-left and up-2-down, in emacs 26, use window-swap-states"
   (interactive "p")
-  (cond
-   ((windmove-find-other-window 'right) (buf-move-right))
-   ((windmove-find-other-window 'left) (buf-move-left))
-   ((windmove-find-other-window 'up) (buf-move-up))
-   ((windmove-find-other-window 'down) (buf-move-down)))
+  (if (version<= "26.1" emacs-version)
+      (window-swap-states)
+    (cond
+     ((windmove-find-other-window 'right) (buf-move-right))
+     ((windmove-find-other-window 'left) (buf-move-left))
+     ((windmove-find-other-window 'up) (buf-move-up))
+     ((windmove-find-other-window 'down) (buf-move-down))))
   (message "switch buffer done"))
 
 (defun buffer-exists (bufname)   
