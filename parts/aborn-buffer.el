@@ -203,5 +203,13 @@
                 (message "- %s saved! -" buffer-file-name))))
           (buffer-list)))
 
+(defun aborn/create-temp-buffer (bname)
+  "Create a temp buffer with timestamp as buffer name and switch to it!"
+  (interactive "sBuffer Name(Default): ")
+  (when (= 0 (length bname))
+    (setq bname (format-time-string "*%Y-%m-%d_%H:%M*" (current-time))))
+  (message "The temp buffer name is %s" bname)
+  (switch-to-buffer (get-buffer-create bname)))
+
 (provide 'aborn-buffer)
 ;;; aborn-buffer.el ends here
