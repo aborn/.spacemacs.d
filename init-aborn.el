@@ -334,6 +334,7 @@
 (aborn/log "aborn's emacs have successful finished initialization!")
 (message "aborn's emacs have successful finished initialization!")
 (message "------------------------------------------------------")
+;; (revert-buffer-with-coding-system)   ;; Text模式下中文正常显示
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; last update by Aborn Jiang (aborn@aborn.me) at 2017-04-22
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
