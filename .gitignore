@@ -10,3 +10,4 @@ custom.el
 GPATH
 GRTAGS
 GTAGS
+.spacemacs.env
