@@ -83,7 +83,7 @@
   (setq select-enable-clipboard t))        ;; 25.1 版本改成这个变量了
 (show-paren-mode t)                        ;; paren match show
 (column-number-mode t)                     ;; show column number
-;; (global-linum-mode t)                   ;; 显示行号
+(global-linum-mode t)                      ;; 显示行号
 (electric-pair-mode 1)                     ;; 自动插入右括号{}()[]等
 (delete-selection-mode 1)                  ;; yank into selected
 (tool-bar-mode -1)                         ;; 关闭toobar

@@ -316,10 +316,10 @@ user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
   (setq configuration-layer--elpa-archives
         '(
-          ("popkit" . "elpa.popkit.org/packages/")
-          ;;("melpa" . "melpa.org/packages/")
-          ;;("org"   . "orgmode.org/elpa/")
-          ;;("gnu"   . "elpa.gnu.org/packages/")
+          ;; ("popkit" . "elpa.popkit.org/packages/")
+          ("melpa" . "melpa.org/packages/")
+          ("org"   . "orgmode.org/elpa/")
+          ("gnu"   . "elpa.gnu.org/packages/")
           ))
   )
 
