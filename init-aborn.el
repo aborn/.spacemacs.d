@@ -190,13 +190,13 @@
 ;; (require 'column-marker)
 ;; (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
 ;; (global-set-key [?\C-x ?m] 'column-marker-3)
-;; (require 'fill-column-indicator)
-;; (setq fci-rule-width 2)
-;; (setq fci-rule-color "yellow")
-;; (setq fci-rule-column 80)
-;; (define-globalized-minor-mode
-;;  global-fci-mode fci-mode (lambda () (fci-mode 1)))
-;; (global-fci-mode 1)
+(require 'fill-column-indicator)
+(setq fci-rule-width 2)
+(setq fci-rule-color "yellow")
+(setq fci-rule-column 80)
+(define-globalized-minor-mode
+ global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
 
 ;; -----------------------------------------------------------------------------
 ;; set markdown-mode download from

@@ -120,6 +120,7 @@ values."
                                       ace-jump-mode
                                       ghub
                                       exec-path-from-shell
+                                      fill-column-indicator
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-unimpaired)
