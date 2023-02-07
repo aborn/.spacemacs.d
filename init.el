@@ -97,7 +97,7 @@ values."
                                       highlight-defined
                                       cider
                                       projectile
-                                      wakatime-mode
+                                      ;; wakatime-mode
                                       helm-github-stars
                                       all-the-icons
                                       column-marker

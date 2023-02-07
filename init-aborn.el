@@ -282,7 +282,7 @@
 ;; 两个关键变量 wakatime-api-key & wakatime-cli-path (which wakatime)
 ;; https://wakatime.com/help/plugins/emacs
 ;; https://wakatime.com/@aborn
-(global-wakatime-mode)
+;; (global-wakatime-mode)
 ;; set as your wakatime-api-key
 
 (if (and (local-config-check?)
