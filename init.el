@@ -119,6 +119,7 @@ values."
                                       vimrc-mode       ;; user for edit .vimrc file
                                       ace-jump-mode
                                       ghub
+                                      exec-path-from-shell
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-unimpaired)
