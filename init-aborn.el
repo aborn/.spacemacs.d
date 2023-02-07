@@ -29,7 +29,7 @@
     )
    ("~/.spacemacs.d/parts"                 ;; 自己写的一些函数放在parts/目录下
     move-swift                             ;; 快速移动
-    package-part                           ;; 包相关的
+    ;; package-part                           ;; 包相关的
     emacs-nifty-tricks
     copy-line                              ;; copy当前行
     aborn-buffer                           ;; buffer相关
