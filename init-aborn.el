@@ -303,7 +303,7 @@
 ;; 更新本地缓存 M-x helm-github-stars-fetch
 (setq helm-github-stars-username "aborn")
 
-(ensure-package-installed 'tree-mode)                ;; reddit需要tree-mode
+;; (ensure-package-installed 'tree-mode)                ;; reddit需要tree-mode
 (slpp-load-path-and-pkgs
  '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)      ;; 全局的key-binding放在这里
    ("~/.spacemacs.d/modules" reddit)))
