@@ -106,6 +106,8 @@
       "/usr/local/bin/ispell")             ;; 设置为ispell,默认为：aspell
 (setq spell-checking-enable-by-default
       nil)                                 ;; 关闭拼写检查
+(turn-off-flyspell)
+(flyspell-mode-off)
 (add-hook 'dired-mode-hook 'diredful-mode)
 (add-hook 'dired-mode-hook 'dired-icon-mode)
 (when (version<= "26.1" emacs-version)     ;; emacs 26.1 开始这个值默认为t，还原之
