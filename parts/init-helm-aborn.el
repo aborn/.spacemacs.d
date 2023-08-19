@@ -7,7 +7,7 @@
 ;; git clone https://github.com/emacs-helm/helm.git ~/.emacs.d/site-lisp
 ;; git clone https://github.com/jwiegley/emacs-async.git ~/.emacs.d/site-lisp
 ;; --------------------------------------------------------------------
-(require 'helm-config)
+;; (require 'helm-config)
 (require 'helm-ls-git)
 
 ;; Enable Modes (This is loading nearly everything).

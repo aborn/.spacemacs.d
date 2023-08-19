@@ -97,7 +97,7 @@ values."
                                       highlight-defined
                                       cider
                                       projectile
-                                      wakatime-mode
+                                      ;; wakatime-mode
                                       helm-github-stars
                                       all-the-icons
                                       column-marker
@@ -119,6 +119,8 @@ values."
                                       vimrc-mode       ;; user for edit .vimrc file
                                       ace-jump-mode
                                       ghub
+                                      exec-path-from-shell
+                                      ;; fill-column-indicator
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-unimpaired)
@@ -166,7 +168,7 @@ values."
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
-   dotspacemacs-startup-lists '(recents projects)
+   ;; dotspacemacs-startup-lists '(recents projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 50
@@ -316,10 +318,10 @@ user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
   (setq configuration-layer--elpa-archives
         '(
-          ("popkit" . "elpa.popkit.org/packages/")
-          ;;("melpa" . "melpa.org/packages/")
-          ;;("org"   . "orgmode.org/elpa/")
-          ;;("gnu"   . "elpa.gnu.org/packages/")
+          ;; ("popkit" . "elpa.popkit.org/packages/")
+          ("melpa" . "melpa.org/packages/")
+          ("org"   . "orgmode.org/elpa/")
+          ("gnu"   . "elpa.gnu.org/packages/")
           ))
   )
 

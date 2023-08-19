@@ -29,7 +29,7 @@
     )
    ("~/.spacemacs.d/parts"                 ;; 自己写的一些函数放在parts/目录下
     move-swift                             ;; 快速移动
-    package-part                           ;; 包相关的
+    ;; package-part                           ;; 包相关的
     emacs-nifty-tricks
     copy-line                              ;; copy当前行
     aborn-buffer                           ;; buffer相关
@@ -83,7 +83,7 @@
   (setq select-enable-clipboard t))        ;; 25.1 版本改成这个变量了
 (show-paren-mode t)                        ;; paren match show
 (column-number-mode t)                     ;; show column number
-;; (global-linum-mode t)                   ;; 显示行号
+(global-linum-mode t)                      ;; 显示行号
 (electric-pair-mode 1)                     ;; 自动插入右括号{}()[]等
 (delete-selection-mode 1)                  ;; yank into selected
 (tool-bar-mode -1)                         ;; 关闭toobar
@@ -189,16 +189,16 @@
 ;; hot key: C-x m      unset C-u C-x m
 ;; 列标记模式
 ;; -----------------------------------------------------------------------------
-(require 'column-marker)
-(add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
-(global-set-key [?\C-x ?m] 'column-marker-3)
-(require 'fill-column-indicator)
-(setq fci-rule-width 2)
-(setq fci-rule-color "yellow")
-(setq fci-rule-column 80)
-(define-globalized-minor-mode
-  global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+;; (require 'column-marker)
+;; (add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
+;; (global-set-key [?\C-x ?m] 'column-marker-3)
+;; (require 'fill-column-indicator)
+;; (setq fci-rule-width 2)
+;; (setq fci-rule-color "yellow")
+;; (setq fci-rule-column 80)
+;; (define-globalized-minor-mode
+;;  global-fci-mode fci-mode (lambda () (fci-mode 1)))
+;; (global-fci-mode 1)
 
 ;; -----------------------------------------------------------------------------
 ;; set markdown-mode download from
@@ -284,7 +284,7 @@
 ;; 两个关键变量 wakatime-api-key & wakatime-cli-path (which wakatime)
 ;; https://wakatime.com/help/plugins/emacs
 ;; https://wakatime.com/@aborn
-(global-wakatime-mode)
+;; (global-wakatime-mode)
 ;; set as your wakatime-api-key
 
 (if (and (local-config-check?)
@@ -305,7 +305,7 @@
 ;; 更新本地缓存 M-x helm-github-stars-fetch
 (setq helm-github-stars-username "aborn")
 
-(ensure-package-installed 'tree-mode)                ;; reddit需要tree-mode
+;; (ensure-package-installed 'tree-mode)                ;; reddit需要tree-mode
 (slpp-load-path-and-pkgs
  '(("~/.spacemacs.d/hotkey" my-keys-minor-mode)      ;; 全局的key-binding放在这里
    ("~/.spacemacs.d/modules" reddit)))
