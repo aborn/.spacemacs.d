@@ -261,14 +261,14 @@ First call indent, second complete symbol, third complete fname."
 ;;; Modify source attributes
 ;; Add actions to `helm-source-find-files' IF:
 
-(defmethod helm-setup-user-source ((source helm-source-ffiles))
+(cl-defmethod helm-setup-user-source ((source helm-source-ffiles))
   (helm-source-add-action-to-source-if
    "Byte compile file(s) async"
    'async-byte-compile-file
    source
    'helm-ff-candidates-lisp-p))
 
-(defmethod helm-setup-user-source ((source helm-source-buffers))
+(cl-defmethod helm-setup-user-source ((source helm-source-buffers))
   (set-slot-value source 'candidate-number-limit 200))
 
 ;;; Psession windows
