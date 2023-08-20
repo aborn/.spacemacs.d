@@ -211,5 +211,10 @@
   (message "The temp buffer name is %s" bname)
   (switch-to-buffer (get-buffer-create bname)))
 
+(defun aborn/open-all-recent-files ()
+  "Open all recent files."
+  (interactive)
+  (dolist (file  recentf-list) (find-file file)))
+
 (provide 'aborn-buffer)
 ;;; aborn-buffer.el ends here
