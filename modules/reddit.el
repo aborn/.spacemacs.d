@@ -71,8 +71,8 @@
 (defmacro reddit-alet (vars alist &rest forms)
   (let ((alist-var (make-symbol "alist")))
     `(let* ((,alist-var ,alist)
-            ,@(loop for var in vars
-                    collecting `(,var (assoc-default ',var ,alist-var))))
+            ,@(cl-loop for var in vars
+                       collecting `(,var (assoc-default ',var ,alist-var))))
        ,@forms)))
 
 (put 'reddit-alet 'lisp-indent-function 2)
@@ -91,14 +91,14 @@
 
 (defun reddit-check-status (status)
   (when (eq (car status) :error)
-    (destructuring-bind (sym . data) (cadr status)
+    (cl-destructuring-bind (sym . data) (cadr status)
       (signal sym data))))
 
 (defun reddit-format-request-data (alist)
   (with-temp-buffer
-    (loop for delim = "" then "&"
-          for (key . value) in alist
-          do (insert delim key "=" value))
+    (cl-loop for delim = "" then "&"
+             for (key . value) in alist
+             do (insert delim key "=" value))
     (buffer-string)))
 
 
@@ -123,7 +123,7 @@
     (with-current-buffer buffer
       (save-excursion
         (let ((code (url-http-parse-response)))
-          (case code
+          (cl-case code
             (200)
             (t
              (url-mark-buffer-as-dead buffer)
@@ -154,7 +154,7 @@
       (error "Only one param should be provided")
     (let ((reddit-base (concat reddit-root "/.json?limit=" reddit-threads-limit))
           (reddit-subreddit-base (concat reddit-root "/r/" (second reddit-site) "/.json?limit=" reddit-threads-limit)))
-      (ecase (first reddit-site)
+      (cl-ecase (first reddit-site)
         (main
          (cond (after-param (concat reddit-base "&after=" after-param))
                (before-param (concat reddit-base "&before=" before-param))
@@ -163,7 +163,7 @@
          (cond (after-param (concat reddit-subreddit-base "&after=" after-param))
                (before-param (concat reddit-subreddit-base "&before=" before-param))
                (t reddit-subreddit-base)))
-        (search (destructuring-bind (query &optional subreddit)
+        (search (cl-destructuring-bind (query &optional subreddit)
                     (rest reddit-site)
                   (setq query (url-hexify-string query))
                   (if subreddit
@@ -251,11 +251,11 @@ MSubreddit: ")
     (with-current-buffer buffer
       (erase-buffer)
       (let ((kind (assoc-default 'kind data)))
-        (assert (equal reddit-kind-listing kind))
+        (cl-assert (equal reddit-kind-listing kind))
         (let ((children (assoc-default 'children (assoc-default 'data data))))
-          (loop for n from 0
-                for child across children
-                do (widget-create (reddit-make-entry child n)))))
+          (cl-loop for n from 0
+                   for child across children
+                   do (widget-create (reddit-make-entry child n)))))
       (widget-setup)
       (goto-char (point-min))))
   (message "Got entries"))
@@ -266,7 +266,7 @@ MSubreddit: ")
 
 (defun reddit-make-entry (data n)
   (let ((kind (assoc-default 'kind data)))
-    (assert (equal reddit-kind-entry kind))
+    (cl-assert (equal reddit-kind-entry kind))
     (reddit-alet (ups saved hidden id likes score created title downs
                       num_comments url author name clicked domain
                       subreddit)
@@ -287,7 +287,7 @@ MSubreddit: ")
             :reddit-subreddit subreddit))))
 
 (defun reddit-entry-format (widget char)
-  (case char
+  (cl-case char
     (?N (insert (format "%3d" (1+ (widget-get widget :reddit-n)))))
     (?D (insert (widget-get widget :reddit-domain)))
     (?T (insert (truncate-string-to-width (widget-get widget :reddit-title) 80 nil nil t)))
@@ -381,8 +381,8 @@ MSubreddit: ")
 
 (defun reddit-comments-trees (data)
   (if (arrayp data)
-      (loop for x across data
-            appending (reddit-comments-trees x))
+      (cl-loop for x across data
+               appending (reddit-comments-trees x))
     (let ((kind (assoc-default 'kind data)))
       (cond ((equal reddit-kind-listing kind)
              (reddit-comments-trees (assoc-default 'children (assoc-default 'data data) nil [])))
@@ -424,13 +424,13 @@ MSubreddit: ")
       (nreverse widgets))))
 
 (defun reddit-comments-current-comment ()
-  (labels ((lookup (widget)
-             (cond ((null widget)
-                    nil)
-                   ((not (eq 'reddit-comment-widget (widget-type widget)))
-                    (lookup (widget-get widget :parent)))
-                   (t
-                    widget))))
+  (cl-labels ((lookup (widget)
+                (cond ((null widget)
+                       nil)
+                      ((not (eq 'reddit-comment-widget (widget-type widget)))
+                       (lookup (widget-get widget :parent)))
+                      (t
+                       widget))))
     (lookup (tree-mode-icon-current-line))))
 
 (defun reddit-comments-post ()
@@ -467,9 +467,9 @@ MSubreddit: ")
 
 (defun reddit-post-save ()
   (interactive)
-  (destructuring-bind (type parent-id author) reddit-parent-id
+  (cl-destructuring-bind (type parent-id author) reddit-parent-id
     (let ((modhash (reddit-modhash entry-id))
-          (id-string (concat (ecase type
+          (id-string (concat (cl-ecase type
                                (comment reddit-kind-comment)
                                (entry reddit-kind-entry))
                              "_"
