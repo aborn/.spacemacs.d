@@ -22,7 +22,7 @@
   (indent-region (point-min) (point-max)))
 (global-set-key "\C-x\C-m" 'aborn/indent-regin)
 
-;; (global-set-key (kbd "M-n") 'set-mark-command)
+(global-set-key (kbd "M-n") 'ace-jump-mode)
 (global-set-key "\C-x\C-l" 'copy-one-line)
 (global-set-key "\C-i" 'just-one-space)
 (if (functionp 'ace-window)
@@ -48,6 +48,7 @@
 ;; (global-set-key (kbd "C-j") 'switch-to-buffer)
 
 (global-set-key (kbd "M-j") 'ido-find-file)
+(global-set-key (kbd "C-s") 'helm-swoop-from-isearch)
 ;; (global-set-key (kbd "M-j") 'helm-find-files)
 
 (global-set-key "\C-c\C-k" 'start-kbd-macro)
