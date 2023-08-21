@@ -48,7 +48,7 @@
              (buffer-modified-p))
     (save-buffer))                                     ;; save it first if modified.
   (magit-stage-modified)
-  (magit-commit (list "-m" message))
+  (magit-commit-create (list "-m" msg))
   (let* ((begin-time (current-time)))
     (async-start
      `(lambda ()
@@ -80,7 +80,7 @@
              (buffer-modified-p))
     (save-buffer))                   ;; save it first if modified.
   (magit-stage-modified)
-  (magit-commit (list "-m" msg))
+  (magit-commit-create (list "-m" msg))
   (magit-push-current-to-upstream nil)
   (message "now do async push to %s" (magit-get "remote" "origin" "url")))
 
