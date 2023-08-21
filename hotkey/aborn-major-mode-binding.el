@@ -72,7 +72,7 @@
 ;; 对某个minor-mode 的keymap进行改键
 (add-hook 'web-mode-hook
           (lambda ()
-            (define-key emmet-mode-keymap (kbd "C-j") 'helm-buffer-list)
+            ;; (define-key emmet-mode-keymap (kbd "C-j") 'helm-buffer-list)
             (define-key web-mode-map (kbd "C-j") 'helm-buffer-list)))
 
 (provide 'aborn-major-mode-binding)

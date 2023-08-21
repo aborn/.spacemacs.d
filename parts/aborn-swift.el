@@ -17,6 +17,7 @@
 ;;; Code:
 
 (require 'async)
+(require 'magit-commit)
 
 (defun aborn/magit-create-or-checkout-fix-branch ()
   "Crate (or checkout to) fix branch using magit."
@@ -47,7 +48,7 @@
              (buffer-modified-p))
     (save-buffer))                                     ;; save it first if modified.
   (magit-stage-modified)
-  (magit-commit (list "-m" msg))
+  (magit-commit (list "-m" message))
   (let* ((begin-time (current-time)))
     (async-start
      `(lambda ()
