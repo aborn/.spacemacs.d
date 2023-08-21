@@ -48,7 +48,7 @@
              (buffer-modified-p))
     (save-buffer))                                     ;; save it first if modified.
   (magit-stage-modified)
-  (magit-commit-create (list "-m" msg))
+  (magit-commit-create (list "-m" msg))                ;; magit-commit-create
   (let* ((begin-time (current-time)))
     (async-start
      `(lambda ()
