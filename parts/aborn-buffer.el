@@ -95,7 +95,8 @@
           )))))
 
 (defun aborn/rename-file-and-buffer ()
-  "Renames both current buffer and file it's visiting to NEW-NAME."
+  "Renames both current buffer and file it's visiting to NEW-NAME.
+  For emacs 29 above, use `rename-visited-file'"
   ;;(interactive "sNew name: ")
   (interactive)
   (unless (buffer-file-name)
