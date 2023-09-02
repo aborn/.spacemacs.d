@@ -13,12 +13,16 @@
 (debug-on-entry 'helm-adaptive-maybe-load-history)
 
 
-(defun ab/demo-fun (arg)
-  (message (format "arg=%s" arg)))
+(defun aborn/print-msg (arg)
+  (message (format "%s" arg)))
 
-(defun ab/debug-demo ()
+(defun aborn/debug-demo ()
   (interactive)
   (ab/demo-fun "good"))
+
+(defun aborn/change-default-directory ()
+  (interactive)
+  (setq default-directory "/Users/aborn/github"))
 
 (defun ab/debug-json ()
   (interactive)
