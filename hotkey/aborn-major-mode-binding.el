@@ -24,7 +24,7 @@
 (define-key lisp-interaction-mode-map (kbd "C-j") 'helm-buffers-list)
 (define-key lisp-interaction-mode-map (kbd "C-x j") 'eval-print-last-sexp)
 
-(define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
+;; (define-key flyspell-mode-map (kbd "C-;") 'move-forward-by-five)
 ;; (define-key js2-mode-map (kbd "M-j") 'ido-find-file)
 
 ;; define emacs-lisp-mode-map
