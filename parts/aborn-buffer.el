@@ -217,5 +217,10 @@
   (interactive)
   (dolist (file  recentf-list) (find-file file)))
 
+(defun aborn/open-url-at-point ()
+  "Open all recent files."
+  (interactive)
+  (browse-url-at-point))
+
 (provide 'aborn-buffer)
 ;;; aborn-buffer.el ends here
