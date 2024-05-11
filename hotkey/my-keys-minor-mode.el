@@ -8,6 +8,7 @@
 
 ;; 全局的key-binding放在这里
 ;; 注意 C-c C-c 这个按键在一些mode(如org-mode, trem-mode)还是很有用的，另覆盖它
+(require 'iy-go-to-char)
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-o") 'ace-window)
