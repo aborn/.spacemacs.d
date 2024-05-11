@@ -29,7 +29,7 @@
     (define-key map (kbd "C-c C-w") 'org-refile)
     (define-key map (kbd "C-c M-w") 'org-copy)
     (define-key map (kbd "C-x C-s") 'aborn/save-all-visited-files)
-    (define-key map (kbd "C-c f") 'iy-go-to-char)
+    (define-key map (kbd "C-c f") 'iy-go-to-char)  ;; 按字符快速前移
     (define-key map (kbd "C-c b") 'iy-go-to-char-backward)
     (define-key map (kbd "M-<") 'aborn/beginning-of-buffer)
     (define-key map (kbd "M->") 'aborn/end-of-buffer)
