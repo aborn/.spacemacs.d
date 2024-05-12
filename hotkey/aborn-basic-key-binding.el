@@ -37,6 +37,7 @@
 (global-set-key (kbd "C-'") 'move-middle-of-line)
 (global-set-key (kbd "C-;") 'move-forward-by-five)
 (global-set-key (kbd "C-:") 'move-backward-by-five)
+(global-set-key (kbd "C-<") 'pop-global-mark)
 (global-set-key (kbd "<C-tab>") 'bury-buffer)         ; switch buffer C-tab
 
 ;;(global-set-key (kbd "M-m") 'ab/switch-to-shell-buffer)  ; function in switch-swift
