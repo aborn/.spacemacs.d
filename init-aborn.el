@@ -299,6 +299,13 @@
   (message "gnu/linux system")
   (setq wakatime-python-bin "/usr/bin/python2"))
 
+;; Windows操作系统
+(when (string= system-type "windows-nt")
+  (message "windows system")
+  (require 'koopa-mode)
+  (setq koopa-is-running-on-windows t))
+
+
 ;; helm-github-stars 插件
 ;; M-x helm-github-stars
 ;; 更新本地缓存 M-x helm-github-stars-fetch
@@ -337,5 +344,5 @@
 (message "------------------------------------------------------")
 ;; (revert-buffer-with-coding-system)   ;; Text模式下中文正常显示
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; last update by Aborn Jiang (aborn@aborn.me) at 2017-04-22
+;; last update by Aborn Jiang (aborn@aborn.me) at 2024-05-11
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
