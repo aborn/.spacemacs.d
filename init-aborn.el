@@ -299,7 +299,7 @@
   (message "gnu/linux system")
   (setq wakatime-python-bin "/usr/bin/python2"))
 
-;; Windows操作系统
+;; Windows操作系统特殊处理
 (when (string= system-type "windows-nt")
   (message "windows system")
   (require 'koopa-mode)
