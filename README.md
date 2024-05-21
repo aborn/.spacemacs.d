@@ -26,6 +26,8 @@ spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: 
 *C-;* 快速下移5行  
 *C-:* 快速上移动5行  
 *C-'* 移动到一行最中间位置  
+*C-c m* 中文字跳转  
+*M-n* 英文字跳转*  
 
 ### 导航
 *C-<* 回到上次位置，对应函数**pop-global-mark**  
@@ -33,7 +35,7 @@ spacemacs 的个人配置及键绑定(Emacs按键风格),主要配置入口为: 
 ### 检索
 *spacemacs/helm-project-do-ag* 通过rg进行检索  
 *spacemacs/avy-open-url* 打开当前所在的url连接  
-
+*find-file-in-project-by-selected* 文件查找  
 
 ## 支持的语言 Supported languages
 [elisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/) /
