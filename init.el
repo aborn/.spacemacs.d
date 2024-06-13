@@ -61,7 +61,7 @@ values."
      ;; semantic  ;; 暂时不要用这个包，会卡死
      ruby-on-rails
      aborn           ;; 自己安装包的layer
-     lsp
+     ;; lsp
      )
    ;;
    ;; 通过package-install安装的包放在dotspacemacs-additional-packages
